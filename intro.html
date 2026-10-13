@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IntroGuess — Daily TV Theme Trivia | DailyStreakers</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { brand: '#ea580c' } } }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; touch-action: manipulation; }
+    @keyframes wave { 0%, 100% { height: 6px; } 50% { height: 24px; } }
+    .wave-bar { animation: wave 1.1s infinite ease-in-out; }
+    .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    .wave-bar:nth-child(5) { animation-delay: 0.6s; }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-slate-800 dark:bg-stone-950 dark:text-stone-100 min-h-screen flex flex-col transition-colors duration-150">
+
+  <!-- TOP HEADER -->
+  <header class="border-b border-stone-200 dark:border-stone-800 bg-white/90 dark:bg-stone-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center space-x-2.5">
+        <a href="index.html" class="p-2 rounded-xl text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-800 transition" title="Back to Hub">
+          <i class="ph ph-squares-four text-xl"></i>
+        </a>
+        <div class="flex items-center space-x-2">
+          <div class="w-7 h-7 rounded-lg bg-orange-600 flex items-center justify-center text-white font-bold text-sm shadow-sm shadow-orange-600/30">
+            <i class="ph ph-speaker-high"></i>
+          </div>
+          <span class="font-bold text-sm tracking-tight text-stone-900 dark:text-white">IntroGuess</span>
+          <span class="text-[10px] font-bold text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/60 px-1.5 py-0.5 rounded">TV</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-1">
+        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="p-2 text-stone-500 hover:text-amber-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition">
+          <i class="ph ph-coffee text-xl"></i>
+        </a>
+        <button id="btn-theme" class="p-2 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition">
+          <i class="ph ph-moon text-xl" id="theme-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PLAY AREA -->
+  <main class="flex-1 max-w-lg w-full mx-auto px-4 py-5 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between mb-3 text-xs">
+        <div>
+          <span class="font-bold text-stone-400 uppercase tracking-wider text-[11px]" id="edition-label">Today's TV Theme</span>
+          <p class="text-stone-500 dark:text-stone-400 text-xs">Listen to the opening notes and name the show.</p>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] text-stone-400 uppercase font-bold block">Reward</span>
+          <span class="font-black text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-950/80 px-2 py-0.5 rounded-full" id="points-tier-label">1,000 PTS</span>
+        </div>
+      </div>
+
+      <!-- AUDIO CONTROLLER CARD -->
+      <div class="bg-white dark:bg-stone-900 rounded-3xl p-5 border border-stone-200 dark:border-stone-800 shadow-sm mb-4">
+        <div class="flex items-center justify-center space-x-1.5 h-8 mb-4">
+          <div class="w-1.5 bg-orange-500 rounded-full wave-bar"></div>
+          <div class="w-1.5 bg-orange-500 rounded-full wave-bar"></div>
+          <div class="w-1.5 bg-orange-600 rounded-full wave-bar"></div>
+          <div class="w-1.5 bg-orange-500 rounded-full wave-bar"></div>
+          <div class="w-1.5 bg-orange-500 rounded-full wave-bar"></div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center mb-5">
+          <button id="btn-play" class="w-16 h-16 rounded-full bg-orange-600 hover:bg-orange-500 text-white flex items-center justify-center shadow-lg shadow-orange-600/30 hover:scale-105 active:scale-95 transition">
+            <i class="ph ph-play-fill text-2xl ml-0.5" id="play-icon"></i>
+          </button>
+          <span class="text-xs font-semibold text-stone-500 dark:text-stone-400 mt-2.5" id="play-status">Tap to play (1.0s unlocked)</span>
+        </div>
+
+        <!-- 5 INTERVAL SEGMENTS (1.0s, 2.5s, 5.0s, 8.5s, 15.0s) -->
+        <div class="space-y-1.5">
+          <div class="relative w-full h-2.5 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden flex border border-stone-200 dark:border-stone-700">
+            <div id="seg-0" class="h-full bg-orange-500 border-r border-white/40 dark:border-stone-900" style="width: 6.6%;"></div>
+            <div id="seg-1" class="h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900" style="width: 10%;"></div>
+            <div id="seg-2" class="h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900" style="width: 16.7%;"></div>
+            <div id="seg-3" class="h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900" style="width: 23.3%;"></div>
+            <div id="seg-4" class="h-full bg-stone-200 dark:bg-stone-800" style="width: 43.4%;"></div>
+            <div id="playhead" class="absolute top-0 bottom-0 left-0 bg-stone-900 dark:bg-white w-1 transition-all pointer-events-none" style="width: 0%;"></div>
+          </div>
+          <div class="flex justify-between text-[10px] font-semibold text-stone-400 px-0.5">
+            <span>0.0s</span>
+            <span class="text-orange-600 dark:text-orange-400 font-bold" id="unlocked-sec-label">1.0s</span>
+            <span>15.0s</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROGRESSIVE HINT BOX -->
+      <div id="hint-banner" class="hidden mb-3 p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 rounded-2xl text-xs text-amber-900 dark:text-amber-200 flex items-center space-x-2">
+        <i class="ph ph-lightbulb text-base text-amber-600"></i>
+        <span id="hint-msg"></span>
+      </div>
+
+      <!-- GUESS HISTORY LIST -->
+      <div id="guess-log" class="space-y-1.5 mb-3"></div>
+    </div>
+
+    <!-- CONTROLS & INPUT -->
+    <div class="pt-2">
+      <div class="relative mb-2.5">
+        <div class="flex items-center bg-white dark:bg-stone-900 border-2 border-stone-200 dark:border-stone-700 rounded-2xl overflow-hidden focus-within:border-orange-500">
+          <i class="ph ph-magnifying-glass text-stone-400 ml-3 mr-2"></i>
+          <input type="text" id="input-guess" placeholder="Guess the TV show title..." autocomplete="off" class="w-full py-3 pr-3 text-xs md:text-sm bg-transparent text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none">
+        </div>
+        <div id="suggest-menu" class="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-2xl shadow-xl max-h-48 overflow-y-auto hidden z-50"></div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2">
+        <button id="btn-skip" class="col-span-1 py-3 px-2 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1">
+          <i class="ph ph-fast-forward"></i>
+          <span id="skip-txt">Skip (+1.5s)</span>
+        </button>
+        <button id="btn-submit" class="col-span-2 py-3 px-4 bg-stone-900 hover:bg-stone-800 dark:bg-white dark:hover:bg-stone-200 text-white dark:text-stone-950 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1">
+          <span>Submit Guess</span>
+          <i class="ph ph-arrow-right"></i>
+        </button>
+      </div>
+
+      <p class="text-center text-[10px] text-stone-400 dark:text-stone-600 mt-2.5">5 Guesses Total • Points drop each round</p>
+    </div>
+  </main>
+
+  <!-- RESULT POPUP MODAL -->
+  <div id="modal-result" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-xs w-full p-5 border border-stone-200 dark:border-stone-800 shadow-2xl text-center">
+      <div id="res-badge" class="w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2">
+        <i class="ph text-2xl" id="res-icon"></i>
+      </div>
+      <h3 class="text-lg font-extrabold text-stone-900 dark:text-white" id="res-title">Solved!</h3>
+      <p class="text-xs text-stone-500 mb-3" id="res-sub">Guessed on attempt 1 of 5</p>
+
+      <div class="w-32 h-44 mx-auto rounded-xl overflow-hidden shadow mb-3 border border-stone-200 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 flex items-center justify-center">
+        <img id="res-poster" src="" alt="Poster" class="w-full h-full object-cover hidden">
+        <div id="res-poster-fallback" class="text-stone-400 text-center p-2">
+          <i class="ph ph-television text-3xl"></i>
+          <p class="text-[10px] mt-1 font-bold">TV Artwork</p>
+        </div>
+      </div>
+
+      <h4 class="font-bold text-stone-900 dark:text-white text-sm" id="res-name">The Office</h4>
+      <p class="text-[11px] text-stone-400" id="res-meta">2005–2013 • NBC</p>
+      <div id="res-pts" class="my-2 inline-flex text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">+1,000 PTS</div>
+
+      <button id="btn-replay-full" class="w-full py-2.5 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 font-semibold text-xs rounded-xl transition flex items-center justify-center space-x-1.5 mb-2">
+        <i class="ph ph-play-fill"></i>
+        <span>Play Full 15s Theme</span>
+      </button>
+
+      <button id="btn-share" class="w-full py-2.5 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center space-x-1">
+        <i class="ph ph-share-network"></i>
+        <span>Share Scorecard</span>
+      </button>
+
+      <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="inline-flex items-center space-x-1 text-[10px] text-stone-400 hover:text-amber-500 transition mt-3">
+        <i class="ph ph-coffee text-amber-500"></i>
+        <span>Support DailyStreakers on Ko-fi</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // 1. DATA POOL - Streaming direct from permanent Internet Archive audio CDNs (No local files needed)
+    const SHOWS = [
+      { 
+        title: "Friends", 
+        alts: ["Friends (TV Series)"], 
+        yr: "1994", 
+        net: "NBC", 
+        wiki: "Friends", 
+        url: "https://archive.org/download/full-length-tv-themes/The%20Rembrandts%20-%20I%27ll%20Be%20There%20For%20You%20%28Theme%20From%20FRIENDS%29.mp3" 
+      },
+      { 
+        title: "The Fresh Prince of Bel-Air", 
+        alts: ["Fresh Prince", "The Fresh Prince"], 
+        yr: "1990", 
+        net: "NBC", 
+        wiki: "The_Fresh_Prince_of_Bel-Air", 
+        url: "https://archive.org/download/full-length-tv-themes/Will%20Smith%2C%20DJ%20Jazzy%20Jeff%20%26%20The%20Fresh%20Prince%20-%20The%20Fresh%20Prince%20Of%20Bel%20Air%20%28Audio%29.mp3" 
+      },
+      { 
+        title: "Cheers", 
+        alts: [], 
+        yr: "1982", 
+        net: "NBC", 
+        wiki: "Cheers", 
+        url: "https://archive.org/download/full-length-tv-themes/Cheers%20Theme%20%28Full%20Length%20Record%29.mp3" 
+      },
+      { 
+        title: "The Big Bang Theory", 
+        alts: ["Big Bang Theory"], 
+        yr: "2007", 
+        net: "CBS", 
+        wiki: "The_Big_Bang_Theory", 
+        url: "https://archive.org/download/full-length-tv-themes/The%20Big%20Bang%20Theory%20Song%20by%20Barenaked%20Ladies%20from%20The%20Big%20Bang%20Theory%20%28TV%20series%29.mp3" 
+      },
+      { 
+        title: "That '70s Show", 
+        alts: ["That 70s Show", "That 70's Show"], 
+        yr: "1998", 
+        net: "FOX", 
+        wiki: "That_%2770s_Show", 
+        url: "https://archive.org/download/full-length-tv-themes/Cheap%20Trick%20-%20That%2070%27s%20Song%20%5BBased%20On%20In%20The%20Street%5D%20%281999%20Version%29.mp3" 
+      },
+      { 
+        title: "The Golden Girls", 
+        alts: ["Golden Girls"], 
+        yr: "1985", 
+        net: "NBC", 
+        wiki: "The_Golden_Girls", 
+        url: "https://archive.org/download/full-length-tv-themes/THANK%20YOU%20FOR%20BEING%20A%20FRIEND%20-%20Andrew%20Gold.mp3" 
+      },
+      { 
+        title: "Batman", 
+        alts: ["Batman 1966", "Batman TV Series"], 
+        yr: "1966", 
+        net: "ABC", 
+        wiki: "Batman_(TV_series)", 
+        url: "https://archive.org/download/full-length-tv-themes/1960%27s%20Batman%20Theme%20%28%20Album%20Version%20%29.mp3" 
+      },
+      { 
+        title: "Happy Days", 
+        alts: [], 
+        yr: "1974", 
+        net: "ABC", 
+        wiki: "Happy_Days", 
+        url: "https://archive.org/download/full-length-tv-themes/Happy%20Days%20%28TV%20Show%20Theme%29%20-%20Pratt%20%26%20McClain%20%281976%29.mp3" 
+      },
+      { 
+        title: "M*A*S*H", 
+        alts: ["MASH"], 
+        yr: "1972", 
+        net: "CBS", 
+        wiki: "M*A*S*H_(TV_series)", 
+        url: "https://archive.org/download/full-length-tv-themes/Johnny%20Mandel%20-%20Suicide%20Is%20Painless%20%28Audio%29.mp3" 
+      },
+      { 
+        title: "All in the Family", 
+        alts: [], 
+        yr: "1971", 
+        net: "CBS", 
+        wiki: "All_in_the_Family", 
+        url: "https://archive.org/download/full-length-tv-themes/All%20in%20the%20Family%20-%20Those%20Were%20the%20Days%20%28Full%20Version%29%20%26%20Closing%20Theme.mp3" 
+      },
+      { 
+        title: "Family Matters", 
+        alts: [], 
+        yr: "1989", 
+        net: "ABC", 
+        wiki: "Family_Matters", 
+        url: "https://archive.org/download/full-length-tv-themes/Family%20Matters%20Theme%20Song%20%28As%20Days%20Go%20By%29.mp3" 
+      },
+      { 
+        title: "The Dukes of Hazzard", 
+        alts: ["Dukes of Hazzard"], 
+        yr: "1979", 
+        net: "CBS", 
+        wiki: "The_Dukes_of_Hazzard", 
+        url: "https://archive.org/download/full-length-tv-themes/Waylon%20Jennings%20-%20Good%20Old%20Boys%20%28Dukes%20Of%20Hazard%29.mp3" 
+      },
+      { 
+        title: "Three's Company", 
+        alts: ["Threes Company"], 
+        yr: "1977", 
+        net: "ABC", 
+        wiki: "Three%27s_Company", 
+        url: "https://archive.org/download/full-length-tv-themes/Three%27s%20Company%201977%20-%20OpenClose.mp3" 
+      },
+      { 
+        title: "Sanford and Son", 
+        alts: ["Sanford & Son"], 
+        yr: "1972", 
+        net: "NBC", 
+        wiki: "Sanford_and_Son", 
+        url: "https://archive.org/download/full-length-tv-themes/Sanford%20%26%20Son%20Theme%20-%20NBC-TV%20%28The%20Streetbeater%29.mp3" 
+      },
+      { 
+        title: "The Andy Griffith Show", 
+        alts: ["Andy Griffith"], 
+        yr: "1960", 
+        net: "CBS", 
+        wiki: "The_Andy_Griffith_Show", 
+        url: "https://archive.org/download/full-length-tv-themes/The%20Fishin%27%20Hole%20Andy%20Grifftin.mp3" 
+      },
+      { 
+        title: "The Facts of Life", 
+        alts: ["Facts of Life"], 
+        yr: "1979", 
+        net: "NBC", 
+        wiki: "The_Facts_of_Life_(TV_series)", 
+        url: "https://archive.org/download/full-length-tv-themes/facts%20of%20life%20-%20Gloria%20Loring%20-%20Full%20Song.mp3" 
+      },
+      { 
+        title: "The Beverly Hillbillies", 
+        alts: ["Beverly Hillbillies"], 
+        yr: "1962", 
+        net: "CBS", 
+        wiki: "The_Beverly_Hillbillies", 
+        url: "https://archive.org/download/full-length-tv-themes/The%20Ballad%20Of%20Jed%20Clampett%20-%20Lester%20Flatt%20%2CEarl%20Scruggs%20%281962%29.mp3" 
+      },
+      { 
+        title: "The Price Is Right", 
+        alts: ["Price Is Right"], 
+        yr: "1972", 
+        net: "CBS", 
+        wiki: "The_Price_Is_Right", 
+        url: "https://archive.org/download/full-length-tv-themes/The%20Price%20is%20Right%201972%20Extended%20Theme.mp3" 
+      },
+      { 
+        title: "Growing Pains", 
+        alts: [], 
+        yr: "1985", 
+        net: "ABC", 
+        wiki: "Growing_Pains", 
+        url: "https://archive.org/download/full-length-tv-themes/As%20Long%20as%20We%20Got%20Each%20Other%20%28with%20Dusty%20Springfield%29%20%28Theme%20from%20%27Growing%20Pains%27%29.mp3" 
+      },
+      { 
+        title: "Welcome Back, Kotter", 
+        alts: ["Welcome Back Kotter"], 
+        yr: "1975", 
+        net: "ABC", 
+        wiki: "Welcome_Back,_Kotter", 
+        url: "https://archive.org/download/full-length-tv-themes/John%20Sebastian%20-%20Welcome%20Back.mp3" 
+      },
+      { 
+        title: "Who's the Boss?", 
+        alts: ["Whos the Boss", "Who's the Boss"], 
+        yr: "1984", 
+        net: "ABC", 
+        wiki: "Who%27s_the_Boss%3F", 
+        url: "https://archive.org/download/full-length-tv-themes/Steve%20Wariner%20-%20Brand%20new%20life%20%28Who%27s%20the%20Boss%20Opening%20Title%29.mp3" 
+      },
+      { 
+        title: "Taxi", 
+        alts: [], 
+        yr: "1978", 
+        net: "ABC", 
+        wiki: "Taxi_(TV_series)", 
+        url: "https://archive.org/download/full-length-tv-themes/Bob%20James%20-%20Angela%20%28theme%20from%20Taxi%29.mp3" 
+      },
+      { 
+        title: "Laverne & Shirley", 
+        alts: ["Laverne and Shirley"], 
+        yr: "1976", 
+        net: "ABC", 
+        wiki: "Laverne_%26_Shirley", 
+        url: "https://archive.org/download/full-length-tv-themes/Making%20Our%20Dreams%20Come%20True%20%28Theme%20From%20Laverne%20%26%20Shirley%29.mp3" 
+      },
+      { 
+        title: "WKRP in Cincinnati", 
+        alts: ["WKRP"], 
+        yr: "1978", 
+        net: "CBS", 
+        wiki: "WKRP_in_Cincinnati", 
+        url: "https://archive.org/download/full-length-tv-themes/WKRP%20in%20Cincinnati%20-%20Steve%20Carlisle.mp3" 
+      },
+      { 
+        title: "Bonanza", 
+        alts: [], 
+        yr: "1959", 
+        net: "NBC", 
+        wiki: "Bonanza", 
+        url: "https://archive.org/download/full-length-tv-themes/Bonanza%20Theme%20Song%20By%20Lorne%20Greene.mp3" 
+      }
+    ];
+
+    // Master Autocomplete Pool
+    const AUTOCOMPLETE = [
+      "Friends", "The Fresh Prince of Bel-Air", "Cheers", "The Big Bang Theory", "That '70s Show", 
+      "The Golden Girls", "Batman", "Happy Days", "M*A*S*H", "All in the Family", "Family Matters", 
+      "The Dukes of Hazzard", "Three's Company", "Sanford and Son", "The Andy Griffith Show", 
+      "The Facts of Life", "The Beverly Hillbillies", "The Price Is Right", "Growing Pains", 
+      "Welcome Back, Kotter", "Who's the Boss?", "Taxi", "Laverne & Shirley", "WKRP in Cincinnati", 
+      "Bonanza", "The Office", "Seinfeld", "Game of Thrones", "Stranger Things", "The Simpsons", 
+      "Breaking Bad", "Parks and Recreation", "Brooklyn Nine-Nine", "SpongeBob SquarePants", 
+      "South Park", "Family Guy", "Doctor Who", "The Mandalorian", "The Twilight Zone"
+    ];
+
+    const TIERS = [1.0, 2.5, 5.0, 8.5, 15.0];
+    const POINTS = [1000, 800, 600, 400, 200];
+
+    let currentAttempt = 0;
+    let isFinished = false;
+    let isAudioPlaying = false;
+    let history = [];
+    let audioElem = null;
+    let playTimer = null;
+
+    // Daily Seed based on Calendar Date
+    const today = new Date().toISOString().slice(0, 10);
+    const daySeed = parseInt(today.replace(/-/g, ''), 10);
+    const activeShow = SHOWS[daySeed % SHOWS.length];
+
+    // Theme Toggle
+    const themeBtn = document.getElementById('btn-theme');
+    const themeIcon = document.getElementById('theme-icon');
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle('dark', isDark);
+      themeIcon.className = isDark ? 'ph ph-sun text-xl' : 'ph ph-moon text-xl';
+      localStorage.setItem('quoteguess_theme_preference', isDark ? 'dark' : 'light');
+    }
+    applyTheme(localStorage.getItem('quoteguess_theme_preference') === 'dark');
+    themeBtn.onclick = () => applyTheme(!document.documentElement.classList.contains('dark'));
+
+    // Audio Playback Engine
+    function stopPlayback() {
+      isAudioPlaying = false;
+      document.getElementById('play-icon').className = 'ph ph-play-fill text-2xl ml-0.5';
+      document.getElementById('playhead').style.width = '0%';
+      if (audioElem) { 
+        audioElem.pause(); 
+        audioElem.currentTime = 0; 
+      }
+      clearInterval(playTimer);
+    }
+
+    function playAudio(duration) {
+      stopPlayback();
+      isAudioPlaying = true;
+      document.getElementById('play-icon').className = 'ph ph-stop-fill text-2xl';
+
+      if (!audioElem) {
+        audioElem = new Audio(activeShow.url);
+        audioElem.crossOrigin = "anonymous";
+        audioElem.preload = "auto";
+      } else if (audioElem.src !== activeShow.url) {
+        audioElem.src = activeShow.url;
+      }
+
+      audioElem.currentTime = 0;
+      audioElem.play().catch(e => {
+        console.warn("Audio playback waiting on user interaction", e);
+      });
+
+      const startTime = performance.now();
+      playTimer = setInterval(() => {
+        const elapsed = (performance.now() - startTime) / 1000;
+        const pct = Math.min((elapsed / 15.0) * 100, (duration / 15.0) * 100);
+        document.getElementById('playhead').style.width = pct + '%';
+        if (elapsed >= duration) {
+          stopPlayback();
+        }
+      }, 30);
+    }
+
+    document.getElementById('btn-play').onclick = () => {
+      if (isAudioPlaying) stopPlayback();
+      else playAudio(TIERS[currentAttempt] || 15.0);
+    };
+
+    document.getElementById('btn-replay-full').onclick = () => {
+      playAudio(15.0);
+    };
+
+    function refreshUI() {
+      const curTime = TIERS[currentAttempt] || 15.0;
+      document.getElementById('points-tier-label').textContent = `${(POINTS[currentAttempt] || 0).toLocaleString()} PTS`;
+      document.getElementById('unlocked-sec-label').textContent = `${curTime.toFixed(1)}s`;
+      document.getElementById('play-status').textContent = `Tap to play (${curTime.toFixed(1)}s unlocked)`;
+
+      for (let i = 0; i < 5; i++) {
+        const bar = document.getElementById(`seg-${i}`);
+        bar.className = (i <= currentAttempt) 
+          ? "h-full bg-orange-500 border-r border-white/40 dark:border-stone-900 transition-colors" 
+          : "h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900 transition-colors";
+      }
+
+      const next = TIERS[currentAttempt + 1];
+      document.getElementById('skip-txt').textContent = next ? `Skip (+${(next - curTime).toFixed(1)}s)` : 'Give Up';
+
+      const hintBanner = document.getElementById('hint-banner');
+      if (currentAttempt >= 2) {
+        hintBanner.classList.remove('hidden');
+        document.getElementById('hint-msg').innerHTML = `Premiered in <strong>${activeShow.yr}</strong> on <strong>${activeShow.net}</strong>.`;
+      }
+    }
+
+    function makeGuess(text, isSkip = false) {
+      if (isFinished) return;
+      const cleanGuess = (text || '').trim().toLowerCase();
+      const isCorrect = !isSkip && (cleanGuess === activeShow.title.toLowerCase() || activeShow.alts.some(a => a.toLowerCase() === cleanGuess));
+
+      history.push({ text: isSkip ? 'Skipped' : text, isCorrect, isSkip });
+      renderLog();
+
+      if (isCorrect) {
+        endGame(true);
+      } else {
+        currentAttempt++;
+        if (currentAttempt >= 5) {
+          endGame(false);
+        } else {
+          refreshUI();
+          playAudio(TIERS[currentAttempt]);
+        }
+      }
+    }
+
+    function renderLog() {
+      const container = document.getElementById('guess-log');
+      container.innerHTML = history.map((item, idx) => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl border text-xs font-semibold ${item.isCorrect ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 text-emerald-800 dark:text-emerald-300' : item.isSkip ? 'bg-stone-100 dark:bg-stone-800 border-stone-200 text-stone-500' : 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 text-rose-700 dark:text-rose-300'}">
+          <span class="flex items-center space-x-1.5">
+            <i class="ph ${item.isCorrect ? 'ph-check-circle-fill text-emerald-600' : item.isSkip ? 'ph-fast-forward' : 'ph-x-circle-fill text-rose-500'} text-base"></i>
+            <span>${item.text}</span>
+          </span>
+          <span class="text-[10px] text-stone-400">${TIERS[idx].toFixed(1)}s</span>
+        </div>
+      `).join('');
+    }
+
+    async function loadPoster(slug) {
+      try {
+        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`);
+        const data = await res.json();
+        if (data.thumbnail && data.thumbnail.source) {
+          const img = document.getElementById('res-poster');
+          img.src = data.thumbnail.source;
+          img.classList.remove('hidden');
+          document.getElementById('res-poster-fallback').classList.add('hidden');
+        }
+      } catch (e) {}
+    }
+
+    function endGame(win) {
+      isFinished = true;
+      stopPlayback();
+      const pts = win ? POINTS[history.length - 1] : 0;
+
+      // Persist completion state for DailyStreakers Hub
+      try {
+        const raw = localStorage.getItem('dailystreakers_meta') || '{}';
+        const meta = JSON.parse(raw);
+        meta.introLast = today;
+        localStorage.setItem('dailystreakers_meta', JSON.stringify(meta));
+      } catch (e) {}
+
+      document.getElementById('res-name').textContent = activeShow.title;
+      document.getElementById('res-meta').textContent = `${activeShow.yr} • ${activeShow.net}`;
+      document.getElementById('res-pts').textContent = `+${pts.toLocaleString()} PTS`;
+
+      const badge = document.getElementById('res-badge');
+      const icon = document.getElementById('res-icon');
+      if (win) {
+        badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60";
+        icon.className = "ph ph-trophy text-2xl";
+        document.getElementById('res-title').textContent = "Nailed It!";
+        document.getElementById('res-sub').textContent = `Guessed on attempt ${history.length} of 5`;
+        if (window.confetti) window.confetti({ particleCount: 50, spread: 60 });
+      } else {
+        badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-stone-100 text-stone-500 dark:bg-stone-800";
+        icon.className = "ph ph-x-circle text-2xl";
+        document.getElementById('res-title').textContent = "That's a Wrap!";
+        document.getElementById('res-sub').textContent = "Better luck tomorrow!";
+      }
+
+      loadPoster(activeShow.wiki);
+      document.getElementById('modal-result').classList.remove('hidden');
+    }
+
+    // Input & Autocomplete
+    const input = document.getElementById('input-guess');
+    const suggest = document.getElementById('suggest-menu');
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) { suggest.classList.add('hidden'); return; }
+      const matches = AUTOCOMPLETE.filter(s => s.toLowerCase().includes(q)).slice(0, 5);
+      if (!matches.length) { suggest.classList.add('hidden'); return; }
+      suggest.innerHTML = matches.map(s => `<div class="p-2.5 hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer text-xs font-semibold" onclick="selectSuggestion('${s.replace(/'/g, "\\'")}')">${s}</div>`).join('');
+      suggest.classList.remove('hidden');
+    });
+
+    window.selectSuggestion = (str) => {
+      input.value = str;
+      suggest.classList.add('hidden');
+    };
+
+    document.getElementById('btn-submit').onclick = () => {
+      if (input.value.trim()) {
+        makeGuess(input.value.trim());
+        input.value = '';
+        suggest.classList.add('hidden');
+      }
+    };
+
+    document.getElementById('btn-skip').onclick = () => makeGuess('', true);
+
+    document.getElementById('btn-share').onclick = () => {
+      const emojis = history.map(h => h.isCorrect ? '🟩' : h.isSkip ? '⬛' : '🟥').join('');
+      const text = `IntroGuess (TV) #${daySeed % 100}\n${emojis} (${history.length}/5)\nhttps://dailystreakers.io`;
+      navigator.clipboard.writeText(text);
+      document.getElementById('btn-share').innerHTML = '<i class="ph ph-check"></i><span>Copied!</span>';
+    };
+
+    refreshUI();
+  </script>
+</body>
+</html>
