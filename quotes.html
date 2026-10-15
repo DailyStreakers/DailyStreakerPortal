@@ -83,35 +83,29 @@
   <main class="flex-1 max-w-lg w-full mx-auto px-4 py-5 flex flex-col justify-between">
     
     <div>
-      <div class="flex items-center justify-between mb-3 text-xs">
+      <!-- OVERALL 5-QUOTE PROGRESS -->
+      <div class="flex items-center justify-between mb-2 text-xs">
         <div>
-          <span class="font-bold text-stone-400 uppercase tracking-wider text-[11px]" id="edition-label">Today's Movie Quote</span>
-          <p class="text-stone-500 dark:text-stone-400 text-xs">Identify the film from the dialogue line.</p>
+          <span class="font-bold text-stone-400 uppercase tracking-wider text-[11px]" id="quote-number-label">Quote 1 of 5</span>
+          <p class="text-stone-500 dark:text-stone-400 text-xs">Identify the movie from the line.</p>
         </div>
         <div class="text-right">
-          <span class="text-[10px] text-stone-400 uppercase font-bold block">Reward</span>
-          <span class="font-black text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/80 px-2.5 py-0.5 rounded-full" id="points-tier-label">1,000 PTS</span>
+          <span class="text-[10px] text-stone-400 uppercase font-bold block">Score</span>
+          <span class="font-black text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/80 px-2.5 py-0.5 rounded-full" id="points-total-label">0 PTS</span>
         </div>
       </div>
 
-      <!-- 5-INTERVAL GUESS SEGMENTS -->
-      <div class="space-y-1.5 mb-4">
-        <div class="relative w-full h-2.5 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden flex border border-stone-200 dark:border-stone-700">
-          <div id="seg-0" class="h-full bg-amber-500 border-r border-white/40 dark:border-stone-900 transition-colors" style="width: 20%;"></div>
-          <div id="seg-1" class="h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900 transition-colors" style="width: 20%;"></div>
-          <div id="seg-2" class="h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900 transition-colors" style="width: 20%;"></div>
-          <div id="seg-3" class="h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900 transition-colors" style="width: 20%;"></div>
-          <div id="seg-4" class="h-full bg-stone-200 dark:bg-stone-800 transition-colors" style="width: 20%;"></div>
-        </div>
-        <div class="flex justify-between text-[10px] font-semibold text-stone-400 px-0.5">
-          <span>Attempt 1</span>
-          <span class="text-amber-600 dark:text-amber-400 font-bold" id="attempt-indicator-label">1 of 5</span>
-          <span>5 Max</span>
-        </div>
+      <!-- 5 OVERALL QUOTE STEP PILLS -->
+      <div class="grid grid-cols-5 gap-2 mb-4">
+        <div id="step-0" class="h-2 rounded-full bg-amber-500 transition-all duration-300"></div>
+        <div id="step-1" class="h-2 rounded-full bg-stone-200 dark:bg-stone-800 transition-all duration-300"></div>
+        <div id="step-2" class="h-2 rounded-full bg-stone-200 dark:bg-stone-800 transition-all duration-300"></div>
+        <div id="step-3" class="h-2 rounded-full bg-stone-200 dark:bg-stone-800 transition-all duration-300"></div>
+        <div id="step-4" class="h-2 rounded-full bg-stone-200 dark:bg-stone-800 transition-all duration-300"></div>
       </div>
 
-      <!-- QUOTE DISPLAY CARD -->
-      <div class="bg-white dark:bg-stone-900 rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm relative overflow-hidden mb-4 min-h-[170px] flex flex-col justify-center text-center">
+      <!-- CURRENT QUOTE CARD -->
+      <div class="bg-white dark:bg-stone-900 rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm relative overflow-hidden mb-3 min-h-[160px] flex flex-col justify-center text-center">
         <div class="text-amber-500/20 dark:text-amber-500/10 text-5xl leading-none font-serif select-none mb-1">“</div>
         <blockquote class="text-base md:text-lg font-bold text-stone-900 dark:text-white leading-relaxed px-2 -mt-4" id="quote-text-display">
           Loading quote...
@@ -119,14 +113,29 @@
         <div class="text-amber-500/20 dark:text-amber-500/10 text-5xl leading-none font-serif select-none mt-1">”</div>
       </div>
 
-      <!-- AUTOMATIC PROGRESSIVE HINT BANNER -->
-      <div id="hint-banner" class="hidden mb-3 p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 rounded-2xl text-xs text-amber-900 dark:text-amber-200 flex items-center space-x-2">
-        <i class="ph ph-lightbulb text-base text-amber-600 flex-shrink-0"></i>
-        <span id="hint-msg"></span>
+      <!-- ATTEMPTS TICK TRACKER FOR CURRENT QUOTE (1 to 5) -->
+      <div class="flex items-center justify-between px-1 mb-3 text-[11px] font-semibold text-stone-400">
+        <span id="attempt-label">Guess 1 of 5</span>
+        <div class="flex items-center space-x-1.5" id="attempt-dots">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" id="dot-0"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-stone-200 dark:bg-stone-800 inline-block" id="dot-1"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-stone-200 dark:bg-stone-800 inline-block" id="dot-2"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-stone-200 dark:bg-stone-800 inline-block" id="dot-3"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-stone-200 dark:bg-stone-800 inline-block" id="dot-4"></span>
+        </div>
       </div>
 
-      <!-- GUESS HISTORY LIST -->
-      <div id="guess-log" class="space-y-1.5 mb-3"></div>
+      <!-- AUTOMATIC HINT BANNER (Reveals after 3 guesses) -->
+      <div id="hint-banner" class="hidden mb-3 p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 rounded-2xl text-xs text-amber-900 dark:text-amber-200 flex items-center space-x-2">
+        <i class="ph ph-lightbulb text-base text-amber-600 flex-shrink-0"></i>
+        <span id="hint-msg">Clue: Released in 1994</span>
+      </div>
+
+      <!-- GUESSES MADE ON THIS CURRENT QUOTE -->
+      <div id="current-quote-guesses" class="space-y-1.5 mb-3"></div>
+
+      <!-- PREVIOUSLY FINISHED QUOTES LOG -->
+      <div id="finished-quotes-log" class="space-y-1.5 mb-3"></div>
     </div>
 
     <!-- CONTROLS & INPUT -->
@@ -139,7 +148,7 @@
             <input 
               type="text" 
               id="input-movie-guess" 
-              placeholder="Guess the movie title..." 
+              placeholder="Type movie title..." 
               autocomplete="off" 
               class="w-full py-3 pr-3 text-xs md:text-sm bg-transparent text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none"
             >
@@ -150,7 +159,7 @@
         <div class="grid grid-cols-3 gap-2">
           <button id="btn-skip" class="col-span-1 py-3 px-2 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1">
             <i class="ph ph-fast-forward"></i>
-            <span id="skip-txt">Skip</span>
+            <span id="skip-label">Skip Guess</span>
           </button>
           <button id="btn-submit" class="col-span-2 py-3 px-4 bg-stone-900 hover:bg-stone-800 dark:bg-white dark:hover:bg-stone-200 text-white dark:text-stone-950 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1">
             <span>Submit Guess</span>
@@ -163,64 +172,75 @@
       <div id="controls-finished" class="hidden text-center py-4 px-4 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl shadow-sm">
         <div class="flex items-center justify-center space-x-2 text-xs font-bold text-stone-900 dark:text-stone-100">
           <i class="ph ph-check-circle-fill text-emerald-600 text-base"></i>
-          <span>Today's Quote Completed</span>
+          <span>Today's Quotes Completed</span>
         </div>
-        <p class="text-[11px] text-stone-400 dark:text-stone-500 mt-1">A brand new film quote unlocks at midnight.</p>
+        <p class="text-[11px] text-stone-400 dark:text-stone-500 mt-1">A brand new set of 5 quotes drops at midnight.</p>
         <button id="btn-reopen-scorecard" class="mt-3 py-2 px-4 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-md transition inline-flex items-center space-x-1.5">
           <i class="ph ph-trophy"></i>
-          <span>View Scorecard & Poster</span>
+          <span>View Today's Scorecard</span>
         </button>
       </div>
 
-      <p class="text-center text-[10px] text-stone-400 dark:text-stone-600 mt-2.5">5 Guesses Total • Clues unlock after wrong guesses</p>
+      <p class="text-center text-[10px] text-stone-400 dark:text-stone-600 mt-2.5">5 quotes daily • 5 guesses each • Year unlocks on guess 4</p>
     </div>
 
   </main>
 
-  <!-- RESULT MODAL (POSTER + CONFETTI + SCORECARD) -->
+  <!-- RESULT MODAL -->
   <div id="modal-result" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-xs w-full p-5 border border-stone-200 dark:border-stone-800 shadow-2xl text-center relative">
+    <!-- Clickable backdrop to close -->
+    <div class="absolute inset-0 z-0" id="modal-backdrop"></div>
+    
+    <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-sm w-full p-6 border border-stone-200 dark:border-stone-800 shadow-2xl text-center relative z-10">
       
       <!-- Close "X" Button -->
       <button id="btn-close-modal" class="absolute top-4 right-4 p-1.5 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition" title="Close and review board">
         <i class="ph ph-x text-lg"></i>
       </button>
 
-      <div id="res-badge" class="w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-amber-100 text-amber-600 dark:bg-amber-950/60 dark:text-amber-400">
-        <i class="ph text-2xl" id="res-icon"></i>
+      <div id="res-badge" class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-3 bg-amber-100 text-amber-600 dark:bg-amber-950/60 dark:text-amber-400">
+        <i class="ph ph-trophy text-2xl" id="res-icon"></i>
       </div>
-      <h3 class="text-lg font-extrabold text-stone-900 dark:text-white" id="res-title">Solved!</h3>
-      <p class="text-xs text-stone-500 mb-3" id="res-sub">Guessed on attempt 1 of 5</p>
+      <h3 class="text-xl font-extrabold text-stone-900 dark:text-white" id="res-title">That's a Wrap!</h3>
+      <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5" id="res-sub">You solved 4 of 5 quotes today.</p>
 
-      <!-- Wikipedia Movie Poster Frame -->
-      <div class="w-32 h-44 mx-auto rounded-xl overflow-hidden shadow mb-3 border border-stone-200 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 flex items-center justify-center">
-        <img id="res-poster" src="" alt="Movie Poster" class="w-full h-full object-cover hidden">
-        <div id="res-poster-fallback" class="text-stone-400 text-center p-2">
-          <i class="ph ph-film-strip text-3xl"></i>
-          <p class="text-[10px] mt-1 font-bold">Film Poster</p>
+      <!-- Score & Streak Pills -->
+      <div class="grid grid-cols-2 gap-2 my-4">
+        <div class="bg-stone-50 dark:bg-stone-800/60 p-3 rounded-2xl border border-stone-100 dark:border-stone-800">
+          <span class="text-[10px] font-bold text-stone-400 uppercase block">Today's Points</span>
+          <span class="text-lg font-black text-amber-600 dark:text-amber-400" id="final-points-pill">0 PTS</span>
+        </div>
+        <div class="bg-stone-50 dark:bg-stone-800/60 p-3 rounded-2xl border border-stone-100 dark:border-stone-800">
+          <span class="text-[10px] font-bold text-stone-400 uppercase block">Daily Streak</span>
+          <span class="text-lg font-black text-orange-600 dark:text-orange-400" id="final-streak-pill">1 Day</span>
         </div>
       </div>
 
-      <h4 class="font-bold text-stone-900 dark:text-white text-sm" id="res-name">Movie Title</h4>
-      <p class="text-[11px] text-stone-400" id="res-meta">1994 • Directed by Director</p>
-      <div id="res-pts" class="my-2 inline-flex text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">+1,000 PTS</div>
+      <!-- Emoji Scorecard Container -->
+      <div class="bg-stone-100 dark:bg-stone-800/80 p-3 rounded-2xl text-sm font-mono tracking-widest text-center mb-4 select-all" id="scorecard-emojis">
+        🟩 🟩 🟥 🟩 ⬛
+      </div>
 
-      <button id="btn-share" class="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center space-x-1 mb-2">
-        <i class="ph ph-share-network"></i>
+      <!-- Action: Share -->
+      <button id="btn-share-scorecard" class="w-full py-3 px-4 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-lg shadow-amber-500/20 transition flex items-center justify-center space-x-1.5 mb-2">
+        <i class="ph ph-share-network text-base"></i>
         <span>Share Scorecard</span>
       </button>
 
-      <a href="index.html" class="w-full py-2 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1.5">
-        <i class="ph ph-squares-four"></i>
+      <!-- Action: Back to Hub -->
+      <a href="index.html" class="w-full py-2.5 px-4 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1.5 mb-3">
+        <i class="ph ph-squares-four text-base"></i>
         <span>Back to DailyStreakers Hub</span>
       </a>
 
-      <div class="mt-3 pt-3 border-t border-stone-100 dark:border-stone-800">
-        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="inline-flex items-center space-x-1 text-[10px] text-stone-400 hover:text-amber-500 transition">
+      <!-- Support / Ko-fi callout -->
+      <div class="pt-3 border-t border-stone-100 dark:border-stone-800">
+        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="text-[11px] font-medium text-stone-500 hover:text-amber-600 dark:text-stone-400 transition inline-flex items-center space-x-1">
           <i class="ph ph-coffee text-amber-500"></i>
           <span>Support DailyStreakers on Ko-fi</span>
         </a>
       </div>
+
     </div>
   </div>
 
@@ -261,331 +281,263 @@
 
   <script>
     /* =========================================================================
-       1. MOVIE DATABASE (Iconic Quotes + Wikipedia Posters)
+       1. DATABASE OF QUOTES (5 Picked Daily)
        ========================================================================= */
-    const MOVIES = [
-      {
-        title: "The Godfather",
-        alts: [],
-        quote: "I'm gonna make him an offer he can't refuse.",
-        yr: "1972",
-        director: "Francis Ford Coppola",
-        character: "Don Vito Corleone",
-        cast: "Marlon Brando & Al Pacino",
-        wiki: "The_Godfather"
-      },
-      {
-        title: "Casablanca",
-        alts: [],
-        quote: "Here's looking at you, kid.",
-        yr: "1942",
-        director: "Michael Curtiz",
-        character: "Rick Blaine",
-        cast: "Humphrey Bogart & Ingrid Bergman",
-        wiki: "Casablanca_(film)"
-      },
-      {
-        title: "Star Wars",
-        alts: ["Star Wars: Episode IV - A New Hope", "A New Hope"],
-        quote: "May the Force be with you.",
-        yr: "1977",
-        director: "George Lucas",
-        character: "Han Solo",
-        cast: "Mark Hamill & Harrison Ford",
-        wiki: "Star_Wars_(film)"
-      },
-      {
-        title: "The Terminator",
-        alts: ["Terminator"],
-        quote: "I'll be back.",
-        yr: "1984",
-        director: "James Cameron",
-        character: "The Terminator",
-        cast: "Arnold Schwarzenegger",
-        wiki: "The_Terminator"
-      },
-      {
-        title: "Forrest Gump",
-        alts: [],
-        quote: "My mama always said life was like a box of chocolates. You never know what you're gonna get.",
-        yr: "1994",
-        director: "Robert Zemeckis",
-        character: "Forrest Gump",
-        cast: "Tom Hanks & Robin Wright",
-        wiki: "Forrest_Gump"
-      },
-      {
-        title: "The Dark Knight",
-        alts: ["Dark Knight"],
-        quote: "Why so serious?",
-        yr: "2008",
-        director: "Christopher Nolan",
-        character: "The Joker",
-        cast: "Christian Bale & Heath Ledger",
-        wiki: "The_Dark_Knight"
-      },
-      {
-        title: "Jaws",
-        alts: [],
-        quote: "You're gonna need a bigger boat.",
-        yr: "1975",
-        director: "Steven Spielberg",
-        character: "Martin Brody",
-        cast: "Roy Scheider & Robert Shaw",
-        wiki: "Jaws_(film)"
-      },
-      {
-        title: "The Matrix",
-        alts: ["Matrix"],
-        quote: "There is no spoon.",
-        yr: "1999",
-        director: "The Wachowskis",
-        character: "Spoon Boy",
-        cast: "Keanu Reeves & Laurence Fishburne",
-        wiki: "The_Matrix"
-      },
-      {
-        title: "Pulp Fiction",
-        alts: [],
-        quote: "Say 'what' again. Say 'what' again, I dare you, I double dare you!",
-        yr: "1994",
-        director: "Quentin Tarantino",
-        character: "Jules Winnfield",
-        cast: "John Travolta & Samuel L. Jackson",
-        wiki: "Pulp_Fiction"
-      },
-      {
-        title: "Titanic",
-        alts: [],
-        quote: "I'm the king of the world!",
-        yr: "1997",
-        director: "James Cameron",
-        character: "Jack Dawson",
-        cast: "Leonardo DiCaprio & Kate Winslet",
-        wiki: "Titanic_(1997_film)"
-      },
-      {
-        title: "Back to the Future",
-        alts: [],
-        quote: "Roads? Where we're going, we don't need roads.",
-        yr: "1985",
-        director: "Robert Zemeckis",
-        character: "Dr. Emmett Brown",
-        cast: "Michael J. Fox & Christopher Lloyd",
-        wiki: "Back_to_the_Future"
-      },
-      {
-        title: "Taxi Driver",
-        alts: [],
-        quote: "You talkin' to me? You talkin' to me? Well, who the hell else are you talkin' to?",
-        yr: "1976",
-        director: "Martin Scorsese",
-        character: "Travis Bickle",
-        cast: "Robert De Niro & Jodie Foster",
-        wiki: "Taxi_Driver"
-      },
-      {
-        title: "The Shining",
-        alts: ["Shining"],
-        quote: "Here's Johnny!",
-        yr: "1980",
-        director: "Stanley Kubrick",
-        character: "Jack Torrance",
-        cast: "Jack Nicholson & Shelley Duvall",
-        wiki: "The_Shining_(film)"
-      },
-      {
-        title: "Fight Club",
-        alts: [],
-        quote: "The first rule of Fight Club is: you do not talk about Fight Club.",
-        yr: "1999",
-        director: "David Fincher",
-        character: "Tyler Durden",
-        cast: "Brad Pitt & Edward Norton",
-        wiki: "Fight_Club"
-      },
-      {
-        title: "Apollo 13",
-        alts: [],
-        quote: "Houston, we have a problem.",
-        yr: "1995",
-        director: "Ron Howard",
-        character: "Jim Lovell",
-        cast: "Tom Hanks & Kevin Bacon",
-        wiki: "Apollo_13_(film)"
-      },
-      {
-        title: "The Sixth Sense",
-        alts: ["Sixth Sense"],
-        quote: "I see dead people.",
-        yr: "1999",
-        director: "M. Night Shyamalan",
-        character: "Cole Sear",
-        cast: "Bruce Willis & Haley Joel Osment",
-        wiki: "The_Sixth_Sense"
-      },
-      {
-        title: "A Few Good Men",
-        alts: [],
-        quote: "You can't handle the truth!",
-        yr: "1992",
-        director: "Rob Reiner",
-        character: "Col. Nathan R. Jessep",
-        cast: "Tom Cruise & Jack Nicholson",
-        wiki: "A_Few_Good_Men"
-      }
+    const MASTER_QUOTES = [
+      { q: "Here's looking at you, kid.", title: "Casablanca", alts: [], yr: "1942" },
+      { q: "I'm gonna make him an offer he can't refuse.", title: "The Godfather", alts: [], yr: "1972" },
+      { q: "May the Force be with you.", title: "Star Wars", alts: ["Star Wars: Episode IV - A New Hope", "A New Hope"], yr: "1977" },
+      { q: "You talking to me?", title: "Taxi Driver", alts: [], yr: "1976" },
+      { q: "There's no place like home.", title: "The Wizard of Oz", alts: ["Wizard of Oz"], yr: "1939" },
+      { q: "I'll be back.", title: "The Terminator", alts: ["Terminator"], yr: "1984" },
+      { q: "You can't handle the truth!", title: "A Few Good Men", alts: [], yr: "1992" },
+      { q: "Houston, we have a problem.", title: "Apollo 13", alts: [], yr: "1995" },
+      { q: "Keep your friends close, but your enemies closer.", title: "The Godfather Part II", alts: ["The Godfather 2"], yr: "1974" },
+      { q: "Say 'hello' to my little friend!", title: "Scarface", alts: [], yr: "1983" },
+      { q: "Hasta la vista, baby.", title: "Terminator 2: Judgment Day", alts: ["Terminator 2", "T2"], yr: "1991" },
+      { q: "My mama always said life was like a box of chocolates.", title: "Forrest Gump", alts: [], yr: "1994" },
+      { q: "I see dead people.", title: "The Sixth Sense", alts: ["Sixth Sense"], yr: "1999" },
+      { q: "Why so serious?", title: "The Dark Knight", alts: ["Dark Knight"], yr: "2008" },
+      { q: "You're gonna need a bigger boat.", title: "Jaws", alts: [], yr: "1975" },
+      { q: "To infinity and beyond!", title: "Toy Story", alts: [], yr: "1995" },
+      { q: "Elementary, my dear Watson.", title: "The Adventures of Sherlock Holmes", alts: ["Sherlock Holmes"], yr: "1939" },
+      { q: "I am your father.", title: "The Empire Strikes Back", alts: ["Star Wars: Episode V - The Empire Strikes Back"], yr: "1980" },
+      { q: "Show me the money!", title: "Jerry Maguire", alts: [], yr: "1996" },
+      { q: "Frankly, my dear, I don't give a damn.", title: "Gone with the Wind", alts: [], yr: "1939" },
+      { q: "E.T. phone home.", title: "E.T. the Extra-Terrestrial", alts: ["E.T.", "ET"], yr: "1982" },
+      { q: "Nobody puts Baby in a corner.", title: "Dirty Dancing", alts: [], yr: "1987" },
+      { q: "Roads? Where we're going we don't need roads.", title: "Back to the Future", alts: [], yr: "1985" },
+      { q: "Get busy living, or get busy dying.", title: "The Shawshank Redemption", alts: ["Shawshank Redemption"], yr: "1994" },
+      { q: "They may take our lives, but they'll never take our freedom!", title: "Braveheart", alts: [], yr: "1995" },
+      { q: "First rule of Fight Club is: you do not talk about Fight Club.", title: "Fight Club", alts: [], yr: "1999" },
+      { q: "I'm the king of the world!", title: "Titanic", alts: [], yr: "1997" },
+      { q: "There is no spoon.", title: "The Matrix", alts: ["Matrix"], yr: "1999" },
+      { q: "Say 'what' again. Say 'what' again, I dare you, I double dare you!", title: "Pulp Fiction", alts: [], yr: "1994" },
+      { q: "Here's Johnny!", title: "The Shining", alts: ["Shining"], yr: "1980" }
     ];
 
-    const AUTOCOMPLETE = [
-      "The Godfather", "Casablanca", "Star Wars", "The Terminator", "Forrest Gump",
-      "The Dark Knight", "Jaws", "The Matrix", "Pulp Fiction", "Titanic",
-      "Back to the Future", "Taxi Driver", "The Shining", "Fight Club", "Apollo 13",
-      "The Sixth Sense", "A Few Good Men", "The Shawshank Redemption", "Gladiator",
-      "Goodfellas", "Jurassic Park", "Inception", "The Silence of the Lambs"
+    const AUTOCOMPLETE_MOVIES = [
+      "Casablanca", "The Godfather", "Star Wars", "Taxi Driver", "The Wizard of Oz",
+      "The Terminator", "A Few Good Men", "Apollo 13", "The Godfather Part II", "Scarface",
+      "Terminator 2: Judgment Day", "Forrest Gump", "The Sixth Sense", "The Dark Knight",
+      "Jaws", "Toy Story", "The Empire Strikes Back", "Jerry Maguire", "Gone with the Wind",
+      "E.T. the Extra-Terrestrial", "Dirty Dancing", "Back to the Future", "The Shawshank Redemption",
+      "Braveheart", "Fight Club", "Titanic", "Pulp Fiction", "The Matrix", "The Shining",
+      "Inception", "Goodfellas", "The Silence of the Lambs", "Schindler's List", "Jurassic Park", "Gladiator"
     ];
 
-    const POINTS = [1000, 800, 600, 400, 200];
-
-    let currentAttempt = 0;
-    let isFinished = false;
-    let history = [];
-
-    // Daily Seed
+    /* =========================================================================
+       2. SEEDED DAILY GENERATOR (Mulberry32)
+       ========================================================================= */
     const today = new Date().toISOString().slice(0, 10);
     const daySeed = parseInt(today.replace(/-/g, ''), 10);
-    const activeMovie = MOVIES[daySeed % MOVIES.length];
+
+    function mulberry32(a) {
+      return function() {
+        var t = a += 0x6D2B79F5;
+        t = Math.imul(t ^ t >>> 15, t | 1);
+        t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      }
+    }
+
+    function pickDailyFive() {
+      const rng = mulberry32(daySeed);
+      const pool = [...MASTER_QUOTES];
+      const selected = [];
+      for (let i = 0; i < 5; i++) {
+        const idx = Math.floor(rng() * pool.length);
+        selected.push(pool.splice(idx, 1)[0]);
+      }
+      return selected;
+    }
+
+    const dailyFive = pickDailyFive();
+
+    /* =========================================================================
+       3. STATE MANAGEMENT (5 Quotes, 5 Guesses per Quote)
+       ========================================================================= */
+    let currentQuoteIndex = 0; // 0 to 4 (which quote)
+    let currentQuoteAttempt = 0; // 0 to 4 (5 guesses on this quote)
+    let totalScore = 0;
+    let completedQuotes = []; // [{ quote, title, correct, attemptsUsed, finalPoints }]
+    let currentQuoteGuesses = []; // Guesses made on the quote currently on screen
 
     // Theme Management
     const themeBtn = document.getElementById('btn-theme');
     const themeIcon = document.getElementById('theme-icon');
+
     function applyTheme(isDark) {
       document.documentElement.classList.toggle('dark', isDark);
       themeIcon.className = isDark ? 'ph ph-sun text-xl' : 'ph ph-moon text-xl';
       localStorage.setItem('quoteguess_theme_preference', isDark ? 'dark' : 'light');
     }
-    applyTheme(localStorage.getItem('quoteguess_theme_preference') === 'dark');
-    themeBtn.onclick = () => applyTheme(!document.documentElement.classList.contains('dark'));
 
-    function refreshUI() {
-      document.getElementById('quote-text-display').textContent = activeMovie.quote;
-      document.getElementById('points-tier-label').textContent = `${(isFinished ? 0 : (POINTS[currentAttempt] || 0)).toLocaleString()} PTS`;
-      document.getElementById('attempt-indicator-label').textContent = isFinished ? "Complete" : `${currentAttempt + 1} of 5`;
+    const savedTheme = localStorage.getItem('quoteguess_theme_preference');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
 
-      // Update 5 progress segment bars
-      for (let i = 0; i < 5; i++) {
-        const bar = document.getElementById(`seg-${i}`);
-        bar.className = (isFinished || i <= currentAttempt)
-          ? "h-full bg-amber-500 border-r border-white/40 dark:border-stone-900 transition-colors"
-          : "h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900 transition-colors";
+    themeBtn.addEventListener('click', () => {
+      applyTheme(!document.documentElement.classList.contains('dark'));
+    });
+
+    /* =========================================================================
+       4. GAMEPLAY UI & PROGRESSION
+       ========================================================================= */
+    function renderQuoteScreen() {
+      if (currentQuoteIndex >= 5) {
+        finishGame();
+        return;
       }
 
-      document.getElementById('skip-txt').textContent = (currentAttempt < 4) ? "Skip" : "Give Up";
+      const q = dailyFive[currentQuoteIndex];
+      document.getElementById('quote-number-label').textContent = `Quote ${currentQuoteIndex + 1} of 5`;
+      document.getElementById('quote-text-display').textContent = q.q;
 
-      // Progressive Automatic Hints on wrong guesses/skips
+      // Update 5 main step pills
+      for (let i = 0; i < 5; i++) {
+        const pill = document.getElementById(`step-${i}`);
+        if (i < completedQuotes.length) {
+          pill.className = completedQuotes[i].correct 
+            ? "h-2 rounded-full bg-emerald-500 transition-all duration-300"
+            : "h-2 rounded-full bg-rose-500 transition-all duration-300";
+        } else if (i === currentQuoteIndex) {
+          pill.className = "h-2 rounded-full bg-amber-500 ring-2 ring-amber-300 dark:ring-amber-900 transition-all duration-300";
+        } else {
+          pill.className = "h-2 rounded-full bg-stone-200 dark:bg-stone-800 transition-all duration-300";
+        }
+      }
+
+      // Update attempts indicator (1 to 5) for current quote
+      document.getElementById('attempt-label').textContent = `Guess ${currentQuoteAttempt + 1} of 5`;
+      for (let i = 0; i < 5; i++) {
+        const dot = document.getElementById(`dot-${i}`);
+        if (i < currentQuoteAttempt) {
+          dot.className = "w-2.5 h-2.5 rounded-full bg-rose-500 inline-block";
+        } else if (i === currentQuoteAttempt) {
+          dot.className = "w-2.5 h-2.5 rounded-full bg-amber-500 inline-block";
+        } else {
+          dot.className = "w-2.5 h-2.5 rounded-full bg-stone-200 dark:bg-stone-800 inline-block";
+        }
+      }
+
+      // Automatic hint banner: Reveal year after 3 missed guesses
       const hintBanner = document.getElementById('hint-banner');
       const hintMsg = document.getElementById('hint-msg');
-
-      if (currentAttempt === 1) {
+      if (currentQuoteAttempt >= 3) {
         hintBanner.classList.remove('hidden');
-        hintMsg.innerHTML = `<strong>Clue 1:</strong> Spoken by <strong>${activeMovie.character}</strong>.`;
-      } else if (currentAttempt === 2) {
-        hintBanner.classList.remove('hidden');
-        hintMsg.innerHTML = `<strong>Clue 2:</strong> Released in <strong>${activeMovie.yr}</strong> • Directed by <strong>${activeMovie.director}</strong>.`;
-      } else if (currentAttempt >= 3 || isFinished) {
-        hintBanner.classList.remove('hidden');
-        hintMsg.innerHTML = `<strong>Clue 3:</strong> Released in <strong>${activeMovie.yr}</strong> • Directed by <strong>${activeMovie.director}</strong> • Starring <strong>${activeMovie.cast}</strong>.`;
+        hintMsg.innerHTML = `<strong>Clue unlocked:</strong> Released in <strong>${q.yr}</strong>`;
       } else {
         hintBanner.classList.add('hidden');
       }
+
+      // Skip button text
+      document.getElementById('skip-label').textContent = (currentQuoteAttempt < 4) ? "Skip Guess" : "Give Up";
+
+      // Render guesses for this active quote
+      renderCurrentQuoteGuesses();
+
+      // Clear input & autocomplete
+      document.getElementById('input-movie-guess').value = '';
+      document.getElementById('suggest-menu').classList.add('hidden');
     }
 
-    function makeGuess(text, isSkip = false) {
-      if (isFinished) return;
-      const cleanGuess = (text || '').trim().toLowerCase();
-      const isCorrect = !isSkip && (
-        cleanGuess === activeMovie.title.toLowerCase() ||
-        activeMovie.alts.some(a => a.toLowerCase() === cleanGuess)
-      );
-
-      history.push({ text: isSkip ? 'Skipped' : text, isCorrect, isSkip });
-      renderLog();
-
-      if (isCorrect) {
-        endGame(true);
-      } else {
-        currentAttempt++;
-        if (currentAttempt >= 5) {
-          endGame(false);
-        } else {
-          refreshUI();
-        }
-      }
-    }
-
-    function renderLog() {
-      const container = document.getElementById('guess-log');
-      container.innerHTML = history.map((item, idx) => `
-        <div class="flex items-center justify-between p-2.5 rounded-xl border text-xs font-semibold ${item.isCorrect ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 text-emerald-800 dark:text-emerald-300' : item.isSkip ? 'bg-stone-100 dark:bg-stone-800 border-stone-200 text-stone-500' : 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 text-rose-700 dark:text-rose-300'}">
+    function renderCurrentQuoteGuesses() {
+      const container = document.getElementById('current-quote-guesses');
+      container.innerHTML = currentQuoteGuesses.map((g, idx) => `
+        <div class="flex items-center justify-between p-2 rounded-xl bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-xs font-semibold text-stone-600 dark:text-stone-300">
           <span class="flex items-center space-x-1.5">
-            <i class="ph ${item.isCorrect ? 'ph-check-circle-fill text-emerald-600' : item.isSkip ? 'ph-fast-forward' : 'ph-x-circle-fill text-rose-500'} text-base"></i>
-            <span>${item.text}</span>
+            <i class="ph ph-x-circle text-rose-500 text-base"></i>
+            <span>${g}</span>
           </span>
-          <span class="text-[10px] text-stone-400">Guess ${idx + 1} of 5</span>
+          <span class="text-[10px] text-stone-400">Guess ${idx + 1}</span>
         </div>
       `).join('');
     }
 
-    async function loadPoster(slug) {
-      try {
-        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`);
-        const data = await res.json();
-        if (data.thumbnail && data.thumbnail.source) {
-          const img = document.getElementById('res-poster');
-          img.src = data.thumbnail.source;
-          img.classList.remove('hidden');
-          document.getElementById('res-poster-fallback').classList.add('hidden');
-        }
-      } catch (e) {}
+    function renderFinishedQuotesLog() {
+      const container = document.getElementById('finished-quotes-log');
+      container.innerHTML = completedQuotes.map((item, idx) => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl border text-xs font-semibold ${item.correct ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300' : 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-900 text-rose-700 dark:text-rose-300'}">
+          <span class="flex items-center space-x-1.5 truncate pr-2">
+            <i class="ph ${item.correct ? 'ph-check-circle-fill text-emerald-600' : 'ph-x-circle-fill text-rose-500'} text-base flex-shrink-0"></i>
+            <span class="truncate">Quote ${idx + 1}: <strong>${item.title}</strong> (${item.correct ? item.attemptsUsed + '/5 guesses' : 'Missed'})</span>
+          </span>
+          <span class="text-[10px] text-stone-400 flex-shrink-0">+${item.finalPoints} PTS</span>
+        </div>
+      `).join('');
     }
 
-    function showResultModal(win, pts, triggerConfetti = true) {
-      document.getElementById('res-name').textContent = activeMovie.title;
-      document.getElementById('res-meta').textContent = `${activeMovie.yr} • Directed by ${activeMovie.director}`;
-      document.getElementById('res-pts').textContent = `+${pts.toLocaleString()} PTS`;
+    function handlePlayerGuess(guessText, isSkip = false) {
+      const q = dailyFive[currentQuoteIndex];
+      const cleanGuess = (guessText || '').trim().toLowerCase();
+      const isCorrect = !isSkip && (
+        cleanGuess === q.title.toLowerCase() ||
+        q.alts.some(a => a.toLowerCase() === cleanGuess)
+      );
 
-      const badge = document.getElementById('res-badge');
-      const icon = document.getElementById('res-icon');
-      if (win) {
-        badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60";
-        icon.className = "ph ph-trophy text-2xl";
-        document.getElementById('res-title').textContent = "Nailed It!";
-        document.getElementById('res-sub').textContent = `Guessed on attempt ${history.length} of 5`;
-        if (triggerConfetti && window.confetti) window.confetti({ particleCount: 55, spread: 60, origin: { y: 0.6 } });
+      if (isCorrect) {
+        // SOLVED THIS QUOTE!
+        const pointsForThisQuote = 1000 - (currentQuoteAttempt * 150);
+        totalScore += pointsForThisQuote;
+        document.getElementById('points-total-label').textContent = `${totalScore.toLocaleString()} PTS`;
+
+        completedQuotes.push({
+          quote: q.q,
+          title: q.title,
+          correct: true,
+          attemptsUsed: currentQuoteAttempt + 1,
+          finalPoints: pointsForThisQuote
+        });
+
+        renderFinishedQuotesLog();
+
+        // Move to next quote
+        currentQuoteIndex++;
+        currentQuoteAttempt = 0;
+        currentQuoteGuesses = [];
+        renderQuoteScreen();
       } else {
-        badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-stone-100 text-stone-500 dark:bg-stone-800";
-        icon.className = "ph ph-x-circle text-2xl";
-        document.getElementById('res-title').textContent = "That's a Wrap!";
-        document.getElementById('res-sub').textContent = "Better luck tomorrow!";
-      }
+        // WRONG GUESS OR SKIP ON THIS QUOTE
+        currentQuoteGuesses.push(isSkip ? 'Skipped' : guessText);
+        currentQuoteAttempt++;
 
-      loadPoster(activeMovie.wiki);
-      document.getElementById('modal-result').classList.remove('hidden');
+        if (currentQuoteAttempt >= 5) {
+          // OUT OF GUESSES ON THIS QUOTE -> MOVE TO NEXT QUOTE
+          completedQuotes.push({
+            quote: q.q,
+            title: q.title,
+            correct: false,
+            attemptsUsed: 5,
+            finalPoints: 0
+          });
+
+          renderFinishedQuotesLog();
+
+          currentQuoteIndex++;
+          currentQuoteAttempt = 0;
+          currentQuoteGuesses = [];
+          renderQuoteScreen();
+        } else {
+          // Still have guesses remaining on this quote
+          renderQuoteScreen();
+        }
+      }
     }
 
-    function endGame(win) {
-      isFinished = true;
-      const pts = win ? POINTS[history.length - 1] : 0;
-
+    /* =========================================================================
+       5. COMPLETION, STREAKS & LOCALSTORAGE PERSISTENCE
+       ========================================================================= */
+    function finishGame() {
       // 1. Calculate & Save Stats
       let stats = {
         lastPlayedDate: today,
         streak: 1,
         maxStreak: 1,
         played: 1,
-        wins: win ? 1 : 0,
-        history: history,
-        score: pts,
-        win: win
+        wins: 0,
+        history: completedQuotes,
+        score: totalScore
       };
 
       try {
@@ -596,9 +548,12 @@
           stats.streak = (prev.lastPlayedDate === yesterday) ? (prev.streak || 0) + 1 : 1;
           stats.maxStreak = Math.max(prev.maxStreak || 0, stats.streak);
           stats.played = (prev.played || 0) + 1;
-          stats.wins = (prev.wins || 0) + (win ? 1 : 0);
+          stats.wins = prev.wins || 0;
         }
       } catch (e) {}
+
+      const correctCount = completedQuotes.filter(r => r.correct).length;
+      if (correctCount >= 3) stats.wins += 1;
 
       localStorage.setItem('quoteguess_stats', JSON.stringify(stats));
 
@@ -613,10 +568,27 @@
       // 3. Switch UI controls to finished state
       document.getElementById('controls-active').classList.add('hidden');
       document.getElementById('controls-finished').classList.remove('hidden');
-      refreshUI();
 
       // 4. Pop result modal
-      showResultModal(win, pts, true);
+      showResultModal(totalScore, stats.streak, completedQuotes, true);
+    }
+
+    function showResultModal(finalScore, streak, results, triggerConfetti = false) {
+      document.getElementById('final-points-pill').textContent = `${finalScore.toLocaleString()} PTS`;
+      document.getElementById('final-streak-pill').textContent = `${streak} ${streak === 1 ? 'Day' : 'Days'}`;
+
+      const correctCount = results.filter(r => r.correct).length;
+      document.getElementById('res-sub').textContent = `You solved ${correctCount} of 5 quotes today.`;
+
+      // Build Emojis
+      const emojis = results.map(r => r.correct ? '🟩' : '🟥').join(' ');
+      document.getElementById('scorecard-emojis').textContent = emojis;
+
+      if (triggerConfetti && correctCount >= 3 && window.confetti) {
+        window.confetti({ particleCount: 60, spread: 65, origin: { y: 0.6 } });
+      }
+
+      document.getElementById('modal-result').classList.remove('hidden');
     }
 
     // Modal Close Button & Backdrop Dismissal
@@ -624,19 +596,17 @@
       document.getElementById('modal-result').classList.add('hidden');
     };
 
-    document.getElementById('modal-result').addEventListener('click', (e) => {
-      if (e.target.id === 'modal-result') {
-        document.getElementById('modal-result').classList.add('hidden');
-      }
+    document.getElementById('modal-backdrop').addEventListener('click', () => {
+      document.getElementById('modal-result').classList.add('hidden');
     });
 
     // Reopen Scorecard from Finished Bar
     document.getElementById('btn-reopen-scorecard').onclick = () => {
       try {
         const stats = JSON.parse(localStorage.getItem('quoteguess_stats') || '{}');
-        showResultModal(stats.win || false, stats.score || 0, false);
+        showResultModal(stats.score || 0, stats.streak || 1, stats.history || [], false);
       } catch (e) {
-        showResultModal(false, 0, false);
+        showResultModal(0, 1, [], false);
       }
     };
 
@@ -646,14 +616,24 @@
         const raw = localStorage.getItem('quoteguess_stats');
         if (raw) {
           const stats = JSON.parse(raw);
-          if (stats.lastPlayedDate === today && stats.history) {
-            isFinished = true;
-            history = stats.history;
-            currentAttempt = history.length;
-            renderLog();
+          if (stats.lastPlayedDate === today && stats.history && stats.history.length === 5) {
+            completedQuotes = stats.history;
+            totalScore = stats.score || 0;
+            renderFinishedQuotesLog();
+            document.getElementById('points-total-label').textContent = `${totalScore.toLocaleString()} PTS`;
+            document.getElementById('quote-number-label').textContent = `5 of 5 Completed`;
+            document.getElementById('quote-text-display').textContent = "All 5 quotes completed for today!";
+            document.getElementById('attempt-label').textContent = "Done";
+
+            for (let i = 0; i < 5; i++) {
+              const pill = document.getElementById(`step-${i}`);
+              pill.className = completedQuotes[i].correct 
+                ? "h-2 rounded-full bg-emerald-500" 
+                : "h-2 rounded-full bg-rose-500";
+            }
+
             document.getElementById('controls-active').classList.add('hidden');
             document.getElementById('controls-finished').classList.remove('hidden');
-            refreshUI();
             return true;
           }
         }
@@ -661,15 +641,19 @@
       return false;
     }
 
-    // Autocomplete Dropdown
+    /* =========================================================================
+       6. INPUTS & AUTOCOMPLETE
+       ========================================================================= */
     const input = document.getElementById('input-movie-guess');
     const suggest = document.getElementById('suggest-menu');
 
     input.addEventListener('input', () => {
       const q = input.value.trim().toLowerCase();
       if (!q) { suggest.classList.add('hidden'); return; }
-      const matches = AUTOCOMPLETE.filter(m => m.toLowerCase().includes(q)).slice(0, 5);
+
+      const matches = AUTOCOMPLETE_MOVIES.filter(m => m.toLowerCase().includes(q)).slice(0, 5);
       if (!matches.length) { suggest.classList.add('hidden'); return; }
+
       suggest.innerHTML = matches.map(m => `
         <div class="p-2.5 hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer text-xs font-semibold flex items-center justify-between" onclick="selectSuggestion('${m.replace(/'/g, "\\'")}')">
           <span>${m}</span>
@@ -679,34 +663,35 @@
       suggest.classList.remove('hidden');
     });
 
-    window.selectSuggestion = (str) => {
-      input.value = str;
+    window.selectSuggestion = (title) => {
+      input.value = title;
       suggest.classList.add('hidden');
     };
 
     document.getElementById('btn-submit').onclick = () => {
       if (input.value.trim()) {
-        makeGuess(input.value.trim());
-        input.value = '';
-        suggest.classList.add('hidden');
+        handlePlayerGuess(input.value.trim());
       }
     };
 
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && input.value.trim()) {
-        makeGuess(input.value.trim());
-        input.value = '';
-        suggest.classList.add('hidden');
+        handlePlayerGuess(input.value.trim());
       }
     });
 
-    document.getElementById('btn-skip').onclick = () => makeGuess('', true);
+    document.getElementById('btn-skip').onclick = () => {
+      handlePlayerGuess('', true);
+    };
 
-    document.getElementById('btn-share').onclick = () => {
-      const emojis = history.map(h => h.isCorrect ? '🟩' : h.isSkip ? '⬛' : '🟥').join('');
-      const text = `QuoteGuess #${daySeed % 100}\n${emojis} (${history.length}/5)\nhttps://dailystreakers.io/quotes.html`;
+    // Share Scorecard to Clipboard
+    document.getElementById('btn-share-scorecard').onclick = () => {
+      const emojis = completedQuotes.map(r => r.correct ? '🟩' : '🟥').join('');
+      const correctCount = completedQuotes.filter(r => r.correct).length;
+      const text = `QuoteGuess #${daySeed % 100}\n${emojis} (${correctCount}/5)\nPoints: ${totalScore.toLocaleString()}\nhttps://dailystreakers.io/quotes.html`;
+      
       navigator.clipboard.writeText(text);
-      document.getElementById('btn-share').innerHTML = '<i class="ph ph-check"></i><span>Copied Scorecard!</span>';
+      document.getElementById('btn-share-scorecard').innerHTML = '<i class="ph ph-check text-base"></i><span>Copied to Clipboard!</span>';
     };
 
     // Stats Modal Handlers
@@ -727,9 +712,10 @@
     document.getElementById('btn-close-stats').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
     document.getElementById('btn-stats-ok').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
 
-    // Startup
-    checkPriorCompletion();
-    refreshUI();
+    // Startup Execution Order
+    if (!checkPriorCompletion()) {
+      renderQuoteScreen();
+    }
   </script>
 </body>
 </html>
