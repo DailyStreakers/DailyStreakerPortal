@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>QuoteGuess — Daily Movie Quote Trivia | DailyStreakers</title>
+
+  <!-- Prevent light/dark theme flash on initial render -->
+  <script>
+    const savedTheme = localStorage.getItem('quoteguess_theme_preference');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -125,7 +136,7 @@
         </div>
       </div>
 
-      <!-- AUTOMATIC HINT BANNER (Reveals after 3 guesses) -->
+      <!-- AUTOMATIC HINT BANNER (Reveals after 3 missed guesses on this quote) -->
       <div id="hint-banner" class="hidden mb-3 p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 rounded-2xl text-xs text-amber-900 dark:text-amber-200 flex items-center space-x-2">
         <i class="ph ph-lightbulb text-base text-amber-600 flex-shrink-0"></i>
         <span id="hint-msg">Clue: Released in 1994</span>
@@ -138,7 +149,7 @@
       <div id="finished-quotes-log" class="space-y-1.5 mb-3"></div>
     </div>
 
-    <!-- CONTROLS & INPUT -->
+    <!-- BOTTOM CONTROLS (Active vs Finished State) -->
     <div class="pt-2">
       <!-- Active input section -->
       <div id="controls-active">
@@ -281,49 +292,165 @@
 
   <script>
     /* =========================================================================
-       1. DATABASE OF QUOTES (5 Picked Daily)
+       1. 100+ MODERN MOVIE QUOTES DATABASE (1990 to Present)
        ========================================================================= */
     const MASTER_QUOTES = [
-      { q: "Here's looking at you, kid.", title: "Casablanca", alts: [], yr: "1942" },
-      { q: "I'm gonna make him an offer he can't refuse.", title: "The Godfather", alts: [], yr: "1972" },
-      { q: "May the Force be with you.", title: "Star Wars", alts: ["Star Wars: Episode IV - A New Hope", "A New Hope"], yr: "1977" },
-      { q: "You talking to me?", title: "Taxi Driver", alts: [], yr: "1976" },
-      { q: "There's no place like home.", title: "The Wizard of Oz", alts: ["Wizard of Oz"], yr: "1939" },
-      { q: "I'll be back.", title: "The Terminator", alts: ["Terminator"], yr: "1984" },
-      { q: "You can't handle the truth!", title: "A Few Good Men", alts: [], yr: "1992" },
-      { q: "Houston, we have a problem.", title: "Apollo 13", alts: [], yr: "1995" },
-      { q: "Keep your friends close, but your enemies closer.", title: "The Godfather Part II", alts: ["The Godfather 2"], yr: "1974" },
-      { q: "Say 'hello' to my little friend!", title: "Scarface", alts: [], yr: "1983" },
+      // 1990-1994
+      { q: "As far back as I can remember, I always wanted to be a gangster.", title: "Goodfellas", alts: [], yr: "1990" },
+      { q: "Keep the change, ya filthy animal.", title: "Home Alone", alts: [], yr: "1990" },
       { q: "Hasta la vista, baby.", title: "Terminator 2: Judgment Day", alts: ["Terminator 2", "T2"], yr: "1991" },
-      { q: "My mama always said life was like a box of chocolates.", title: "Forrest Gump", alts: [], yr: "1994" },
-      { q: "I see dead people.", title: "The Sixth Sense", alts: ["Sixth Sense"], yr: "1999" },
-      { q: "Why so serious?", title: "The Dark Knight", alts: ["Dark Knight"], yr: "2008" },
-      { q: "You're gonna need a bigger boat.", title: "Jaws", alts: [], yr: "1975" },
-      { q: "To infinity and beyond!", title: "Toy Story", alts: [], yr: "1995" },
-      { q: "Elementary, my dear Watson.", title: "The Adventures of Sherlock Holmes", alts: ["Sherlock Holmes"], yr: "1939" },
-      { q: "I am your father.", title: "The Empire Strikes Back", alts: ["Star Wars: Episode V - The Empire Strikes Back"], yr: "1980" },
-      { q: "Show me the money!", title: "Jerry Maguire", alts: [], yr: "1996" },
-      { q: "Frankly, my dear, I don't give a damn.", title: "Gone with the Wind", alts: [], yr: "1939" },
-      { q: "E.T. phone home.", title: "E.T. the Extra-Terrestrial", alts: ["E.T.", "ET"], yr: "1982" },
-      { q: "Nobody puts Baby in a corner.", title: "Dirty Dancing", alts: [], yr: "1987" },
-      { q: "Roads? Where we're going we don't need roads.", title: "Back to the Future", alts: [], yr: "1985" },
-      { q: "Get busy living, or get busy dying.", title: "The Shawshank Redemption", alts: ["Shawshank Redemption"], yr: "1994" },
-      { q: "They may take our lives, but they'll never take our freedom!", title: "Braveheart", alts: [], yr: "1995" },
-      { q: "First rule of Fight Club is: you do not talk about Fight Club.", title: "Fight Club", alts: [], yr: "1999" },
-      { q: "I'm the king of the world!", title: "Titanic", alts: [], yr: "1997" },
-      { q: "There is no spoon.", title: "The Matrix", alts: ["Matrix"], yr: "1999" },
+      { q: "I ate his liver with some fava beans and a nice Chianti.", title: "The Silence of the Lambs", alts: ["Silence of the Lambs"], yr: "1991" },
+      { q: "You can't handle the truth!", title: "A Few Good Men", alts: [], yr: "1992" },
+      { q: "Party on, Wayne! Party on, Garth!", title: "Wayne's World", alts: [], yr: "1992" },
+      { q: "Phenomenal cosmic powers... itty bitty living space.", title: "Aladdin", alts: [], yr: "1992" },
+      { q: "Life, uh, finds a way.", title: "Jurassic Park", alts: [], yr: "1993" },
+      { q: "You're killing me, Smalls!", title: "The Sandlot", alts: [], yr: "1993" },
+      { q: "Alright, alright, alright.", title: "Dazed and Confused", alts: [], yr: "1993" },
+      { q: "I'm your huckleberry.", title: "Tombstone", alts: [], yr: "1993" },
       { q: "Say 'what' again. Say 'what' again, I dare you, I double dare you!", title: "Pulp Fiction", alts: [], yr: "1994" },
-      { q: "Here's Johnny!", title: "The Shining", alts: ["Shining"], yr: "1980" }
+      { q: "My mama always said life was like a box of chocolates.", title: "Forrest Gump", alts: [], yr: "1994" },
+      { q: "Get busy living, or get busy dying.", title: "The Shawshank Redemption", alts: ["Shawshank Redemption"], yr: "1994" },
+      { q: "Hakuna Matata. It means no worries for the rest of your days.", title: "The Lion King", alts: ["Lion King"], yr: "1994" },
+      { q: "So you're telling me there's a chance.", title: "Dumb and Dumber", alts: [], yr: "1994" },
+      { q: "Pop quiz, hotshot. There's a bomb on a bus.", title: "Speed", alts: [], yr: "1994" },
+      { q: "Smokin'!", title: "The Mask", alts: [], yr: "1994" },
+
+      // 1995-1999
+      { q: "To infinity and beyond!", title: "Toy Story", alts: [], yr: "1995" },
+      { q: "Houston, we have a problem.", title: "Apollo 13", alts: [], yr: "1995" },
+      { q: "They may take our lives, but they'll never take our freedom!", title: "Braveheart", alts: [], yr: "1995" },
+      { q: "What's in the box?!", title: "Se7en", alts: ["Seven"], yr: "1995" },
+      { q: "The greatest trick the Devil ever pulled was convincing the world he didn't exist.", title: "The Usual Suspects", alts: [], yr: "1995" },
+      { q: "As if!", title: "Clueless", alts: [], yr: "1995" },
+      { q: "Bye, Felicia.", title: "Friday", alts: [], yr: "1995" },
+      { q: "Show me the money!", title: "Jerry Maguire", alts: [], yr: "1996" },
+      { q: "What's your favorite scary movie?", title: "Scream", alts: [], yr: "1996" },
+      { q: "Welcome to Earth!", title: "Independence Day", alts: [], yr: "1996" },
+      { q: "I'm the king of the world!", title: "Titanic", alts: [], yr: "1997" },
+      { q: "How do you like them apples?", title: "Good Will Hunting", alts: [], yr: "1997" },
+      { q: "A person is smart. People are dumb, panicky dangerous animals.", title: "Men in Black", alts: ["MIB"], yr: "1997" },
+      { q: "Yeah, well, that's just, like, your opinion, man.", title: "The Big Lebowski", alts: ["Big Lebowski"], yr: "1998" },
+      { q: "Good morning, and in case I don't see ya, good afternoon, good evening, and good night!", title: "The Truman Show", alts: [], yr: "1998" },
+      { q: "Earn this. Earn it.", title: "Saving Private Ryan", alts: [], yr: "1998" },
+      { q: "There is no spoon.", title: "The Matrix", alts: ["Matrix"], yr: "1999" },
+      { q: "The first rule of Fight Club is: you do not talk about Fight Club.", title: "Fight Club", alts: [], yr: "1999" },
+      { q: "I see dead people.", title: "The Sixth Sense", alts: ["Sixth Sense"], yr: "1999" },
+      { q: "Yeah, if you could just come in on Saturday, that would be great.", title: "Office Space", alts: [], yr: "1999" },
+      { q: "Looks to me like you're on the wrong side of the river!", title: "The Mummy", alts: [], yr: "1999" },
+
+      // 2000-2004
+      { q: "Are you not entertained?!", title: "Gladiator", alts: [], yr: "2000" },
+      { q: "WILSON!", title: "Cast Away", alts: [], yr: "2000" },
+      { q: "I have to return some videotapes.", title: "American Psycho", alts: [], yr: "2000" },
+      { q: "I have nipples, Greg. Could you milk me?", title: "Meet the Parents", alts: [], yr: "2000" },
+      { q: "Ogres are like onions. Onions have layers.", title: "Shrek", alts: [], yr: "2001" },
+      { q: "You shall not pass!", title: "The Lord of the Rings: The Fellowship of the Ring", alts: ["Fellowship of the Ring", "LOTR"], yr: "2001" },
+      { q: "King Kong ain't got nothing on me!", title: "Training Day", alts: [], yr: "2001" },
+      { q: "What is this? A center for ants?!", title: "Zoolander", alts: [], yr: "2001" },
+      { q: "What, like it's hard?", title: "Legally Blonde", alts: [], yr: "2001" },
+      { q: "I live my life a quarter-mile at a time.", title: "The Fast and the Furious", alts: ["Fast and Furious"], yr: "2001" },
+      { q: "My precious.", title: "The Lord of the Rings: The Two Towers", alts: ["The Two Towers", "LOTR 2"], yr: "2002" },
+      { q: "With great power comes great responsibility.", title: "Spider-Man", alts: ["Spider-Man 1"], yr: "2002" },
+      { q: "You will always remember this as the day that you almost caught Captain Jack Sparrow.", title: "Pirates of the Caribbean: The Curse of the Black Pearl", alts: ["Pirates of the Caribbean"], yr: "2003" },
+      { q: "Just keep swimming.", title: "Finding Nemo", alts: [], yr: "2003" },
+      { q: "SANTA! Oh my god! Santa's coming! I know him! I know him!", title: "Elf", alts: [], yr: "2003" },
+      { q: "You're tacky and I hate you.", title: "School of Rock", alts: [], yr: "2003" },
+      { q: "On Wednesdays we wear pink.", title: "Mean Girls", alts: [], yr: "2004" },
+      { q: "Boy, that escalated quickly.", title: "Anchorman: The Legend of Ron Burgundy", alts: ["Anchorman"], yr: "2004" },
+      { q: "Where is my super suit?!", title: "The Incredibles", alts: ["Incredibles"], yr: "2004" },
+      { q: "Vote for Pedro.", title: "Napoleon Dynamite", alts: [], yr: "2004" },
+      { q: "If you can dodge a wrench, you can dodge a ball.", title: "Dodgeball", alts: ["Dodgeball: A True Underdog Story"], yr: "2004" },
+      { q: "I want to play a game.", title: "Saw", alts: [], yr: "2004" },
+
+      // 2005-2009
+      { q: "I wish I knew how to quit you.", title: "Brokeback Mountain", alts: [], yr: "2005" },
+      { q: "It's over, Anakin! I have the high ground!", title: "Star Wars: Episode III - Revenge of the Sith", alts: ["Revenge of the Sith"], yr: "2005" },
+      { q: "Florals? For spring? Groundbreaking.", title: "The Devil Wears Prada", alts: ["Devil Wears Prada"], yr: "2006" },
+      { q: "This is Sparta!", title: "300", alts: [], yr: "2006" },
+      { q: "If you ain't first, you're last.", title: "Talladega Nights: The Ballad of Ricky Bobby", alts: ["Talladega Nights"], yr: "2006" },
+      { q: "Very nice, how much?", title: "Borat", alts: [], yr: "2006" },
+      { q: "I am McLovin.", title: "Superbad", alts: [], yr: "2007" },
+      { q: "I drink your milkshake! I drink it up!", title: "There Will Be Blood", alts: [], yr: "2007" },
+      { q: "What's the most you ever lost on a coin toss?", title: "No Country for Old Men", alts: [], yr: "2007" },
+      { q: "Anyone can cook.", title: "Ratatouille", alts: [], yr: "2007" },
+      { q: "Why so serious?", title: "The Dark Knight", alts: ["Dark Knight"], yr: "2008" },
+      { q: "I am Iron Man.", title: "Iron Man", alts: [], yr: "2008" },
+      { q: "Did we just become best friends? - Yup!", title: "Step Brothers", alts: [], yr: "2008" },
+      { q: "I'm a dude playing a dude disguised as another dude.", title: "Tropic Thunder", alts: [], yr: "2008" },
+      { q: "Hold on tight, spider monkey.", title: "Twilight", alts: [], yr: "2008" },
+      { q: "That's a bingo!", title: "Inglourious Basterds", alts: [], yr: "2009" },
+      { q: "What happens in Vegas stays in Vegas. Except for herpes.", title: "The Hangover", alts: [], yr: "2009" },
+      { q: "Adventure is out there!", title: "Up", alts: [], yr: "2009" },
+      { q: "I see you.", title: "Avatar", alts: [], yr: "2009" },
+
+      // 2010-2019
+      { q: "A million dollars isn't cool. You know what is? A billion dollars.", title: "The Social Network", alts: ["Social Network"], yr: "2010" },
+      { q: "You mustn't be afraid to dream a little bigger, darling.", title: "Inception", alts: [], yr: "2010" },
+      { q: "Help me, I'm poor.", title: "Bridesmaids", alts: [], yr: "2011" },
+      { q: "After all this time? - Always.", title: "Harry Potter and the Deathly Hallows – Part 2", alts: ["Harry Potter", "Deathly Hallows Part 2"], yr: "2011" },
+      { q: "Gentlemen, you had my curiosity, but now you have my attention.", title: "Django Unchained", alts: [], yr: "2012" },
+      { q: "We have a Hulk.", title: "The Avengers", alts: ["Avengers"], yr: "2012" },
+      { q: "May the odds be ever in your favor.", title: "The Hunger Games", alts: ["Hunger Games"], yr: "2012" },
+      { q: "Sell me this pen.", title: "The Wolf of Wall Street", alts: ["Wolf of Wall Street"], yr: "2013" },
+      { q: "Look at me. I'm the captain now.", title: "Captain Phillips", alts: [], yr: "2013" },
+      { q: "Let it go.", title: "Frozen", alts: [], yr: "2013" },
+      { q: "There are no two words in the English language more harmful than 'good job'.", title: "Whiplash", alts: [], yr: "2014" },
+      { q: "Love is the one thing that transcends time and space.", title: "Interstellar", alts: [], yr: "2014" },
+      { q: "We are Groot.", title: "Guardians of the Galaxy", alts: [], yr: "2014" },
+      { q: "Yeah, I'm thinking I'm back.", title: "John Wick", alts: [], yr: "2014" },
+      { q: "Witness me!", title: "Mad Max: Fury Road", alts: ["Fury Road"], yr: "2015" },
+      { q: "I'm going to have to science the shit out of this.", title: "The Martian", alts: [], yr: "2015" },
+      { q: "Maximum effort.", title: "Deadpool", alts: [], yr: "2016" },
+      { q: "Here's to the ones who dream, foolish as they may seem.", title: "La La Land", alts: [], yr: "2016" },
+      { q: "Now, you're in the sunken place.", title: "Get Out", alts: [], yr: "2017" },
+      { q: "He's a friend from work!", title: "Thor: Ragnarok", alts: ["Ragnarok"], yr: "2017" },
+      { q: "Wakanda forever!", title: "Black Panther", alts: [], yr: "2018" },
+      { q: "Dread it. Run from it. Destiny arrives all the same.", title: "Avengers: Infinity War", alts: ["Infinity War"], yr: "2018" },
+      { q: "It's a leap of faith. That's all it is, Miles.", title: "Spider-Man: Into the Spider-Verse", alts: ["Into the Spider-Verse"], yr: "2018" },
+      { q: "I love you 3000.", title: "Avengers: Endgame", alts: ["Endgame"], yr: "2019" },
+      { q: "You know what kind of plan never fails? No plan at all.", title: "Parasite", alts: [], yr: "2019" },
+      { q: "I suspect foul play, and I have eliminated no suspects.", title: "Knives Out", alts: [], yr: "2019" },
+
+      // 2020 to Recent
+      { q: "Don't try to understand it. Feel it.", title: "Tenet", alts: [], yr: "2020" },
+      { q: "Fear is the mind-killer.", title: "Dune", alts: ["Dune: Part One"], yr: "2021" },
+      { q: "In another life, I would have really liked just doing laundry and taxes with you.", title: "Everything Everywhere All At Once", alts: ["EEAAO"], yr: "2022" },
+      { q: "Don't think, just do.", title: "Top Gun: Maverick", alts: ["Top Gun 2"], yr: "2022" },
+      { q: "I'm vengeance.", title: "The Batman", alts: [], yr: "2022" },
+      { q: "I'm just Ken and I'm enough. And I'm great at doing stuff.", title: "Barbie", alts: [], yr: "2023" },
+      { q: "Now I am become Death, the destroyer of worlds.", title: "Oppenheimer", alts: [], yr: "2023" },
+      { q: "Everyone keeps telling me how my story is supposed to go. Nah, I'ma do my own thing.", title: "Spider-Man: Across the Spider-Verse", alts: ["Across the Spider-Verse"], yr: "2023" },
+      { q: "May thy knife chip and shatter.", title: "Dune: Part Two", alts: ["Dune 2"], yr: "2024" },
+      { q: "I am Marvel Jesus.", title: "Deadpool & Wolverine", alts: ["Deadpool 3"], yr: "2024" }
     ];
 
+    // Master Autocomplete Pool covering all 105 films
     const AUTOCOMPLETE_MOVIES = [
-      "Casablanca", "The Godfather", "Star Wars", "Taxi Driver", "The Wizard of Oz",
-      "The Terminator", "A Few Good Men", "Apollo 13", "The Godfather Part II", "Scarface",
-      "Terminator 2: Judgment Day", "Forrest Gump", "The Sixth Sense", "The Dark Knight",
-      "Jaws", "Toy Story", "The Empire Strikes Back", "Jerry Maguire", "Gone with the Wind",
-      "E.T. the Extra-Terrestrial", "Dirty Dancing", "Back to the Future", "The Shawshank Redemption",
-      "Braveheart", "Fight Club", "Titanic", "Pulp Fiction", "The Matrix", "The Shining",
-      "Inception", "Goodfellas", "The Silence of the Lambs", "Schindler's List", "Jurassic Park", "Gladiator"
+      "Goodfellas", "Home Alone", "Terminator 2: Judgment Day", "The Silence of the Lambs",
+      "A Few Good Men", "Wayne's World", "Aladdin", "Jurassic Park", "The Sandlot",
+      "Dazed and Confused", "Tombstone", "Pulp Fiction", "Forrest Gump", "The Shawshank Redemption",
+      "The Lion King", "Dumb and Dumber", "Speed", "The Mask", "Toy Story", "Apollo 13",
+      "Braveheart", "Se7en", "The Usual Suspects", "Clueless", "Friday", "Jerry Maguire",
+      "Scream", "Independence Day", "Titanic", "Good Will Hunting", "Men in Black",
+      "The Big Lebowski", "The Truman Show", "Saving Private Ryan", "The Matrix", "Fight Club",
+      "The Sixth Sense", "Office Space", "The Mummy", "Gladiator", "Cast Away",
+      "American Psycho", "Meet the Parents", "Shrek", "The Lord of the Rings: The Fellowship of the Ring",
+      "Training Day", "Zoolander", "Legally Blonde", "The Fast and the Furious",
+      "The Lord of the Rings: The Two Towers", "Spider-Man", "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "Finding Nemo", "Elf", "School of Rock", "Mean Girls", "Anchorman: The Legend of Ron Burgundy",
+      "The Incredibles", "Napoleon Dynamite", "Dodgeball", "Saw", "Brokeback Mountain",
+      "Star Wars: Episode III - Revenge of the Sith", "The Devil Wears Prada", "300",
+      "Talladega Nights: The Ballad of Ricky Bobby", "Borat", "Superbad", "There Will Be Blood",
+      "No Country for Old Men", "Ratatouille", "The Dark Knight", "Iron Man", "Step Brothers",
+      "Tropic Thunder", "Twilight", "Inglourious Basterds", "The Hangover", "Up", "Avatar",
+      "The Social Network", "Inception", "Bridesmaids", "Harry Potter and the Deathly Hallows – Part 2",
+      "Django Unchained", "The Avengers", "The Hunger Games", "The Wolf of Wall Street",
+      "Captain Phillips", "Frozen", "Whiplash", "Interstellar", "Guardians of the Galaxy",
+      "John Wick", "Mad Max: Fury Road", "The Martian", "Deadpool", "La La Land", "Get Out",
+      "Thor: Ragnarok", "Black Panther", "Avengers: Infinity War", "Spider-Man: Into the Spider-Verse",
+      "Avengers: Endgame", "Parasite", "Knives Out", "Tenet", "Dune",
+      "Everything Everywhere All At Once", "Top Gun: Maverick", "The Batman", "Barbie",
+      "Oppenheimer", "Spider-Man: Across the Spider-Verse", "Dune: Part Two", "Deadpool & Wolverine"
     ];
 
     /* =========================================================================
@@ -355,13 +482,13 @@
     const dailyFive = pickDailyFive();
 
     /* =========================================================================
-       3. STATE MANAGEMENT (5 Quotes, 5 Guesses per Quote)
+       3. STATE MANAGEMENT
        ========================================================================= */
     let currentQuoteIndex = 0; // 0 to 4 (which quote)
-    let currentQuoteAttempt = 0; // 0 to 4 (5 guesses on this quote)
+    let currentQuoteAttempt = 0; // 0 to 4 (5 attempts per quote)
     let totalScore = 0;
     let completedQuotes = []; // [{ quote, title, correct, attemptsUsed, finalPoints }]
-    let currentQuoteGuesses = []; // Guesses made on the quote currently on screen
+    let currentQuoteGuesses = []; // Guesses on currently active quote
 
     // Theme Management
     const themeBtn = document.getElementById('btn-theme');
@@ -369,15 +496,19 @@
 
     function applyTheme(isDark) {
       document.documentElement.classList.toggle('dark', isDark);
-      themeIcon.className = isDark ? 'ph ph-sun text-xl' : 'ph ph-moon text-xl';
+      if (themeIcon) {
+        themeIcon.className = isDark ? 'ph ph-sun text-xl' : 'ph ph-moon text-xl';
+      }
       localStorage.setItem('quoteguess_theme_preference', isDark ? 'dark' : 'light');
     }
 
-    const savedTheme = localStorage.getItem('quoteguess_theme_preference');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
+    const isDarkCurrent = document.documentElement.classList.contains('dark');
+    if (themeIcon) {
+      themeIcon.className = isDarkCurrent ? 'ph ph-sun text-xl' : 'ph ph-moon text-xl';
+    }
 
-    themeBtn.addEventListener('click', () => {
+    themeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       applyTheme(!document.documentElement.classList.contains('dark'));
     });
 
@@ -394,7 +525,7 @@
       document.getElementById('quote-number-label').textContent = `Quote ${currentQuoteIndex + 1} of 5`;
       document.getElementById('quote-text-display').textContent = q.q;
 
-      // Update 5 main step pills
+      // Update 5 main overall pills
       for (let i = 0; i < 5; i++) {
         const pill = document.getElementById(`step-${i}`);
         if (i < completedQuotes.length) {
@@ -408,7 +539,7 @@
         }
       }
 
-      // Update attempts indicator (1 to 5) for current quote
+      // Update 5 attempt dots for current quote
       document.getElementById('attempt-label').textContent = `Guess ${currentQuoteAttempt + 1} of 5`;
       for (let i = 0; i < 5; i++) {
         const dot = document.getElementById(`dot-${i}`);
@@ -421,7 +552,7 @@
         }
       }
 
-      // Automatic hint banner: Reveal year after 3 missed guesses
+      // Automatic hint banner: Reveal release year after 3 missed attempts
       const hintBanner = document.getElementById('hint-banner');
       const hintMsg = document.getElementById('hint-msg');
       if (currentQuoteAttempt >= 3) {
@@ -437,7 +568,7 @@
       // Render guesses for this active quote
       renderCurrentQuoteGuesses();
 
-      // Clear input & autocomplete
+      // Clear input & dropdown
       document.getElementById('input-movie-guess').value = '';
       document.getElementById('suggest-menu').classList.add('hidden');
     }
@@ -477,7 +608,7 @@
       );
 
       if (isCorrect) {
-        // SOLVED THIS QUOTE!
+        // SOLVED! Points scale down with attempts: 1000, 850, 700, 550, 400
         const pointsForThisQuote = 1000 - (currentQuoteAttempt * 150);
         totalScore += pointsForThisQuote;
         document.getElementById('points-total-label').textContent = `${totalScore.toLocaleString()} PTS`;
@@ -492,18 +623,18 @@
 
         renderFinishedQuotesLog();
 
-        // Move to next quote
+        // Advance to next quote
         currentQuoteIndex++;
         currentQuoteAttempt = 0;
         currentQuoteGuesses = [];
         renderQuoteScreen();
       } else {
-        // WRONG GUESS OR SKIP ON THIS QUOTE
+        // MISSED OR SKIPPED
         currentQuoteGuesses.push(isSkip ? 'Skipped' : guessText);
         currentQuoteAttempt++;
 
         if (currentQuoteAttempt >= 5) {
-          // OUT OF GUESSES ON THIS QUOTE -> MOVE TO NEXT QUOTE
+          // Exhausted all 5 attempts on this quote -> Miss
           completedQuotes.push({
             quote: q.q,
             title: q.title,
@@ -519,7 +650,6 @@
           currentQuoteGuesses = [];
           renderQuoteScreen();
         } else {
-          // Still have guesses remaining on this quote
           renderQuoteScreen();
         }
       }
@@ -592,23 +722,23 @@
     }
 
     // Modal Close Button & Backdrop Dismissal
-    document.getElementById('btn-close-modal').onclick = () => {
+    document.getElementById('btn-close-modal').addEventListener('click', () => {
       document.getElementById('modal-result').classList.add('hidden');
-    };
+    });
 
     document.getElementById('modal-backdrop').addEventListener('click', () => {
       document.getElementById('modal-result').classList.add('hidden');
     });
 
     // Reopen Scorecard from Finished Bar
-    document.getElementById('btn-reopen-scorecard').onclick = () => {
+    document.getElementById('btn-reopen-scorecard').addEventListener('click', () => {
       try {
         const stats = JSON.parse(localStorage.getItem('quoteguess_stats') || '{}');
         showResultModal(stats.score || 0, stats.streak || 1, stats.history || [], false);
       } catch (e) {
         showResultModal(0, 1, [], false);
       }
-    };
+    });
 
     // Check if played earlier today on initial load
     function checkPriorCompletion() {
