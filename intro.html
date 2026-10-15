@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>IntroGuess — Daily TV Theme Trivia | DailyStreakers</title>
 
-  <!-- Prevent light/dark theme flash on initial render -->
+  <!-- Prevent light/dark theme flash on render -->
   <script>
     const savedTheme = localStorage.getItem('quoteguess_theme_preference');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -45,6 +45,11 @@
 </head>
 
 <body class="bg-stone-50 text-slate-800 dark:bg-stone-950 dark:text-stone-100 min-h-screen flex flex-col transition-colors duration-150">
+
+  <!-- HIDDEN OFF-SCREEN YOUTUBE AUDIO ENGINE -->
+  <div class="pointer-events-none fixed -top-[9999px] -left-[9999px] w-1 h-1 opacity-0 overflow-hidden" aria-hidden="true">
+    <div id="yt-player"></div>
+  </div>
 
   <!-- TOP HEADER -->
   <header class="border-b border-stone-200 dark:border-stone-800 bg-white/90 dark:bg-stone-900/90 backdrop-blur sticky top-0 z-40">
@@ -102,12 +107,6 @@
       <!-- AUDIO CONTROLLER CARD -->
       <div class="bg-white dark:bg-stone-900 rounded-3xl p-5 border border-stone-200 dark:border-stone-800 shadow-sm mb-3">
         
-        <!-- Error Alert -->
-        <div id="audio-error-banner" class="hidden mb-3 p-2.5 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 rounded-xl text-xs text-rose-700 dark:text-rose-300 flex items-center space-x-2">
-          <i class="ph ph-warning-circle text-base flex-shrink-0"></i>
-          <span>Audio stream unreachable. Please check connection.</span>
-        </div>
-
         <div class="flex items-center justify-center space-x-1.5 h-7 mb-3">
           <div class="w-1.5 bg-orange-500 rounded-full wave-bar"></div>
           <div class="w-1.5 bg-orange-500 rounded-full wave-bar"></div>
@@ -121,10 +120,10 @@
           <button id="btn-play" class="w-16 h-16 rounded-full bg-orange-600 hover:bg-orange-500 text-white flex items-center justify-center shadow-lg shadow-orange-600/30 hover:scale-105 active:scale-95 transition focus:outline-none">
             <i class="ph ph-play-fill text-2xl ml-0.5" id="play-icon"></i>
           </button>
-          <span class="text-xs font-semibold text-stone-500 dark:text-stone-400 mt-2.5" id="play-status">Tap to play (1.0s unlocked)</span>
+          <span class="text-xs font-semibold text-stone-500 dark:text-stone-400 mt-2.5" id="play-status">Initializing engine...</span>
         </div>
 
-        <!-- 5-Interval Progress Timeline for Active Intro -->
+        <!-- 5-Interval Progress Timeline -->
         <div class="space-y-1.5">
           <div class="relative w-full h-2.5 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden flex border border-stone-200 dark:border-stone-700">
             <div id="seg-0" class="h-full bg-orange-500 border-r border-white/40 dark:border-stone-900 transition-colors" style="width: 6.6%;"></div>
@@ -148,16 +147,15 @@
         <span id="hint-msg"></span>
       </div>
 
-      <!-- Guesses made on the current active intro -->
+      <!-- Guesses made on current active intro -->
       <div id="current-intro-guesses" class="space-y-1.5 mb-2.5"></div>
 
-      <!-- Log of previously completed intros -->
+      <!-- Completed intros history log -->
       <div id="completed-intros-log" class="space-y-1.5 mb-3"></div>
     </div>
 
     <!-- BOTTOM CONTROLS (Active vs Finished State) -->
     <div class="pt-2">
-      <!-- Active input section -->
       <div id="controls-active">
         <div class="relative mb-2.5">
           <div class="flex items-center bg-white dark:bg-stone-900 border-2 border-stone-200 dark:border-stone-700 rounded-2xl overflow-hidden focus-within:border-orange-500">
@@ -290,166 +288,50 @@
 
   <script>
     /* =========================================================================
-       1. MASTER TV SHOW DATABASE (Streamable from Internet Archive)
+       1. MODERN TV SHOW POOL (YouTube Engine Powered)
        ========================================================================= */
     const MASTER_SHOWS = [
-      { 
-        title: "Friends", 
-        alts: ["Friends (TV Series)"], 
-        yr: "1994", 
-        net: "NBC", 
-        url: "https://archive.org/download/full-length-tv-themes/The%20Rembrandts%20-%20I%27ll%20Be%20There%20For%20You%20%28Theme%20From%20FRIENDS%29.mp3" 
-      },
-      { 
-        title: "The Fresh Prince of Bel-Air", 
-        alts: ["Fresh Prince", "The Fresh Prince"], 
-        yr: "1990", 
-        net: "NBC", 
-        url: "https://archive.org/download/full-length-tv-themes/Will%20Smith%2C%20DJ%20Jazzy%20Jeff%20%26%20The%20Fresh%20Prince%20-%20The%20Fresh%20Prince%20Of%20Bel%20Air%20%28Audio%29.mp3" 
-      },
-      { 
-        title: "Cheers", 
-        alts: [], 
-        yr: "1982", 
-        net: "NBC", 
-        url: "https://archive.org/download/full-length-tv-themes/Cheers%20Theme%20%28Full%20Length%20Record%29.mp3" 
-      },
-      { 
-        title: "The Big Bang Theory", 
-        alts: ["Big Bang Theory"], 
-        yr: "2007", 
-        net: "CBS", 
-        url: "https://archive.org/download/full-length-tv-themes/The%20Big%20Bang%20Theory%20Song%20by%20Barenaked%20Ladies%20from%20The%20Big%20Bang%20Theory%20%28TV%20series%29.mp3" 
-      },
-      { 
-        title: "That '70s Show", 
-        alts: ["That 70s Show", "That 70's Show"], 
-        yr: "1998", 
-        net: "FOX", 
-        url: "https://archive.org/download/full-length-tv-themes/Cheap%20Trick%20-%20That%2070%27s%20Song%20%5BBased%20On%20In%20The%20Street%5D%20%281999%20Version%29.mp3" 
-      },
-      { 
-        title: "The Golden Girls", 
-        alts: ["Golden Girls"], 
-        yr: "1985", 
-        net: "NBC", 
-        url: "https://archive.org/download/full-length-tv-themes/THANK%20YOU%20FOR%20BEING%20A%20FRIEND%20-%20Andrew%20Gold.mp3" 
-      },
-      { 
-        title: "Batman", 
-        alts: ["Batman 1966", "Batman TV Series"], 
-        yr: "1966", 
-        net: "ABC", 
-        url: "https://archive.org/download/full-length-tv-themes/1960%27s%20Batman%20Theme%20%28%20Album%20Version%20%29.mp3" 
-      },
-      { 
-        title: "Happy Days", 
-        alts: [], 
-        yr: "1974", 
-        net: "ABC", 
-        url: "https://archive.org/download/full-length-tv-themes/Happy%20Days%20%28TV%20Show%20Theme%29%20-%20Pratt%20%26%20McClain%20%281976%29.mp3" 
-      },
-      { 
-        title: "M*A*S*H", 
-        alts: ["MASH"], 
-        yr: "1972", 
-        net: "CBS", 
-        url: "https://archive.org/download/full-length-tv-themes/Johnny%20Mandel%20-%20Suicide%20Is%20Painless%20%28Audio%29.mp3" 
-      },
-      { 
-        title: "The Dukes of Hazzard", 
-        alts: ["Dukes of Hazzard"], 
-        yr: "1979", 
-        net: "CBS", 
-        url: "https://archive.org/download/full-length-tv-themes/Waylon%20Jennings%20-%20Good%20Old%20Boys%20%28Dukes%20Of%20Hazard%29.mp3" 
-      },
-      { 
-        title: "All in the Family", 
-        alts: [], 
-        yr: "1971", 
-        net: "CBS", 
-        url: "https://archive.org/download/full-length-tv-themes/All%20in%20the%20Family%20-%20Those%20Were%20the%20Days%20%28Full%20Version%29%20%26%20Closing%20Theme.mp3" 
-      },
-      { 
-        title: "Family Matters", 
-        alts: [], 
-        yr: "1989", 
-        net: "ABC", 
-        url: "https://archive.org/download/full-length-tv-themes/Family%20Matters%20Theme%20Song%20%28As%20Days%20Go%20By%29.mp3" 
-      },
-      { 
-        title: "Three's Company", 
-        alts: ["Threes Company"], 
-        yr: "1977", 
-        net: "ABC", 
-        url: "https://archive.org/download/full-length-tv-themes/Three%27s%20Company%201977%20-%20OpenClose.mp3" 
-      },
-      { 
-        title: "The Andy Griffith Show", 
-        alts: ["Andy Griffith"], 
-        yr: "1960", 
-        net: "CBS", 
-        url: "https://archive.org/download/full-length-tv-themes/The%20Fishin%27%20Hole%20Andy%20Grifftin.mp3" 
-      },
-      { 
-        title: "The Beverly Hillbillies", 
-        alts: ["Beverly Hillbillies"], 
-        yr: "1962", 
-        net: "CBS", 
-        url: "https://archive.org/download/full-length-tv-themes/The%20Ballad%20Of%20Jed%20Clampett%20-%20Lester%20Flatt%20%2CEarl%20Scruggs%20%281962%29.mp3" 
-      },
-      { 
-        title: "The Price Is Right", 
-        alts: ["Price Is Right"], 
-        yr: "1972", 
-        net: "CBS", 
-        url: "https://archive.org/download/full-length-tv-themes/The%20Price%20is%20Right%201972%20Extended%20Theme.mp3" 
-      },
-      { 
-        title: "Growing Pains", 
-        alts: [], 
-        yr: "1985", 
-        net: "ABC", 
-        url: "https://archive.org/download/full-length-tv-themes/As%20Long%20as%20We%20Got%20Each%20Other%20%28with%20Dusty%20Springfield%29%20%28Theme%20from%20%27Growing%20Pains%27%29.mp3" 
-      },
-      { 
-        title: "Welcome Back, Kotter", 
-        alts: ["Welcome Back Kotter"], 
-        yr: "1975", 
-        net: "ABC", 
-        url: "https://archive.org/download/full-length-tv-themes/John%20Sebastian%20-%20Welcome%20Back.mp3" 
-      },
-      { 
-        title: "Taxi", 
-        alts: [], 
-        yr: "1978", 
-        net: "ABC", 
-        url: "https://archive.org/download/full-length-tv-themes/Bob%20James%20-%20Angela%20%28theme%20from%20Taxi%29.mp3" 
-      },
-      { 
-        title: "Laverne & Shirley", 
-        alts: ["Laverne and Shirley"], 
-        yr: "1976", 
-        net: "ABC", 
-        url: "https://archive.org/download/full-length-tv-themes/Making%20Our%20Dreams%20Come%20True%20%28Theme%20From%20Laverne%20%26%20Shirley%29.mp3" 
-      }
+      { title: "The Office", alts: ["The Office US"], yr: "2005", net: "NBC", ytId: "tFXjflvbBJo", start: 0 },
+      { title: "Friends", alts: ["Friends (TV Series)"], yr: "1994", net: "NBC", ytId: "q-9kPks0IfE", start: 0 },
+      { title: "Stranger Things", alts: [], yr: "2016", net: "Netflix", ytId: "2obv0DHuhu4", start: 0 },
+      { title: "Game of Thrones", alts: ["GOT"], yr: "2011", net: "HBO", ytId: "s7L2PVdrb_8", start: 0 },
+      { title: "Succession", alts: [], yr: "2018", net: "HBO", ytId: "ChU_W9LfgZo", start: 0 },
+      { title: "Breaking Bad", alts: [], yr: "2008", net: "AMC", ytId: "Bgq1ZyOCwVk", start: 0 },
+      { title: "Better Call Saul", alts: [], yr: "2015", net: "AMC", ytId: "0iHFrwzNd0A", start: 0 },
+      { title: "The Sopranos", alts: [], yr: "1999", net: "HBO", ytId: "PpkL6SWZOB8", start: 0 },
+      { title: "The Fresh Prince of Bel-Air", alts: ["Fresh Prince"], yr: "1990", net: "NBC", ytId: "AVbQo3IOC_A", start: 0 },
+      { title: "Parks and Recreation", alts: ["Parks and Rec"], yr: "2009", net: "NBC", ytId: "F64-5t6xXBk", start: 0 },
+      { title: "The White Lotus", alts: ["White Lotus"], yr: "2021", net: "HBO", ytId: "TwdHA-nbemk", start: 0 },
+      { title: "Ted Lasso", alts: [], yr: "2020", net: "Apple TV+", ytId: "AIcis7S-byg", start: 0 },
+      { title: "The Mandalorian", alts: ["Mandalorian"], yr: "2019", net: "Disney+", ytId: "9qoDjHTc_Q8", start: 0 },
+      { title: "SpongeBob SquarePants", alts: ["SpongeBob"], yr: "1999", net: "Nickelodeon", ytId: "r9L4AseD-aA", start: 0 },
+      { title: "Futurama", alts: [], yr: "1999", net: "FOX", ytId: "Tz8HmN2uvuk", start: 0 },
+      { title: "Family Guy", alts: [], yr: "1999", net: "FOX", ytId: "TB7haZkKVbw", start: 0 },
+      { title: "Pokémon", alts: ["Pokemon"], yr: "1997", net: "Kids' WB", ytId: "SVp-zIONsrs", start: 0 },
+      { title: "The Simpsons", alts: ["Simpsons"], yr: "1989", net: "FOX", ytId: "CeZnt3vRCyo", start: 0 },
+      { title: "Cheers", alts: [], yr: "1982", net: "NBC", ytId: "h-mi0r0LpXo", start: 0 },
+      { title: "Seinfeld", alts: [], yr: "1989", net: "NBC", ytId: "x9tVNxQ-RYs", start: 0 },
+      { title: "BoJack Horseman", alts: ["Bojack"], yr: "2014", net: "Netflix", ytId: "ivMCfcp3pUQ", start: 0 },
+      { title: "Peaky Blinders", alts: [], yr: "2013", net: "BBC", ytId: "HDLmyiPuMwc", start: 0 },
+      { title: "Modern Family", alts: [], yr: "2009", net: "ABC", ytId: "u7v90zqDj4g", start: 0 },
+      { title: "The Big Bang Theory", alts: ["Big Bang Theory"], yr: "2007", net: "CBS", ytId: "CMSYv_Z4SI8", start: 0 }
     ];
 
     const AUTOCOMPLETE = [
-      "Friends", "The Fresh Prince of Bel-Air", "Cheers", "The Big Bang Theory", "That '70s Show", 
-      "The Golden Girls", "Batman", "Happy Days", "M*A*S*H", "The Dukes of Hazzard", "All in the Family",
-      "Family Matters", "Three's Company", "The Andy Griffith Show", "The Beverly Hillbillies",
-      "The Price Is Right", "Growing Pains", "Welcome Back, Kotter", "Taxi", "Laverne & Shirley",
-      "The Office", "Seinfeld", "Game of Thrones", "Stranger Things", "The Simpsons", "Breaking Bad", 
-      "Parks and Recreation", "Brooklyn Nine-Nine", "SpongeBob SquarePants", "South Park", 
-      "Family Guy", "Doctor Who", "The Mandalorian", "The Twilight Zone", "Full House"
+      "The Office", "Friends", "Stranger Things", "Game of Thrones", "Succession",
+      "Breaking Bad", "Better Call Saul", "The Sopranos", "The Fresh Prince of Bel-Air",
+      "Parks and Recreation", "The White Lotus", "Ted Lasso", "The Mandalorian",
+      "SpongeBob SquarePants", "Futurama", "Family Guy", "Pokémon", "The Simpsons",
+      "Cheers", "Seinfeld", "BoJack Horseman", "Peaky Blinders", "Modern Family",
+      "The Big Bang Theory", "Brooklyn Nine-Nine", "Doctor Who", "Mad Men", "The X-Files",
+      "Dexter", "The Wire", "House of Cards", "Lost", "Twin Peaks", "Narcos", "Sherlock"
     ];
 
     const TIERS = [1.0, 2.5, 5.0, 8.5, 15.0];
     const POINTS = [1000, 800, 600, 400, 200];
 
     /* =========================================================================
-       2. SEEDED DAILY PICKER (5 TV Shows per day)
+       2. SEEDED DAILY PICKER (5 Shows per day)
        ========================================================================= */
     const today = new Date().toISOString().slice(0, 10);
     const daySeed = parseInt(today.replace(/-/g, ''), 10);
@@ -479,15 +361,17 @@
     /* =========================================================================
        3. STATE MANAGEMENT
        ========================================================================= */
-    let currentIntroIndex = 0; // 0 to 4 (which of the 5 intros)
-    let currentAttempt = 0;    // 0 to 4 (which audio tier on current intro)
+    let currentIntroIndex = 0; // 0 to 4
+    let currentAttempt = 0;    // 0 to 4
     let totalScore = 0;
     let completedIntros = [];  // [{ title, yr, net, correct, attemptsUsed, points }]
-    let currentIntroGuesses = []; // guesses made on active intro
+    let currentIntroGuesses = [];
 
     let isAudioPlaying = false;
-    let audioElem = null;
     let playTimer = null;
+    let ytPlayer = null;
+    let isPlayerReady = false;
+    let pendingPlay = false;
 
     // Theme Management
     const themeBtn = document.getElementById('btn-theme');
@@ -512,7 +396,53 @@
     });
 
     /* =========================================================================
-       4. AUDIO CONTROLLER
+       4. YOUTUBE IFRAME ENGINE INITIALIZATION
+       ========================================================================= */
+    // Asynchronously inject the official YouTube IFrame API script
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window.onYouTubeIframeAPIReady = function() {
+      const initialShow = dailyFive[currentIntroIndex];
+      ytPlayer = new YT.Player('yt-player', {
+        height: '1',
+        width: '1',
+        videoId: initialShow.ytId,
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          playsinline: 1,
+          rel: 0,
+          modestbranding: 1
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onError': onPlayerError
+        }
+      });
+    };
+
+    function onPlayerReady() {
+      isPlayerReady = true;
+      const curTime = TIERS[currentAttempt] || 15.0;
+      document.getElementById('play-status').textContent = `Tap to play (${curTime.toFixed(1)}s unlocked)`;
+
+      if (pendingPlay) {
+        pendingPlay = false;
+        playAudio(TIERS[currentAttempt] || 15.0);
+      }
+    }
+
+    function onPlayerError() {
+      stopPlayback();
+    }
+
+    /* =========================================================================
+       5. AUDIO PLAYBACK & TIMING CONTROLLER
        ========================================================================= */
     function stopPlayback() {
       isAudioPlaying = false;
@@ -521,50 +451,34 @@
       const curTime = TIERS[currentAttempt] || 15.0;
       document.getElementById('play-status').textContent = `Tap to play (${curTime.toFixed(1)}s unlocked)`;
 
-      if (audioElem) { 
-        audioElem.pause(); 
-        audioElem.currentTime = 0; 
+      if (ytPlayer && ytPlayer.pauseVideo) {
+        try { ytPlayer.pauseVideo(); } catch (e) {}
       }
       clearInterval(playTimer);
     }
 
     function playAudio(duration) {
+      if (!isPlayerReady || !ytPlayer || !ytPlayer.seekTo) {
+        pendingPlay = true;
+        document.getElementById('play-status').textContent = 'Loading audio engine...';
+        document.getElementById('play-icon').className = 'ph ph-spinner animate-spin text-2xl';
+        return;
+      }
+
       stopPlayback();
       isAudioPlaying = true;
       document.getElementById('play-icon').className = 'ph ph-stop-fill text-2xl';
       document.getElementById('play-status').textContent = `Playing (${duration.toFixed(1)}s)...`;
 
       const activeShow = dailyFive[currentIntroIndex];
+      const startSec = activeShow.start || 0;
 
-      if (!audioElem) {
-        audioElem = new Audio(activeShow.url);
-        audioElem.crossOrigin = "anonymous";
-        
-        audioElem.addEventListener('waiting', () => {
-          document.getElementById('play-status').textContent = 'Loading audio...';
-          document.getElementById('play-icon').className = 'ph ph-spinner animate-spin text-2xl';
-        });
-
-        audioElem.addEventListener('playing', () => {
-          document.getElementById('play-icon').className = 'ph ph-stop-fill text-2xl';
-          document.getElementById('play-status').textContent = `Playing (${duration.toFixed(1)}s)...`;
-        });
-
-        audioElem.addEventListener('error', () => {
-          document.getElementById('audio-error-banner').classList.remove('hidden');
-          stopPlayback();
-        });
-      } else if (audioElem.src !== activeShow.url) {
-        audioElem.src = activeShow.url;
-      }
-
-      audioElem.currentTime = 0;
-      const playPromise = audioElem.play();
-
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          stopPlayback();
-        });
+      try {
+        ytPlayer.seekTo(startSec, true);
+        ytPlayer.playVideo();
+      } catch (e) {
+        stopPlayback();
+        return;
       }
 
       const startTime = performance.now();
@@ -572,7 +486,9 @@
         const elapsed = (performance.now() - startTime) / 1000;
         const pct = Math.min((elapsed / 15.0) * 100, (duration / 15.0) * 100);
         document.getElementById('playhead').style.width = pct + '%';
-        if (elapsed >= duration) stopPlayback();
+        if (elapsed >= duration) {
+          stopPlayback();
+        }
       }, 30);
     }
 
@@ -582,7 +498,7 @@
     };
 
     /* =========================================================================
-       5. GAMEPLAY UI & PROGRESSION
+       6. GAMEPLAY UI & PROGRESSION
        ========================================================================= */
     function renderIntroScreen() {
       if (currentIntroIndex >= 5) {
@@ -593,9 +509,14 @@
       const activeShow = dailyFive[currentIntroIndex];
       stopPlayback();
 
-      // Reset audio for new intro
-      if (audioElem && audioElem.src !== activeShow.url) {
-        audioElem.src = activeShow.url;
+      // Cue the YouTube video for the active intro
+      if (ytPlayer && ytPlayer.cueVideoById) {
+        try {
+          ytPlayer.cueVideoById({
+            videoId: activeShow.ytId,
+            startSeconds: activeShow.start || 0
+          });
+        } catch (e) {}
       }
 
       document.getElementById('intro-number-label').textContent = `Intro ${currentIntroIndex + 1} of 5`;
@@ -638,10 +559,8 @@
         hintBanner.classList.add('hidden');
       }
 
-      // Render guesses for this active intro
       renderCurrentGuesses();
 
-      // Clear input & dropdown
       document.getElementById('input-guess').value = '';
       document.getElementById('suggest-menu').classList.add('hidden');
     }
@@ -681,7 +600,7 @@
       );
 
       if (isCorrect) {
-        // SOLVED!
+        // SOLVED! Points: 1000, 800, 600, 400, 200
         const pts = POINTS[currentAttempt] || 200;
         totalScore += pts;
         document.getElementById('points-total-label').textContent = `${totalScore.toLocaleString()} PTS`;
@@ -708,7 +627,7 @@
         currentAttempt++;
 
         if (currentAttempt >= 5) {
-          // Exhausted all 5 tiers on this intro -> Mark miss and advance
+          // Exhausted all 5 attempts on this intro
           completedIntros.push({
             title: activeShow.title,
             yr: activeShow.yr,
@@ -725,7 +644,7 @@
           currentIntroGuesses = [];
           renderIntroScreen();
         } else {
-          // Play newly unlocked tier
+          // Play newly unlocked tier duration
           renderIntroScreen();
           playAudio(TIERS[currentAttempt]);
         }
@@ -733,7 +652,7 @@
     }
 
     /* =========================================================================
-       6. COMPLETION, STREAKS & LOCALSTORAGE PERSISTENCE
+       7. COMPLETION, STREAKS & LOCALSTORAGE PERSISTENCE
        ========================================================================= */
     function finishGame() {
       stopPlayback();
@@ -850,7 +769,7 @@
     }
 
     /* =========================================================================
-       7. INPUTS & AUTOCOMPLETE
+       8. INPUTS & AUTOCOMPLETE
        ========================================================================= */
     const input = document.getElementById('input-guess');
     const suggest = document.getElementById('suggest-menu');
