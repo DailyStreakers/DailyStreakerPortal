@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>IntroGuess — Daily TV Theme Trivia | DailyStreakers</title>
+
+  <!-- Prevent light mode flash by checking preference before render -->
+  <script>
+    const savedTheme = localStorage.getItem('quoteguess_theme_preference');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -25,6 +36,11 @@
     .wave-bar:nth-child(3) { animation-delay: 0.3s; }
     .wave-bar:nth-child(4) { animation-delay: 0.45s; }
     .wave-bar:nth-child(5) { animation-delay: 0.6s; }
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgba(156, 163, 175, 0.4);
+      border-radius: 9999px;
+    }
   </style>
 </head>
 
@@ -79,7 +95,7 @@
         <!-- Error Alert -->
         <div id="audio-error-banner" class="hidden mb-3 p-2.5 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 rounded-xl text-xs text-rose-700 dark:text-rose-300 flex items-center space-x-2">
           <i class="ph ph-warning-circle text-base flex-shrink-0"></i>
-          <span>Audio stream unreachable. Trying alternative source...</span>
+          <span>Audio stream unreachable. Please check connection.</span>
         </div>
 
         <div class="flex items-center justify-center space-x-1.5 h-8 mb-4">
@@ -95,7 +111,7 @@
           <button id="btn-play" class="w-16 h-16 rounded-full bg-orange-600 hover:bg-orange-500 text-white flex items-center justify-center shadow-lg shadow-orange-600/30 hover:scale-105 active:scale-95 transition focus:outline-none">
             <i class="ph ph-play-fill text-2xl ml-0.5" id="play-icon"></i>
           </button>
-          <span class="text-xs font-semibold text-stone-500 dark:text-stone-400 mt-2.5" id="play-status">Connecting audio...</span>
+          <span class="text-xs font-semibold text-stone-500 dark:text-stone-400 mt-2.5" id="play-status">Tap to play (1.0s unlocked)</span>
         </div>
 
         <!-- 5-Interval Progress Timeline -->
@@ -135,7 +151,7 @@
             <i class="ph ph-magnifying-glass text-stone-400 ml-3 mr-2"></i>
             <input type="text" id="input-guess" placeholder="Guess the TV show title..." autocomplete="off" class="w-full py-3 pr-3 text-xs md:text-sm bg-transparent text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none">
           </div>
-          <div id="suggest-menu" class="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-2xl shadow-xl max-h-48 overflow-y-auto hidden z-50"></div>
+          <div id="suggest-menu" class="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-2xl shadow-xl max-h-48 overflow-y-auto custom-scrollbar hidden z-50"></div>
         </div>
 
         <div class="grid grid-cols-3 gap-2">
@@ -250,6 +266,7 @@
   </div>
 
   <script>
+    // Direct stream URLs from Internet Archive (no non-existent local file lookups)
     const SHOWS = [
       { 
         title: "Friends", 
@@ -257,7 +274,6 @@
         yr: "1994", 
         net: "NBC", 
         wiki: "Friends",
-        local: "audio/friends.mp3",
         url: "https://archive.org/download/full-length-tv-themes/The%20Rembrandts%20-%20I%27ll%20Be%20There%20For%20You%20%28Theme%20From%20FRIENDS%29.mp3" 
       },
       { 
@@ -266,7 +282,6 @@
         yr: "1990", 
         net: "NBC", 
         wiki: "The_Fresh_Prince_of_Bel-Air",
-        local: "audio/fresh_prince.mp3",
         url: "https://archive.org/download/full-length-tv-themes/Will%20Smith%2C%20DJ%20Jazzy%20Jeff%20%26%20The%20Fresh%20Prince%20-%20The%20Fresh%20Prince%20Of%20Bel%20Air%20%28Audio%29.mp3" 
       },
       { 
@@ -274,8 +289,7 @@
         alts: [], 
         yr: "1982", 
         net: "NBC", 
-        wiki: "Cheers", 
-        local: "audio/cheers.mp3",
+        wiki: "Cheers",
         url: "https://archive.org/download/full-length-tv-themes/Cheers%20Theme%20%28Full%20Length%20Record%29.mp3" 
       },
       { 
@@ -283,8 +297,7 @@
         alts: ["Big Bang Theory"], 
         yr: "2007", 
         net: "CBS", 
-        wiki: "The_Big_Bang_Theory", 
-        local: "audio/big_bang.mp3",
+        wiki: "The_Big_Bang_Theory",
         url: "https://archive.org/download/full-length-tv-themes/The%20Big%20Bang%20Theory%20Song%20by%20Barenaked%20Ladies%20from%20The%20Big%20Bang%20Theory%20%28TV%20series%29.mp3" 
       },
       { 
@@ -292,8 +305,7 @@
         alts: ["That 70s Show", "That 70's Show"], 
         yr: "1998", 
         net: "FOX", 
-        wiki: "That_%2770s_Show", 
-        local: "audio/that_70s_show.mp3",
+        wiki: "That_%2770s_Show",
         url: "https://archive.org/download/full-length-tv-themes/Cheap%20Trick%20-%20That%2070%27s%20Song%20%5BBased%20On%20In%20The%20Street%5D%20%281999%20Version%29.mp3" 
       },
       { 
@@ -301,8 +313,7 @@
         alts: ["Golden Girls"], 
         yr: "1985", 
         net: "NBC", 
-        wiki: "The_Golden_Girls", 
-        local: "audio/golden_girls.mp3",
+        wiki: "The_Golden_Girls",
         url: "https://archive.org/download/full-length-tv-themes/THANK%20YOU%20FOR%20BEING%20A%20FRIEND%20-%20Andrew%20Gold.mp3" 
       },
       { 
@@ -310,8 +321,7 @@
         alts: ["Batman 1966", "Batman TV Series"], 
         yr: "1966", 
         net: "ABC", 
-        wiki: "Batman_(TV_series)", 
-        local: "audio/batman.mp3",
+        wiki: "Batman_(TV_series)",
         url: "https://archive.org/download/full-length-tv-themes/1960%27s%20Batman%20Theme%20%28%20Album%20Version%20%29.mp3" 
       },
       { 
@@ -319,8 +329,7 @@
         alts: [], 
         yr: "1974", 
         net: "ABC", 
-        wiki: "Happy_Days", 
-        local: "audio/happy_days.mp3",
+        wiki: "Happy_Days",
         url: "https://archive.org/download/full-length-tv-themes/Happy%20Days%20%28TV%20Show%20Theme%29%20-%20Pratt%20%26%20McClain%20%281976%29.mp3" 
       },
       { 
@@ -328,8 +337,7 @@
         alts: ["MASH"], 
         yr: "1972", 
         net: "CBS", 
-        wiki: "M*A*S*H_(TV_series)", 
-        local: "audio/mash.mp3",
+        wiki: "M*A*S*H_(TV_series)",
         url: "https://archive.org/download/full-length-tv-themes/Johnny%20Mandel%20-%20Suicide%20Is%20Painless%20%28Audio%29.mp3" 
       },
       { 
@@ -337,8 +345,7 @@
         alts: ["Dukes of Hazzard"], 
         yr: "1979", 
         net: "CBS", 
-        wiki: "The_Dukes_of_Hazzard", 
-        local: "audio/dukes.mp3",
+        wiki: "The_Dukes_of_Hazzard",
         url: "https://archive.org/download/full-length-tv-themes/Waylon%20Jennings%20-%20Good%20Old%20Boys%20%28Dukes%20Of%20Hazard%29.mp3" 
       }
     ];
@@ -357,65 +364,39 @@
     let currentAttempt = 0;
     let isFinished = false;
     let isAudioPlaying = false;
-    let isBuffering = false;
     let history = [];
     let audioElem = null;
     let playTimer = null;
 
-    // Seeded Show based on today's date
+    // Seeded Show
     const today = new Date().toISOString().slice(0, 10);
     const daySeed = parseInt(today.replace(/-/g, ''), 10);
     const activeShow = SHOWS[daySeed % SHOWS.length];
 
-    // Theme Setup
+    // Theme Management
     const themeBtn = document.getElementById('btn-theme');
     const themeIcon = document.getElementById('theme-icon');
+
     function applyTheme(isDark) {
       document.documentElement.classList.toggle('dark', isDark);
-      themeIcon.className = isDark ? 'ph ph-sun text-xl' : 'ph ph-moon text-xl';
+      if (themeIcon) {
+        themeIcon.className = isDark ? 'ph ph-sun text-xl' : 'ph ph-moon text-xl';
+      }
       localStorage.setItem('quoteguess_theme_preference', isDark ? 'dark' : 'light');
     }
-    applyTheme(localStorage.getItem('quoteguess_theme_preference') === 'dark');
-    themeBtn.onclick = () => applyTheme(!document.documentElement.classList.contains('dark'));
 
-    // Fast Audio Engine
-    function setupAudio() {
-      if (!audioElem) {
-        audioElem = new Audio();
-        audioElem.preload = "auto";
-
-        audioElem.addEventListener('waiting', () => {
-          isBuffering = true;
-          document.getElementById('play-status').textContent = 'Buffering audio...';
-          document.getElementById('play-icon').className = 'ph ph-spinner animate-spin text-2xl';
-        });
-
-        audioElem.addEventListener('canplay', () => {
-          isBuffering = false;
-          if (!isAudioPlaying) {
-            const curTime = isFinished ? 15.0 : (TIERS[currentAttempt] || 15.0);
-            document.getElementById('play-status').textContent = isFinished ? "Tap to replay full theme (15.0s)" : `Tap to play (${curTime.toFixed(1)}s unlocked)`;
-            document.getElementById('play-icon').className = 'ph ph-play-fill text-2xl ml-0.5';
-          }
-        });
-
-        audioElem.addEventListener('error', () => {
-          if (audioElem.src.includes(activeShow.local) && activeShow.url) {
-            audioElem.src = activeShow.url;
-            audioElem.load();
-          } else {
-            document.getElementById('audio-error-banner').classList.remove('hidden');
-            document.getElementById('play-status').textContent = 'Playback error';
-            stopPlayback();
-          }
-        });
-
-        // Load immediately
-        audioElem.src = activeShow.local || activeShow.url;
-        audioElem.load();
-      }
+    // Sync theme icon on load
+    const isDarkCurrent = document.documentElement.classList.contains('dark');
+    if (themeIcon) {
+      themeIcon.className = isDarkCurrent ? 'ph ph-sun text-xl' : 'ph ph-moon text-xl';
     }
 
+    themeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      applyTheme(!document.documentElement.classList.contains('dark'));
+    });
+
+    // Audio Engine
     function stopPlayback() {
       isAudioPlaying = false;
       document.getElementById('playhead').style.width = '0%';
@@ -431,23 +412,39 @@
     }
 
     function playAudio(duration) {
-      setupAudio();
       stopPlayback();
       isAudioPlaying = true;
       document.getElementById('play-icon').className = 'ph ph-stop-fill text-2xl';
       document.getElementById('play-status').textContent = `Playing (${duration.toFixed(1)}s)...`;
+
+      if (!audioElem) {
+        audioElem = new Audio(activeShow.url);
+        audioElem.crossOrigin = "anonymous";
+        
+        audioElem.addEventListener('waiting', () => {
+          document.getElementById('play-status').textContent = 'Loading audio...';
+          document.getElementById('play-icon').className = 'ph ph-spinner animate-spin text-2xl';
+        });
+
+        audioElem.addEventListener('playing', () => {
+          document.getElementById('play-icon').className = 'ph ph-stop-fill text-2xl';
+          document.getElementById('play-status').textContent = `Playing (${duration.toFixed(1)}s)...`;
+        });
+
+        audioElem.addEventListener('error', () => {
+          document.getElementById('audio-error-banner').classList.remove('hidden');
+          stopPlayback();
+        });
+      } else if (audioElem.src !== activeShow.url) {
+        audioElem.src = activeShow.url;
+      }
 
       audioElem.currentTime = 0;
       const playPromise = audioElem.play();
 
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          if (activeShow.url && audioElem.src !== activeShow.url) {
-            audioElem.src = activeShow.url;
-            audioElem.play().catch(() => stopPlayback());
-          } else {
-            stopPlayback();
-          }
+          stopPlayback();
         });
       }
 
@@ -471,7 +468,8 @@
       const curTime = isFinished ? 15.0 : (TIERS[currentAttempt] || 15.0);
       document.getElementById('points-tier-label').textContent = `${(isFinished ? 0 : (POINTS[currentAttempt] || 0)).toLocaleString()} PTS`;
       document.getElementById('unlocked-sec-label').textContent = `${curTime.toFixed(1)}s`;
-      if (!isBuffering && !isAudioPlaying) {
+      
+      if (!isAudioPlaying) {
         document.getElementById('play-status').textContent = isFinished ? "Tap to replay full theme (15.0s)" : `Tap to play (${curTime.toFixed(1)}s unlocked)`;
       }
 
@@ -515,17 +513,203 @@
 
     function renderLog() {
       const container = document.getElementById('guess-log');
-      container.innerHTML = history.map((item, idx) => `
-        <div class="flex items-center justify-between p-2.5 rounded-xl border text-xs font-semibold ${item.isCorrect ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 text-emerald-800 dark:text-emerald-300' : item.isSkip ? 'bg-stone-100 dark:bg-stone-800 border-stone-200 text-stone-500' : 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 text-rose-700 dark:text-rose-300'}">
-          <span class="flex items-center space-x-1.5">
-            <i class="ph ${item.isCorrect ? 'ph-check-circle-fill text-emerald-600' : item.isSkip ? 'ph-fast-forward' : 'ph-x-circle-fill text-rose-500'} text-base"></i>
-            <span>${item.text}</span>
-          </span>
-          <span class="text-[10px] text-stone-400">${TIERS[idx].toFixed(1)}s</span>
-        </div>
-      `).join('');
+      container.innerHTML = history.map((item, idx) => {
+        const secLabel = TIERS[idx] !== undefined ? TIERS[idx].toFixed(1) : '15.0';
+        return `
+          <div class="flex items-center justify-between p-2.5 rounded-xl border text-xs font-semibold ${item.isCorrect ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 text-emerald-800 dark:text-emerald-300' : item.isSkip ? 'bg-stone-100 dark:bg-stone-800 border-stone-200 text-stone-500' : 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 text-rose-700 dark:text-rose-300'}">
+            <span class="flex items-center space-x-1.5">
+              <i class="ph ${item.isCorrect ? 'ph-check-circle-fill text-emerald-600' : item.isSkip ? 'ph-fast-forward' : 'ph-x-circle-fill text-rose-500'} text-base"></i>
+              <span>${item.text}</span>
+            </span>
+            <span class="text-[10px] text-stone-400">${secLabel}s</span>
+          </div>
+        `;
+      }).join('');
     }
 
     async function loadPoster(slug) {
       try {
-        const res = await fetch
+        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`);
+        const data = await res.json();
+        if (data.thumbnail && data.thumbnail.source) {
+          const img = document.getElementById('res-poster');
+          img.src = data.thumbnail.source;
+          img.classList.remove('hidden');
+          document.getElementById('res-poster-fallback').classList.add('hidden');
+        }
+      } catch (e) {}
+    }
+
+    function showResultModal(win, pts, triggerConfetti = true) {
+      document.getElementById('res-name').textContent = activeShow.title;
+      document.getElementById('res-meta').textContent = `${activeShow.yr} • ${activeShow.net}`;
+      document.getElementById('res-pts').textContent = `+${pts.toLocaleString()} PTS`;
+
+      const badge = document.getElementById('res-badge');
+      const icon = document.getElementById('res-icon');
+      if (win) {
+        badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60";
+        icon.className = "ph ph-trophy text-2xl";
+        document.getElementById('res-title').textContent = "Nailed It!";
+        document.getElementById('res-sub').textContent = `Guessed on attempt ${history.length} of 5`;
+        if (triggerConfetti && window.confetti) window.confetti({ particleCount: 50, spread: 60 });
+      } else {
+        badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-stone-100 text-stone-500 dark:bg-stone-800";
+        icon.className = "ph ph-x-circle text-2xl";
+        document.getElementById('res-title').textContent = "That's a Wrap!";
+        document.getElementById('res-sub').textContent = "Better luck tomorrow!";
+      }
+
+      loadPoster(activeShow.wiki);
+      document.getElementById('modal-result').classList.remove('hidden');
+    }
+
+    // Modal Close Logic
+    document.getElementById('btn-close-modal').addEventListener('click', () => {
+      document.getElementById('modal-result').classList.add('hidden');
+    });
+
+    document.getElementById('modal-backdrop').addEventListener('click', () => {
+      document.getElementById('modal-result').classList.add('hidden');
+    });
+
+    document.getElementById('btn-reopen-scorecard').addEventListener('click', () => {
+      try {
+        const stats = JSON.parse(localStorage.getItem('introguess_stats') || '{}');
+        showResultModal(stats.win || false, stats.score || 0, false);
+      } catch (e) {
+        showResultModal(false, 0, false);
+      }
+    });
+
+    function endGame(win) {
+      isFinished = true;
+      stopPlayback();
+      const pts = win ? POINTS[history.length - 1] : 0;
+
+      let stats = {
+        lastPlayedDate: today,
+        streak: 1,
+        maxStreak: 1,
+        played: 1,
+        wins: win ? 1 : 0,
+        history: history,
+        score: pts,
+        win: win
+      };
+
+      try {
+        const raw = localStorage.getItem('introguess_stats');
+        if (raw) {
+          const prev = JSON.parse(raw);
+          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+          stats.streak = (prev.lastPlayedDate === yesterday) ? (prev.streak || 0) + 1 : 1;
+          stats.maxStreak = Math.max(prev.maxStreak || 0, stats.streak);
+          stats.played = (prev.played || 0) + 1;
+          stats.wins = (prev.wins || 0) + (win ? 1 : 0);
+        }
+      } catch (e) {}
+
+      localStorage.setItem('introguess_stats', JSON.stringify(stats));
+
+      try {
+        const metaRaw = localStorage.getItem('dailystreakers_meta') || '{}';
+        const meta = JSON.parse(metaRaw);
+        meta.introLast = today;
+        localStorage.setItem('dailystreakers_meta', JSON.stringify(meta));
+      } catch (e) {}
+
+      document.getElementById('controls-active').classList.add('hidden');
+      document.getElementById('controls-finished').classList.remove('hidden');
+      refreshUI();
+
+      showResultModal(win, pts, true);
+    }
+
+    function checkPriorCompletion() {
+      try {
+        const raw = localStorage.getItem('introguess_stats');
+        if (raw) {
+          const stats = JSON.parse(raw);
+          if (stats.lastPlayedDate === today && stats.history) {
+            isFinished = true;
+            history = stats.history;
+            currentAttempt = history.length;
+            renderLog();
+            document.getElementById('controls-active').classList.add('hidden');
+            document.getElementById('controls-finished').classList.remove('hidden');
+            refreshUI();
+            return true;
+          }
+        }
+      } catch (e) {}
+      return false;
+    }
+
+    // Dropdown Autocomplete
+    const input = document.getElementById('input-guess');
+    const suggest = document.getElementById('suggest-menu');
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) { suggest.classList.add('hidden'); return; }
+      const matches = AUTOCOMPLETE.filter(s => s.toLowerCase().includes(q)).slice(0, 5);
+      if (!matches.length) { suggest.classList.add('hidden'); return; }
+      suggest.innerHTML = matches.map(s => `<div class="p-2.5 hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer text-xs font-semibold" onclick="selectSuggestion('${s.replace(/'/g, "\\'")}')">${s}</div>`).join('');
+      suggest.classList.remove('hidden');
+    });
+
+    window.selectSuggestion = (str) => {
+      input.value = str;
+      suggest.classList.add('hidden');
+    };
+
+    document.getElementById('btn-submit').onclick = () => {
+      if (input.value.trim()) {
+        makeGuess(input.value.trim());
+        input.value = '';
+        suggest.classList.add('hidden');
+      }
+    };
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && input.value.trim()) {
+        makeGuess(input.value.trim());
+        input.value = '';
+        suggest.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('btn-skip').onclick = () => makeGuess('', true);
+
+    document.getElementById('btn-share').onclick = () => {
+      const emojis = history.map(h => h.isCorrect ? '🟩' : h.isSkip ? '⬛' : '🟥').join('');
+      const text = `IntroGuess (TV) #${daySeed % 100}\n${emojis} (${history.length}/5)\nhttps://dailystreakers.io/intro.html`;
+      navigator.clipboard.writeText(text);
+      document.getElementById('btn-share').innerHTML = '<i class="ph ph-check"></i><span>Copied Scorecard!</span>';
+    };
+
+    // Stats Modal Handlers
+    document.getElementById('btn-stats').onclick = () => {
+      try {
+        const raw = localStorage.getItem('introguess_stats');
+        if (raw) {
+          const stats = JSON.parse(raw);
+          document.getElementById('stat-played').textContent = stats.played || 0;
+          document.getElementById('stat-winrate').textContent = stats.played ? `${Math.round((stats.wins / stats.played) * 100)}%` : '0%';
+          document.getElementById('stat-streak').textContent = stats.streak || 0;
+          document.getElementById('stat-maxstreak').textContent = stats.maxStreak || 0;
+        }
+      } catch (e) {}
+      document.getElementById('modal-stats').classList.remove('hidden');
+    };
+
+    document.getElementById('btn-close-stats').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
+    document.getElementById('btn-stats-ok').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
+
+    // Startup Execution Order
+    checkPriorCompletion();
+    refreshUI();
+  </script>
+</body>
+</html>
