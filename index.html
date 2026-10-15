@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>DailyStreakers — Bite-Sized Morning Trivia Games</title>
+  <title>DailyStreakers — Morning Trivia Hub</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -13,23 +12,14 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#fff7ed',
-              500: '#ea580c',
-              600: '#c2410c'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+            brand: { 50: '#fff7ed', 500: '#ea580c', 600: '#c2410c' }
           }
         }
       }
     }
   </script>
 
-  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -40,24 +30,22 @@
 
 <body class="bg-stone-50 text-slate-800 dark:bg-stone-950 dark:text-stone-100 min-h-screen flex flex-col transition-colors duration-150">
 
-  <!-- TOP NAVIGATION BAR -->
+  <!-- TOP HEADER -->
   <header class="border-b border-stone-200 dark:border-stone-800 bg-white/90 dark:bg-stone-900/90 backdrop-blur sticky top-0 z-40">
-    <div class="max-w-xl mx-auto px-4 h-14 flex items-center justify-between">
+    <div class="max-w-xl mx-auto px-4 h-16 flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <div class="flex items-center space-x-2.5">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-sm shadow-orange-500/20">
-          <i class="ph ph-fire-simple font-bold text-lg"></i>
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-md shadow-orange-500/20">
+          <i class="ph ph-fire-simple font-bold text-xl"></i>
         </div>
         <div>
-          <span class="font-extrabold text-base tracking-tight text-stone-900 dark:text-white leading-none block">DailyStreakers</span>
-          <span class="text-[10px] font-semibold text-stone-400 tracking-wider uppercase">Morning Edition</span>
+          <span class="font-extrabold text-base tracking-tight text-stone-900 dark:text-white leading-tight block">DailyStreakers</span>
+          <span class="text-[10px] font-semibold text-orange-600 dark:text-orange-400 tracking-widest uppercase">Morning Edition</span>
         </div>
       </div>
 
-      <!-- Actions -->
       <div class="flex items-center space-x-1.5">
-        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="p-2 text-stone-500 hover:text-amber-600 dark:text-stone-400 hover:bg-amber-50 dark:hover:bg-stone-800 rounded-xl transition" title="Support on Ko-fi">
+        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="p-2 text-stone-500 hover:text-amber-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition" title="Support on Ko-fi">
           <i class="ph ph-coffee text-xl"></i>
         </a>
         <button id="btn-theme" class="p-2 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition" title="Toggle Theme">
@@ -68,99 +56,101 @@
     </div>
   </header>
 
-  <!-- MAIN HUB CONTENT -->
+  <!-- DASHBOARD BODY -->
   <main class="flex-1 max-w-xl w-full mx-auto px-4 py-6 flex flex-col justify-between">
     
     <div>
-      <!-- STREAK BANNER -->
-      <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-5 text-white shadow-lg shadow-orange-500/15 mb-6 relative overflow-hidden">
+      <!-- STREAK DASHBOARD WIDGET -->
+      <div class="bg-gradient-to-br from-amber-500 via-orange-500 to-orange-600 rounded-3xl p-6 text-white shadow-xl shadow-orange-500/15 mb-6 relative overflow-hidden">
         <div class="relative z-10 flex items-center justify-between">
           <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-amber-100">Daily Streak</span>
-            <div class="flex items-baseline space-x-2 mt-0.5">
-              <span class="text-3xl font-black tracking-tight" id="hub-streak-count">0</span>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-amber-100">Combined Morning Streak</span>
+            <div class="flex items-baseline space-x-2 mt-1">
+              <span class="text-4xl font-black tracking-tight" id="hub-streak-count">0</span>
               <span class="text-sm font-semibold text-amber-100">days active</span>
             </div>
-            <p class="text-xs text-amber-100/90 mt-1" id="hub-streak-sub">Play today's puzzles to extend your morning run.</p>
+            <p class="text-xs text-amber-100/90 mt-2 font-medium" id="hub-streak-sub">Solve today's editions to keep the streak alive.</p>
           </div>
-          <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white text-3xl">
+          <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white text-3xl shadow-inner">
             <i class="ph ph-fire-fill"></i>
           </div>
         </div>
       </div>
 
-      <!-- GAME LAUNCHER CARDS -->
-      <div class="space-y-3.5">
-        <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Today's Games</h2>
+      <!-- ACTIVE GAMES LIST -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between px-1">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400">Today's Puzzles</h2>
+          <span class="text-[11px] text-stone-400 font-medium" id="hub-date-label">Today</span>
+        </div>
 
-        <!-- GAME 1: QuoteGuess (Movie Quotes) -->
-        <a href="quotes.html" class="block bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl p-4.5 hover:border-amber-500 dark:hover:border-amber-500 shadow-sm transition group">
+        <!-- CARD 1: QuoteGuess -->
+        <a href="quotes.html" class="block bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-amber-500 dark:hover:border-amber-500 rounded-3xl p-5 shadow-sm hover:shadow-md transition group">
           <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-3.5">
-              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition">
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl group-hover:scale-105 transition flex-shrink-0">
                 <i class="ph ph-film-strip"></i>
               </div>
               <div>
                 <div class="flex items-center space-x-2">
                   <h3 class="font-bold text-sm text-stone-900 dark:text-white">QuoteGuess</h3>
-                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">Cinema</span>
+                  <span class="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">Cinema</span>
                 </div>
-                <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5">Guess the film from 5 iconic movie quotes.</p>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5">5 quotes • Identify the classic movie</p>
               </div>
             </div>
-            <div class="text-right flex-shrink-0 pl-2" id="quote-status-container">
-              <span class="inline-flex items-center space-x-1 text-xs font-bold px-3 py-1.5 rounded-xl bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 group-hover:bg-amber-600 dark:group-hover:bg-amber-500 dark:group-hover:text-white transition">
+            <div id="quote-status-container" class="pl-2 flex-shrink-0">
+              <span class="inline-flex items-center space-x-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 group-hover:bg-amber-600 dark:group-hover:bg-amber-500 dark:group-hover:text-white transition">
                 <span>Play</span>
-                <i class="ph ph-arrow-right"></i>
+                <i class="ph ph-arrow-right text-xs"></i>
               </span>
             </div>
           </div>
         </a>
 
-        <!-- GAME 2: IntroGuess (TV Audio) -->
-        <a href="intro.html" class="block bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl p-4.5 hover:border-orange-500 dark:hover:border-orange-500 shadow-sm transition group">
+        <!-- CARD 2: IntroGuess -->
+        <a href="intro.html" class="block bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-orange-500 dark:hover:border-orange-500 rounded-3xl p-5 shadow-sm hover:shadow-md transition group">
           <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-3.5">
-              <div class="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition">
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-2xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800/60 text-orange-600 dark:text-orange-400 flex items-center justify-center text-2xl group-hover:scale-105 transition flex-shrink-0">
                 <i class="ph ph-speaker-high"></i>
               </div>
               <div>
                 <div class="flex items-center space-x-2">
                   <h3 class="font-bold text-sm text-stone-900 dark:text-white">IntroGuess</h3>
-                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-orange-100 text-orange-800 dark:bg-orange-950/60 dark:text-orange-300">TV Audio</span>
+                  <span class="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-300">TV Audio</span>
                 </div>
-                <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5">Name the show from 1.0s of opening music.</p>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5">Progressive audio • Name the iconic TV theme</p>
               </div>
             </div>
-            <div class="text-right flex-shrink-0 pl-2" id="intro-status-container">
-              <span class="inline-flex items-center space-x-1 text-xs font-bold px-3 py-1.5 rounded-xl bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 group-hover:bg-orange-600 dark:group-hover:bg-orange-500 dark:group-hover:text-white transition">
+            <div id="intro-status-container" class="pl-2 flex-shrink-0">
+              <span class="inline-flex items-center space-x-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 group-hover:bg-orange-600 dark:group-hover:bg-orange-500 dark:group-hover:text-white transition">
                 <span>Play</span>
-                <i class="ph ph-arrow-right"></i>
+                <i class="ph ph-arrow-right text-xs"></i>
               </span>
             </div>
           </div>
         </a>
-
       </div>
     </div>
 
     <!-- FOOTER -->
-    <footer class="mt-8 pt-4 border-t border-stone-200/80 dark:border-stone-800 text-center">
-      <div class="flex items-center justify-center space-x-4 text-xs font-medium text-stone-500 dark:text-stone-400">
-        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="hover:text-amber-600 transition inline-flex items-center space-x-1">
+    <footer class="mt-10 pt-5 border-t border-stone-200 dark:border-stone-800 text-center">
+      <div class="flex items-center justify-center space-x-3 text-xs font-medium text-stone-500 dark:text-stone-400">
+        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="hover:text-amber-600 transition inline-flex items-center space-x-1.5">
           <i class="ph ph-coffee text-amber-500"></i>
-          <span>Support on Ko-fi</span>
+          <span>Support DailyStreakers</span>
         </a>
         <span>•</span>
-        <span>Resets at Midnight</span>
+        <span>New puzzles at midnight</span>
       </div>
-      <p class="text-[11px] text-stone-400 dark:text-stone-600 mt-2">DailyStreakers — Free, nostaligic morning trivia.</p>
+      <p class="text-[11px] text-stone-400 dark:text-stone-600 mt-2">Built for quick morning coffee routines.</p>
     </footer>
 
   </main>
 
   <script>
-    // Theme Preference Management
+    // Theme Preference Logic
     const themeBtn = document.getElementById('btn-theme');
     const themeIcon = document.getElementById('theme-icon');
 
@@ -178,63 +168,53 @@
       applyTheme(!document.documentElement.classList.contains('dark'));
     });
 
-    // Daily Completion & Streak Aggregator
+    // Sync Game Status and Display
     function checkHubStatus() {
       const today = new Date().toISOString().slice(0, 10);
+      document.getElementById('hub-date-label').textContent = new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 
-      // Check QuoteGuess completion
-      let quotePlayedToday = false;
+      let quoteDone = false;
       let quoteStreak = 0;
       try {
-        const quoteStatsRaw = localStorage.getItem('quoteguess_stats');
-        if (quoteStatsRaw) {
-          const quoteStats = JSON.parse(quoteStatsRaw);
-          quotePlayedToday = (quoteStats.lastPlayedDate === today);
-          quoteStreak = quoteStats.streak || 0;
+        const qRaw = localStorage.getItem('quoteguess_stats');
+        if (qRaw) {
+          const q = JSON.parse(qRaw);
+          quoteDone = (q.lastPlayedDate === today);
+          quoteStreak = q.streak || 0;
         }
       } catch (e) {}
 
-      // Check IntroGuess completion
-      let introPlayedToday = false;
+      let introDone = false;
       try {
-        const metaRaw = localStorage.getItem('dailystreakers_meta');
-        if (metaRaw) {
-          const meta = JSON.parse(metaRaw);
-          introPlayedToday = (meta.introLast === today);
+        const mRaw = localStorage.getItem('dailystreakers_meta');
+        if (mRaw) {
+          const m = JSON.parse(mRaw);
+          introDone = (m.introLast === today);
         }
       } catch (e) {}
 
-      // Update Quote status badge
-      const quoteContainer = document.getElementById('quote-status-container');
-      if (quotePlayedToday) {
-        quoteContainer.innerHTML = `
-          <span class="inline-flex items-center space-x-1 text-xs font-bold px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+      if (quoteDone) {
+        document.getElementById('quote-status-container').innerHTML = `
+          <span class="inline-flex items-center space-x-1 text-xs font-bold px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
             <i class="ph ph-check-circle-fill"></i>
             <span>Done</span>
-          </span>
-        `;
+          </span>`;
       }
 
-      // Update Intro status badge
-      const introContainer = document.getElementById('intro-status-container');
-      if (introPlayedToday) {
-        introContainer.innerHTML = `
-          <span class="inline-flex items-center space-x-1 text-xs font-bold px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+      if (introDone) {
+        document.getElementById('intro-status-container').innerHTML = `
+          <span class="inline-flex items-center space-x-1 text-xs font-bold px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
             <i class="ph ph-check-circle-fill"></i>
             <span>Done</span>
-          </span>
-        `;
+          </span>`;
       }
 
-      // Display aggregate streak
-      const streakElem = document.getElementById('hub-streak-count');
-      const streakSub = document.getElementById('hub-streak-sub');
-      streakElem.textContent = quoteStreak;
-
-      if (quotePlayedToday && introPlayedToday) {
-        streakSub.textContent = "All games completed today. See you tomorrow!";
-      } else if (quotePlayedToday || introPlayedToday) {
-        streakSub.textContent = "1 of 2 games completed today.";
+      document.getElementById('hub-streak-count').textContent = quoteStreak;
+      const sub = document.getElementById('hub-streak-sub');
+      if (quoteDone && introDone) {
+        sub.textContent = "All daily editions complete! See you tomorrow morning.";
+      } else if (quoteDone || introDone) {
+        sub.textContent = "1 of 2 completed today. Finish the set to secure your streak!";
       }
     }
 
