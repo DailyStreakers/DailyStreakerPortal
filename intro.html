@@ -30,7 +30,7 @@
 
 <body class="bg-stone-50 text-slate-800 dark:bg-stone-950 dark:text-stone-100 min-h-screen flex flex-col transition-colors duration-150">
 
-  <!-- HEADER -->
+  <!-- TOP HEADER -->
   <header class="border-b border-stone-200 dark:border-stone-800 bg-white/90 dark:bg-stone-900/90 backdrop-blur sticky top-0 z-40">
     <div class="max-w-xl mx-auto px-4 h-14 flex items-center justify-between">
       <div class="flex items-center space-x-2.5">
@@ -49,6 +49,9 @@
         <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="p-2 text-stone-500 hover:text-amber-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition" title="Support on Ko-fi">
           <i class="ph ph-coffee text-xl"></i>
         </a>
+        <button id="btn-stats" class="p-2 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition" title="Stats">
+          <i class="ph ph-chart-bar text-xl"></i>
+        </button>
         <button id="btn-theme" class="p-2 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition" title="Toggle Theme">
           <i class="ph ph-moon text-xl" id="theme-icon"></i>
         </button>
@@ -61,7 +64,7 @@
     <div>
       <div class="flex items-center justify-between mb-3 text-xs">
         <div>
-          <span class="font-bold text-stone-400 uppercase tracking-wider text-[11px]">Today's TV Theme</span>
+          <span class="font-bold text-stone-400 uppercase tracking-wider text-[11px]" id="edition-label">Today's TV Theme</span>
           <p class="text-stone-500 dark:text-stone-400 text-xs">Listen to the opening notes and name the show.</p>
         </div>
         <div class="text-right">
@@ -87,7 +90,7 @@
           <div class="w-1.5 bg-orange-500 rounded-full wave-bar"></div>
         </div>
 
-        <!-- Play / Buffer / Stop Button -->
+        <!-- Play / Buffer Button -->
         <div class="flex flex-col items-center justify-center mb-5">
           <button id="btn-play" class="w-16 h-16 rounded-full bg-orange-600 hover:bg-orange-500 text-white flex items-center justify-center shadow-lg shadow-orange-600/30 hover:scale-105 active:scale-95 transition focus:outline-none">
             <i class="ph ph-play-fill text-2xl ml-0.5" id="play-icon"></i>
@@ -123,24 +126,40 @@
       <div id="guess-log" class="space-y-1.5 mb-3"></div>
     </div>
 
-    <!-- Inputs & Actions -->
+    <!-- BOTTOM CONTROLS (Active vs Finished State) -->
     <div class="pt-2">
-      <div class="relative mb-2.5">
-        <div class="flex items-center bg-white dark:bg-stone-900 border-2 border-stone-200 dark:border-stone-700 rounded-2xl overflow-hidden focus-within:border-orange-500">
-          <i class="ph ph-magnifying-glass text-stone-400 ml-3 mr-2"></i>
-          <input type="text" id="input-guess" placeholder="Guess the TV show title..." autocomplete="off" class="w-full py-3 pr-3 text-xs md:text-sm bg-transparent text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none">
+      <!-- Active input section -->
+      <div id="controls-active">
+        <div class="relative mb-2.5">
+          <div class="flex items-center bg-white dark:bg-stone-900 border-2 border-stone-200 dark:border-stone-700 rounded-2xl overflow-hidden focus-within:border-orange-500">
+            <i class="ph ph-magnifying-glass text-stone-400 ml-3 mr-2"></i>
+            <input type="text" id="input-guess" placeholder="Guess the TV show title..." autocomplete="off" class="w-full py-3 pr-3 text-xs md:text-sm bg-transparent text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none">
+          </div>
+          <div id="suggest-menu" class="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-2xl shadow-xl max-h-48 overflow-y-auto hidden z-50"></div>
         </div>
-        <div id="suggest-menu" class="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-2xl shadow-xl max-h-48 overflow-y-auto hidden z-50"></div>
+
+        <div class="grid grid-cols-3 gap-2">
+          <button id="btn-skip" class="col-span-1 py-3 px-2 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1">
+            <i class="ph ph-fast-forward"></i>
+            <span id="skip-txt">Skip (+1.5s)</span>
+          </button>
+          <button id="btn-submit" class="col-span-2 py-3 px-4 bg-stone-900 hover:bg-stone-800 dark:bg-white dark:hover:bg-stone-200 text-white dark:text-stone-950 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1">
+            <span>Submit Guess</span>
+            <i class="ph ph-arrow-right"></i>
+          </button>
+        </div>
       </div>
 
-      <div class="grid grid-cols-3 gap-2">
-        <button id="btn-skip" class="col-span-1 py-3 px-2 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1">
-          <i class="ph ph-fast-forward"></i>
-          <span id="skip-txt">Skip (+1.5s)</span>
-        </button>
-        <button id="btn-submit" class="col-span-2 py-3 px-4 bg-stone-900 hover:bg-stone-800 dark:bg-white dark:hover:bg-stone-200 text-white dark:text-stone-950 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1">
-          <span>Submit Guess</span>
-          <i class="ph ph-arrow-right"></i>
+      <!-- Finished Lockout banner (Shown on reload after completion) -->
+      <div id="controls-finished" class="hidden text-center py-4 px-4 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl shadow-sm">
+        <div class="flex items-center justify-center space-x-2 text-xs font-bold text-stone-900 dark:text-stone-100">
+          <i class="ph ph-check-circle-fill text-emerald-600 text-base"></i>
+          <span>Today's Intro Completed</span>
+        </div>
+        <p class="text-[11px] text-stone-400 dark:text-stone-500 mt-1">A brand new TV theme drops at midnight.</p>
+        <button id="btn-reopen-scorecard" class="mt-3 py-2 px-4 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-xl shadow-md transition inline-flex items-center space-x-1.5">
+          <i class="ph ph-trophy"></i>
+          <span>View Scorecard & Poster</span>
         </button>
       </div>
 
@@ -150,7 +169,13 @@
 
   <!-- RESULT MODAL -->
   <div id="modal-result" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-xs w-full p-5 border border-stone-200 dark:border-stone-800 shadow-2xl text-center">
+    <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-xs w-full p-5 border border-stone-200 dark:border-stone-800 shadow-2xl text-center relative">
+      
+      <!-- Close "X" Button -->
+      <button id="btn-close-modal" class="absolute top-4 right-4 p-1.5 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition" title="Close and review board">
+        <i class="ph ph-x text-lg"></i>
+      </button>
+
       <div id="res-badge" class="w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2">
         <i class="ph text-2xl" id="res-icon"></i>
       </div>
@@ -174,15 +199,57 @@
         <span>Play Full 15s Theme</span>
       </button>
 
-      <button id="btn-share" class="w-full py-2.5 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center space-x-1">
+      <button id="btn-share" class="w-full py-2.5 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center space-x-1 mb-2">
         <i class="ph ph-share-network"></i>
         <span>Share Scorecard</span>
       </button>
 
-      <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="inline-flex items-center space-x-1 text-[10px] text-stone-400 hover:text-amber-500 transition mt-3">
-        <i class="ph ph-coffee text-amber-500"></i>
-        <span>Support DailyStreakers on Ko-fi</span>
+      <a href="index.html" class="w-full py-2 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1.5">
+        <i class="ph ph-squares-four"></i>
+        <span>Back to DailyStreakers Hub</span>
       </a>
+
+      <div class="mt-3 pt-3 border-t border-stone-100 dark:border-stone-800">
+        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="inline-flex items-center space-x-1 text-[10px] text-stone-400 hover:text-amber-500 transition">
+          <i class="ph ph-coffee text-amber-500"></i>
+          <span>Support DailyStreakers on Ko-fi</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS MODAL -->
+  <div id="modal-stats" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-sm w-full p-6 border border-stone-200 dark:border-stone-800 shadow-2xl text-center">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-base font-bold text-stone-900 dark:text-white">TV Audio Trivia Stats</h3>
+        <button id="btn-close-stats" class="p-1 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200">
+          <i class="ph ph-x text-lg"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-6">
+        <div class="bg-stone-50 dark:bg-stone-800/60 p-2.5 rounded-2xl">
+          <div class="text-lg font-black text-stone-900 dark:text-white" id="stat-played">0</div>
+          <div class="text-[9px] uppercase font-bold text-stone-400">Played</div>
+        </div>
+        <div class="bg-stone-50 dark:bg-stone-800/60 p-2.5 rounded-2xl">
+          <div class="text-lg font-black text-stone-900 dark:text-white" id="stat-winrate">0%</div>
+          <div class="text-[9px] uppercase font-bold text-stone-400">Accuracy</div>
+        </div>
+        <div class="bg-stone-50 dark:bg-stone-800/60 p-2.5 rounded-2xl">
+          <div class="text-lg font-black text-orange-600 dark:text-orange-400" id="stat-streak">0</div>
+          <div class="text-[9px] uppercase font-bold text-stone-400">Streak</div>
+        </div>
+        <div class="bg-stone-50 dark:bg-stone-800/60 p-2.5 rounded-2xl">
+          <div class="text-lg font-black text-amber-600" id="stat-maxstreak">0</div>
+          <div class="text-[9px] uppercase font-bold text-stone-400">Best</div>
+        </div>
+      </div>
+
+      <button id="btn-stats-ok" class="w-full py-3 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 font-bold text-xs rounded-xl">
+        Back to Game
+      </button>
     </div>
   </div>
 
@@ -299,12 +366,12 @@
     let audioElem = null;
     let playTimer = null;
 
-    // Seeded Daily Show Selection
+    // Seeded Show
     const today = new Date().toISOString().slice(0, 10);
     const daySeed = parseInt(today.replace(/-/g, ''), 10);
     const activeShow = SHOWS[daySeed % SHOWS.length];
 
-    // Theme Management
+    // Theme Setup
     const themeBtn = document.getElementById('btn-theme');
     const themeIcon = document.getElementById('theme-icon');
     function applyTheme(isDark) {
@@ -315,30 +382,27 @@
     applyTheme(localStorage.getItem('quoteguess_theme_preference') === 'dark');
     themeBtn.onclick = () => applyTheme(!document.documentElement.classList.contains('dark'));
 
-    // Audio Engine with Eager Preloading & Visual Buffering State
+    // Audio Engine
     function setupAudio() {
       if (!audioElem) {
         audioElem = new Audio();
         audioElem.preload = "auto";
 
-        // Buffering / Loading status listener
         audioElem.addEventListener('waiting', () => {
           isBuffering = true;
           document.getElementById('play-status').textContent = 'Buffering audio...';
           document.getElementById('play-icon').className = 'ph ph-spinner animate-spin text-2xl';
         });
 
-        // Ready to play status listener
         audioElem.addEventListener('canplay', () => {
           isBuffering = false;
           if (!isAudioPlaying) {
-            const curTime = TIERS[currentAttempt] || 15.0;
-            document.getElementById('play-status').textContent = `Tap to play (${curTime.toFixed(1)}s unlocked)`;
+            const curTime = isFinished ? 15.0 : (TIERS[currentAttempt] || 15.0);
+            document.getElementById('play-status').textContent = isFinished ? "Tap to replay full theme (15.0s)" : `Tap to play (${curTime.toFixed(1)}s unlocked)`;
             document.getElementById('play-icon').className = 'ph ph-play-fill text-2xl ml-0.5';
           }
         });
 
-        // Error fallback: If local file missing, fallback to remote stream
         audioElem.addEventListener('error', () => {
           if (audioElem.src.includes(activeShow.local) && activeShow.url) {
             audioElem.src = activeShow.url;
@@ -350,7 +414,6 @@
           }
         });
 
-        // Eagerly initiate connection immediately on page load
         audioElem.src = activeShow.local || activeShow.url;
         audioElem.load();
       }
@@ -360,8 +423,8 @@
       isAudioPlaying = false;
       document.getElementById('playhead').style.width = '0%';
       document.getElementById('play-icon').className = 'ph ph-play-fill text-2xl ml-0.5';
-      const curTime = TIERS[currentAttempt] || 15.0;
-      document.getElementById('play-status').textContent = `Tap to play (${curTime.toFixed(1)}s unlocked)`;
+      const curTime = isFinished ? 15.0 : (TIERS[currentAttempt] || 15.0);
+      document.getElementById('play-status').textContent = isFinished ? "Tap to replay full theme (15.0s)" : `Tap to play (${curTime.toFixed(1)}s unlocked)`;
 
       if (audioElem) { 
         audioElem.pause(); 
@@ -402,22 +465,22 @@
 
     document.getElementById('btn-play').onclick = () => {
       if (isAudioPlaying) stopPlayback();
-      else playAudio(TIERS[currentAttempt] || 15.0);
+      else playAudio(isFinished ? 15.0 : (TIERS[currentAttempt] || 15.0));
     };
 
     document.getElementById('btn-replay-full').onclick = () => playAudio(15.0);
 
     function refreshUI() {
-      const curTime = TIERS[currentAttempt] || 15.0;
-      document.getElementById('points-tier-label').textContent = `${(POINTS[currentAttempt] || 0).toLocaleString()} PTS`;
+      const curTime = isFinished ? 15.0 : (TIERS[currentAttempt] || 15.0);
+      document.getElementById('points-tier-label').textContent = `${(isFinished ? 0 : (POINTS[currentAttempt] || 0)).toLocaleString()} PTS`;
       document.getElementById('unlocked-sec-label').textContent = `${curTime.toFixed(1)}s`;
       if (!isBuffering && !isAudioPlaying) {
-        document.getElementById('play-status').textContent = `Tap to play (${curTime.toFixed(1)}s unlocked)`;
+        document.getElementById('play-status').textContent = isFinished ? "Tap to replay full theme (15.0s)" : `Tap to play (${curTime.toFixed(1)}s unlocked)`;
       }
 
       for (let i = 0; i < 5; i++) {
         const bar = document.getElementById(`seg-${i}`);
-        bar.className = (i <= currentAttempt) 
+        bar.className = (isFinished || i <= currentAttempt) 
           ? "h-full bg-orange-500 border-r border-white/40 dark:border-stone-900 transition-colors" 
           : "h-full bg-stone-200 dark:bg-stone-800 border-r border-white/40 dark:border-stone-900 transition-colors";
       }
@@ -426,7 +489,7 @@
       document.getElementById('skip-txt').textContent = next ? `Skip (+${(next - curTime).toFixed(1)}s)` : 'Give Up';
 
       const hintBanner = document.getElementById('hint-banner');
-      if (currentAttempt >= 2) {
+      if (currentAttempt >= 2 || isFinished) {
         hintBanner.classList.remove('hidden');
         document.getElementById('hint-msg').innerHTML = `Premiered in <strong>${activeShow.yr}</strong> on <strong>${activeShow.net}</strong>.`;
       }
@@ -479,18 +542,7 @@
       } catch (e) {}
     }
 
-    function endGame(win) {
-      isFinished = true;
-      stopPlayback();
-      const pts = win ? POINTS[history.length - 1] : 0;
-
-      try {
-        const raw = localStorage.getItem('dailystreakers_meta') || '{}';
-        const meta = JSON.parse(raw);
-        meta.introLast = today;
-        localStorage.setItem('dailystreakers_meta', JSON.stringify(meta));
-      } catch (e) {}
-
+    function showResultModal(win, pts, triggerConfetti = true) {
       document.getElementById('res-name').textContent = activeShow.title;
       document.getElementById('res-meta').textContent = `${activeShow.yr} • ${activeShow.net}`;
       document.getElementById('res-pts').textContent = `+${pts.toLocaleString()} PTS`;
@@ -502,7 +554,7 @@
         icon.className = "ph ph-trophy text-2xl";
         document.getElementById('res-title').textContent = "Nailed It!";
         document.getElementById('res-sub').textContent = `Guessed on attempt ${history.length} of 5`;
-        if (window.confetti) window.confetti({ particleCount: 50, spread: 60 });
+        if (triggerConfetti && window.confetti) window.confetti({ particleCount: 50, spread: 60 });
       } else {
         badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-stone-100 text-stone-500 dark:bg-stone-800";
         icon.className = "ph ph-x-circle text-2xl";
@@ -514,7 +566,97 @@
       document.getElementById('modal-result').classList.remove('hidden');
     }
 
-    // Dropdown Suggestions
+    function endGame(win) {
+      isFinished = true;
+      stopPlayback();
+      const pts = win ? POINTS[history.length - 1] : 0;
+
+      // 1. Calculate & Save Stats
+      let stats = {
+        lastPlayedDate: today,
+        streak: 1,
+        maxStreak: 1,
+        played: 1,
+        wins: win ? 1 : 0,
+        history: history,
+        score: pts,
+        win: win
+      };
+
+      try {
+        const raw = localStorage.getItem('introguess_stats');
+        if (raw) {
+          const prev = JSON.parse(raw);
+          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+          stats.streak = (prev.lastPlayedDate === yesterday) ? (prev.streak || 0) + 1 : 1;
+          stats.maxStreak = Math.max(prev.maxStreak || 0, stats.streak);
+          stats.played = (prev.played || 0) + 1;
+          stats.wins = (prev.wins || 0) + (win ? 1 : 0);
+        }
+      } catch (e) {}
+
+      localStorage.setItem('introguess_stats', JSON.stringify(stats));
+
+      // 2. Notify DailyStreakers Hub
+      try {
+        const metaRaw = localStorage.getItem('dailystreakers_meta') || '{}';
+        const meta = JSON.parse(metaRaw);
+        meta.introLast = today;
+        localStorage.setItem('dailystreakers_meta', JSON.stringify(meta));
+      } catch (e) {}
+
+      // 3. Switch UI controls to finished state
+      document.getElementById('controls-active').classList.add('hidden');
+      document.getElementById('controls-finished').classList.remove('hidden');
+      refreshUI();
+
+      // 4. Pop result modal
+      showResultModal(win, pts, true);
+    }
+
+    // Modal Close Button & Backdrop Dismissal
+    document.getElementById('btn-close-modal').onclick = () => {
+      document.getElementById('modal-result').classList.add('hidden');
+    };
+
+    document.getElementById('modal-result').addEventListener('click', (e) => {
+      if (e.target.id === 'modal-result') {
+        document.getElementById('modal-result').classList.add('hidden');
+      }
+    });
+
+    // Reopen Scorecard from Finished Bar
+    document.getElementById('btn-reopen-scorecard').onclick = () => {
+      try {
+        const stats = JSON.parse(localStorage.getItem('introguess_stats') || '{}');
+        showResultModal(stats.win || false, stats.score || 0, false);
+      } catch (e) {
+        showResultModal(false, 0, false);
+      }
+    };
+
+    // Check if played earlier today on initial load
+    function checkPriorCompletion() {
+      try {
+        const raw = localStorage.getItem('introguess_stats');
+        if (raw) {
+          const stats = JSON.parse(raw);
+          if (stats.lastPlayedDate === today && stats.history) {
+            isFinished = true;
+            history = stats.history;
+            currentAttempt = history.length;
+            renderLog();
+            document.getElementById('controls-active').classList.add('hidden');
+            document.getElementById('controls-finished').classList.remove('hidden');
+            refreshUI();
+            return true;
+          }
+        }
+      } catch (e) {}
+      return false;
+    }
+
+    // Dropdown Autocomplete
     const input = document.getElementById('input-guess');
     const suggest = document.getElementById('suggest-menu');
 
@@ -544,13 +686,32 @@
 
     document.getElementById('btn-share').onclick = () => {
       const emojis = history.map(h => h.isCorrect ? '🟩' : h.isSkip ? '⬛' : '🟥').join('');
-      const text = `IntroGuess (TV) #${daySeed % 100}\n${emojis} (${history.length}/5)\nhttps://dailystreakers.io`;
+      const text = `IntroGuess (TV) #${daySeed % 100}\n${emojis} (${history.length}/5)\nhttps://dailystreakers.io/intro.html`;
       navigator.clipboard.writeText(text);
-      document.getElementById('btn-share').innerHTML = '<i class="ph ph-check"></i><span>Copied!</span>';
+      document.getElementById('btn-share').innerHTML = '<i class="ph ph-check"></i><span>Copied Scorecard!</span>';
     };
 
-    // Preload audio and initialize UI immediately on render
+    // Stats Modal Handlers
+    document.getElementById('btn-stats').onclick = () => {
+      try {
+        const raw = localStorage.getItem('introguess_stats');
+        if (raw) {
+          const stats = JSON.parse(raw);
+          document.getElementById('stat-played').textContent = stats.played || 0;
+          document.getElementById('stat-winrate').textContent = stats.played ? `${Math.round((stats.wins / stats.played) * 100)}%` : '0%';
+          document.getElementById('stat-streak').textContent = stats.streak || 0;
+          document.getElementById('stat-maxstreak').textContent = stats.maxStreak || 0;
+        }
+      } catch (e) {}
+      document.getElementById('modal-stats').classList.remove('hidden');
+    };
+
+    document.getElementById('btn-close-stats').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
+    document.getElementById('btn-stats-ok').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
+
+    // Startup
     setupAudio();
+    checkPriorCompletion();
     refreshUI();
   </script>
 </body>
