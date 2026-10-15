@@ -169,14 +169,17 @@
 
   <!-- RESULT MODAL -->
   <div id="modal-result" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-xs w-full p-5 border border-stone-200 dark:border-stone-800 shadow-2xl text-center relative">
+    <!-- Clickable backdrop to close -->
+    <div class="absolute inset-0 z-0" id="modal-backdrop"></div>
+    
+    <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-xs w-full p-5 border border-stone-200 dark:border-stone-800 shadow-2xl text-center relative z-10">
       
       <!-- Close "X" Button -->
       <button id="btn-close-modal" class="absolute top-4 right-4 p-1.5 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition" title="Close and review board">
         <i class="ph ph-x text-lg"></i>
       </button>
 
-      <div id="res-badge" class="w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2">
+      <div id="res-badge" class="w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 mt-2">
         <i class="ph text-2xl" id="res-icon"></i>
       </div>
       <h3 class="text-lg font-extrabold text-stone-900 dark:text-white" id="res-title">Solved!</h3>
@@ -208,13 +211,6 @@
         <i class="ph ph-squares-four"></i>
         <span>Back to DailyStreakers Hub</span>
       </a>
-
-      <div class="mt-3 pt-3 border-t border-stone-100 dark:border-stone-800">
-        <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="inline-flex items-center space-x-1 text-[10px] text-stone-400 hover:text-amber-500 transition">
-          <i class="ph ph-coffee text-amber-500"></i>
-          <span>Support DailyStreakers on Ko-fi</span>
-        </a>
-      </div>
     </div>
   </div>
 
@@ -366,7 +362,7 @@
     let audioElem = null;
     let playTimer = null;
 
-    // Seeded Show
+    // Seeded Show based on today's date
     const today = new Date().toISOString().slice(0, 10);
     const daySeed = parseInt(today.replace(/-/g, ''), 10);
     const activeShow = SHOWS[daySeed % SHOWS.length];
@@ -382,7 +378,7 @@
     applyTheme(localStorage.getItem('quoteguess_theme_preference') === 'dark');
     themeBtn.onclick = () => applyTheme(!document.documentElement.classList.contains('dark'));
 
-    // Audio Engine
+    // Fast Audio Engine
     function setupAudio() {
       if (!audioElem) {
         audioElem = new Audio();
@@ -414,6 +410,7 @@
           }
         });
 
+        // Load immediately
         audioElem.src = activeShow.local || activeShow.url;
         audioElem.load();
       }
@@ -531,188 +528,4 @@
 
     async function loadPoster(slug) {
       try {
-        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`);
-        const data = await res.json();
-        if (data.thumbnail && data.thumbnail.source) {
-          const img = document.getElementById('res-poster');
-          img.src = data.thumbnail.source;
-          img.classList.remove('hidden');
-          document.getElementById('res-poster-fallback').classList.add('hidden');
-        }
-      } catch (e) {}
-    }
-
-    function showResultModal(win, pts, triggerConfetti = true) {
-      document.getElementById('res-name').textContent = activeShow.title;
-      document.getElementById('res-meta').textContent = `${activeShow.yr} • ${activeShow.net}`;
-      document.getElementById('res-pts').textContent = `+${pts.toLocaleString()} PTS`;
-
-      const badge = document.getElementById('res-badge');
-      const icon = document.getElementById('res-icon');
-      if (win) {
-        badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60";
-        icon.className = "ph ph-trophy text-2xl";
-        document.getElementById('res-title').textContent = "Nailed It!";
-        document.getElementById('res-sub').textContent = `Guessed on attempt ${history.length} of 5`;
-        if (triggerConfetti && window.confetti) window.confetti({ particleCount: 50, spread: 60 });
-      } else {
-        badge.className = "w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-stone-100 text-stone-500 dark:bg-stone-800";
-        icon.className = "ph ph-x-circle text-2xl";
-        document.getElementById('res-title').textContent = "That's a Wrap!";
-        document.getElementById('res-sub').textContent = "Better luck tomorrow!";
-      }
-
-      loadPoster(activeShow.wiki);
-      document.getElementById('modal-result').classList.remove('hidden');
-    }
-
-    function endGame(win) {
-      isFinished = true;
-      stopPlayback();
-      const pts = win ? POINTS[history.length - 1] : 0;
-
-      // 1. Calculate & Save Stats
-      let stats = {
-        lastPlayedDate: today,
-        streak: 1,
-        maxStreak: 1,
-        played: 1,
-        wins: win ? 1 : 0,
-        history: history,
-        score: pts,
-        win: win
-      };
-
-      try {
-        const raw = localStorage.getItem('introguess_stats');
-        if (raw) {
-          const prev = JSON.parse(raw);
-          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-          stats.streak = (prev.lastPlayedDate === yesterday) ? (prev.streak || 0) + 1 : 1;
-          stats.maxStreak = Math.max(prev.maxStreak || 0, stats.streak);
-          stats.played = (prev.played || 0) + 1;
-          stats.wins = (prev.wins || 0) + (win ? 1 : 0);
-        }
-      } catch (e) {}
-
-      localStorage.setItem('introguess_stats', JSON.stringify(stats));
-
-      // 2. Notify DailyStreakers Hub
-      try {
-        const metaRaw = localStorage.getItem('dailystreakers_meta') || '{}';
-        const meta = JSON.parse(metaRaw);
-        meta.introLast = today;
-        localStorage.setItem('dailystreakers_meta', JSON.stringify(meta));
-      } catch (e) {}
-
-      // 3. Switch UI controls to finished state
-      document.getElementById('controls-active').classList.add('hidden');
-      document.getElementById('controls-finished').classList.remove('hidden');
-      refreshUI();
-
-      // 4. Pop result modal
-      showResultModal(win, pts, true);
-    }
-
-    // Modal Close Button & Backdrop Dismissal
-    document.getElementById('btn-close-modal').onclick = () => {
-      document.getElementById('modal-result').classList.add('hidden');
-    };
-
-    document.getElementById('modal-result').addEventListener('click', (e) => {
-      if (e.target.id === 'modal-result') {
-        document.getElementById('modal-result').classList.add('hidden');
-      }
-    });
-
-    // Reopen Scorecard from Finished Bar
-    document.getElementById('btn-reopen-scorecard').onclick = () => {
-      try {
-        const stats = JSON.parse(localStorage.getItem('introguess_stats') || '{}');
-        showResultModal(stats.win || false, stats.score || 0, false);
-      } catch (e) {
-        showResultModal(false, 0, false);
-      }
-    };
-
-    // Check if played earlier today on initial load
-    function checkPriorCompletion() {
-      try {
-        const raw = localStorage.getItem('introguess_stats');
-        if (raw) {
-          const stats = JSON.parse(raw);
-          if (stats.lastPlayedDate === today && stats.history) {
-            isFinished = true;
-            history = stats.history;
-            currentAttempt = history.length;
-            renderLog();
-            document.getElementById('controls-active').classList.add('hidden');
-            document.getElementById('controls-finished').classList.remove('hidden');
-            refreshUI();
-            return true;
-          }
-        }
-      } catch (e) {}
-      return false;
-    }
-
-    // Dropdown Autocomplete
-    const input = document.getElementById('input-guess');
-    const suggest = document.getElementById('suggest-menu');
-
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      if (!q) { suggest.classList.add('hidden'); return; }
-      const matches = AUTOCOMPLETE.filter(s => s.toLowerCase().includes(q)).slice(0, 5);
-      if (!matches.length) { suggest.classList.add('hidden'); return; }
-      suggest.innerHTML = matches.map(s => `<div class="p-2.5 hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer text-xs font-semibold" onclick="selectSuggestion('${s.replace(/'/g, "\\'")}')">${s}</div>`).join('');
-      suggest.classList.remove('hidden');
-    });
-
-    window.selectSuggestion = (str) => {
-      input.value = str;
-      suggest.classList.add('hidden');
-    };
-
-    document.getElementById('btn-submit').onclick = () => {
-      if (input.value.trim()) {
-        makeGuess(input.value.trim());
-        input.value = '';
-        suggest.classList.add('hidden');
-      }
-    };
-
-    document.getElementById('btn-skip').onclick = () => makeGuess('', true);
-
-    document.getElementById('btn-share').onclick = () => {
-      const emojis = history.map(h => h.isCorrect ? '🟩' : h.isSkip ? '⬛' : '🟥').join('');
-      const text = `IntroGuess (TV) #${daySeed % 100}\n${emojis} (${history.length}/5)\nhttps://dailystreakers.io/intro.html`;
-      navigator.clipboard.writeText(text);
-      document.getElementById('btn-share').innerHTML = '<i class="ph ph-check"></i><span>Copied Scorecard!</span>';
-    };
-
-    // Stats Modal Handlers
-    document.getElementById('btn-stats').onclick = () => {
-      try {
-        const raw = localStorage.getItem('introguess_stats');
-        if (raw) {
-          const stats = JSON.parse(raw);
-          document.getElementById('stat-played').textContent = stats.played || 0;
-          document.getElementById('stat-winrate').textContent = stats.played ? `${Math.round((stats.wins / stats.played) * 100)}%` : '0%';
-          document.getElementById('stat-streak').textContent = stats.streak || 0;
-          document.getElementById('stat-maxstreak').textContent = stats.maxStreak || 0;
-        }
-      } catch (e) {}
-      document.getElementById('modal-stats').classList.remove('hidden');
-    };
-
-    document.getElementById('btn-close-stats').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
-    document.getElementById('btn-stats-ok').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
-
-    // Startup
-    setupAudio();
-    checkPriorCompletion();
-    refreshUI();
-  </script>
-</body>
-</html>
+        const res = await fetch
