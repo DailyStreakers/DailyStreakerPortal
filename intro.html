@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>IntroGuess — Daily TV Theme Trivia | DailyStreakers</title>
 
-  <!-- Prevent light/dark theme flash on initial render -->
   <script>
     const savedTheme = localStorage.getItem('quoteguess_theme_preference');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -87,7 +86,6 @@
   <!-- MAIN PLAY AREA -->
   <main class="flex-1 max-w-lg w-full mx-auto px-4 py-5 flex flex-col justify-between">
     <div>
-      <!-- TOP STATUS: 5-INTRO TRACKER & DAILY SCORE -->
       <div class="flex items-center justify-between mb-2 text-xs">
         <div>
           <span class="font-bold text-stone-400 uppercase tracking-wider text-[11px]" id="intro-number-label">Intro 1 of 5</span>
@@ -119,7 +117,6 @@
           <div class="w-1.5 bg-orange-500 rounded-full wave-bar"></div>
         </div>
 
-        <!-- Play / Buffer Button -->
         <div class="flex flex-col items-center justify-center mb-4">
           <button id="btn-play" class="w-16 h-16 rounded-full bg-orange-600 hover:bg-orange-500 text-white flex items-center justify-center shadow-lg shadow-orange-600/30 hover:scale-105 active:scale-95 transition focus:outline-none">
             <i class="ph ph-play-fill text-2xl ml-0.5" id="play-icon"></i>
@@ -127,7 +124,7 @@
           <span class="text-xs font-semibold text-stone-500 dark:text-stone-400 mt-2.5" id="play-status">Initializing engine...</span>
         </div>
 
-        <!-- 5-Interval Progress Timeline -->
+        <!-- 5-Interval Timeline -->
         <div class="space-y-1.5 mb-3">
           <div class="relative w-full h-2.5 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden flex border border-stone-200 dark:border-stone-700">
             <div id="seg-0" class="h-full bg-orange-500 border-r border-white/40 dark:border-stone-900 transition-colors" style="width: 6.6%;"></div>
@@ -144,7 +141,7 @@
           </div>
         </div>
 
-        <!-- AUDIO VOLUME SLIDER -->
+        <!-- VOLUME SLIDER -->
         <div class="flex items-center justify-center space-x-2.5 pt-2.5 border-t border-stone-100 dark:border-stone-800/80">
           <i class="ph ph-speaker-simple-low text-stone-400 text-sm" id="vol-icon"></i>
           <input 
@@ -159,20 +156,17 @@
         </div>
       </div>
 
-      <!-- Progressive Hint (Reveals after 2 missed guesses on this intro) -->
+      <!-- Progressive Hint -->
       <div id="hint-banner" class="hidden mb-3 p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 rounded-2xl text-xs text-amber-900 dark:text-amber-200 flex items-center space-x-2">
         <i class="ph ph-lightbulb text-base text-amber-600 flex-shrink-0"></i>
         <span id="hint-msg"></span>
       </div>
 
-      <!-- Guesses made on current active intro -->
       <div id="current-intro-guesses" class="space-y-1.5 mb-2.5"></div>
-
-      <!-- Completed intros history log -->
       <div id="completed-intros-log" class="space-y-1.5 mb-3"></div>
     </div>
 
-    <!-- BOTTOM CONTROLS (Active vs Finished State) -->
+    <!-- BOTTOM CONTROLS -->
     <div class="pt-2">
       <div id="controls-active">
         <div class="relative mb-2.5">
@@ -195,7 +189,6 @@
         </div>
       </div>
 
-      <!-- Finished Lockout banner (Shown on reload after completion) -->
       <div id="controls-finished" class="hidden text-center py-4 px-4 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl shadow-sm">
         <div class="flex items-center justify-center space-x-2 text-xs font-bold text-stone-900 dark:text-stone-100">
           <i class="ph ph-check-circle-fill text-emerald-600 text-base"></i>
@@ -212,34 +205,30 @@
     </div>
   </main>
 
-  <!-- PER-INTRO REVEAL MODAL (Shows immediately on guess or 5th miss) -->
+  <!-- PER-INTRO REVEAL MODAL -->
   <div id="modal-round-reveal" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="absolute inset-0 z-0" id="round-backdrop"></div>
     <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-sm w-full p-5 border border-stone-200 dark:border-stone-800 shadow-2xl text-center relative z-10">
       
-      <!-- Close "X" Button -->
-      <button id="btn-close-round" class="absolute top-4 right-4 p-1.5 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition" title="Close">
+      <!-- Close "X" Button (Cleanly advances) -->
+      <button id="btn-close-round" class="absolute top-4 right-4 p-1.5 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition" title="Next">
         <i class="ph ph-x text-lg"></i>
       </button>
 
-      <!-- Status Badge -->
       <div id="round-badge" class="w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-2 bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400">
         <i class="ph ph-trophy text-2xl" id="round-icon"></i>
       </div>
       <h3 class="text-lg font-extrabold text-stone-900 dark:text-white" id="round-title">Nailed It!</h3>
       <p class="text-xs text-stone-500 dark:text-stone-400 mb-2" id="round-sub">Guessed on attempt 1 of 5</p>
 
-      <!-- Show Title & Meta -->
       <h4 class="font-bold text-stone-900 dark:text-white text-base" id="round-show-name">The Office</h4>
       <p class="text-xs text-stone-400 mb-2" id="round-show-meta">2005 • NBC</p>
       <div id="round-pts" class="inline-flex text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 mb-3">+1,000 PTS</div>
 
-      <!-- Embedded YouTube Video to play full theme -->
       <div class="w-full aspect-video rounded-2xl overflow-hidden shadow mb-4 bg-black border border-stone-200 dark:border-stone-800">
         <iframe id="round-video-frame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
 
-      <!-- Next Intro Action Button -->
       <button id="btn-next-intro" class="w-full py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-orange-600/20 transition flex items-center justify-center space-x-1.5">
         <span id="next-intro-btn-label">Next Intro (2 of 5)</span>
         <i class="ph ph-arrow-right"></i>
@@ -248,13 +237,12 @@
     </div>
   </div>
 
-  <!-- FINAL SUMMARY / SCORECARD MODAL -->
+  <!-- FINAL SUMMARY MODAL -->
   <div id="modal-result" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="absolute inset-0 z-0" id="modal-backdrop"></div>
     <div class="bg-white dark:bg-stone-900 rounded-3xl max-w-sm w-full p-6 border border-stone-200 dark:border-stone-800 shadow-2xl text-center relative z-10">
       
-      <!-- Close "X" Button -->
-      <button id="btn-close-modal" class="absolute top-4 right-4 p-1.5 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition" title="Close and review board">
+      <button id="btn-close-modal" class="absolute top-4 right-4 p-1.5 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition" title="Close">
         <i class="ph ph-x text-lg"></i>
       </button>
 
@@ -264,7 +252,6 @@
       <h3 class="text-xl font-extrabold text-stone-900 dark:text-white" id="res-title">That's a Wrap!</h3>
       <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5" id="res-sub">You solved 4 of 5 themes today.</p>
 
-      <!-- Score & Streak Pills -->
       <div class="grid grid-cols-2 gap-2 my-4">
         <div class="bg-stone-50 dark:bg-stone-800/60 p-3 rounded-2xl border border-stone-100 dark:border-stone-800">
           <span class="text-[10px] font-bold text-stone-400 uppercase block">Today's Points</span>
@@ -276,24 +263,20 @@
         </div>
       </div>
 
-      <!-- Emoji Scorecard Container -->
       <div class="bg-stone-100 dark:bg-stone-800/80 p-3 rounded-2xl text-sm font-mono tracking-widest text-center mb-4 select-all" id="scorecard-emojis">
         🟩 🟩 🟥 🟩 ⬛
       </div>
 
-      <!-- Action: Share -->
       <button id="btn-share-scorecard" class="w-full py-3 px-4 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-orange-600/20 transition flex items-center justify-center space-x-1.5 mb-2">
         <i class="ph ph-share-network text-base"></i>
         <span>Share Scorecard</span>
       </button>
 
-      <!-- Action: Back to Hub -->
       <a href="index.html" class="w-full py-2.5 px-4 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs rounded-xl transition flex items-center justify-center space-x-1.5 mb-3">
         <i class="ph ph-squares-four text-base"></i>
         <span>Back to DailyStreakers Hub</span>
       </a>
 
-      <!-- Support / Ko-fi callout -->
       <div class="pt-3 border-t border-stone-100 dark:border-stone-800">
         <a href="https://ko-fi.com/dailystreakers" target="_blank" rel="noopener" class="text-[11px] font-medium text-stone-500 hover:text-amber-600 dark:text-stone-400 transition inline-flex items-center space-x-1">
           <i class="ph ph-coffee text-amber-500"></i>
@@ -339,9 +322,6 @@
   </div>
 
   <script>
-    /* =========================================================================
-       1. MODERN TV SHOW POOL (YouTube Engine Powered)
-       ========================================================================= */
     const MASTER_SHOWS = [
       { title: "The Office", alts: ["The Office US"], yr: "2005", net: "NBC", ytId: "tFXjflvbBJo", start: 0 },
       { title: "Friends", alts: ["Friends (TV Series)"], yr: "1994", net: "NBC", ytId: "q-9kPks0IfE", start: 0 },
@@ -382,9 +362,6 @@
     const TIERS = [1.0, 2.5, 5.0, 8.5, 15.0];
     const POINTS = [1000, 800, 600, 400, 200];
 
-    /* =========================================================================
-       2. SEEDED DAILY PICKER (5 Shows per day)
-       ========================================================================= */
     const today = new Date().toISOString().slice(0, 10);
     const daySeed = parseInt(today.replace(/-/g, ''), 10);
 
@@ -410,13 +387,10 @@
 
     const dailyFive = pickDailyFiveShows();
 
-    /* =========================================================================
-       3. STATE MANAGEMENT
-       ========================================================================= */
-    let currentIntroIndex = 0; // 0 to 4
-    let currentAttempt = 0;    // 0 to 4
+    let currentIntroIndex = 0;
+    let currentAttempt = 0;
     let totalScore = 0;
-    let completedIntros = [];  // [{ title, yr, net, correct, attemptsUsed, points, ytId }]
+    let completedIntros = [];
     let currentIntroGuesses = [];
 
     let isAudioPlaying = false;
@@ -426,10 +400,8 @@
     let pendingPlay = false;
     let currentCuedVideoId = null;
 
-    // Volume level management
     let currentVolume = parseInt(localStorage.getItem('introguess_volume') || '80', 10);
 
-    // Theme Management
     const themeBtn = document.getElementById('btn-theme');
     const themeIcon = document.getElementById('theme-icon');
 
@@ -451,9 +423,6 @@
       applyTheme(!document.documentElement.classList.contains('dark'));
     });
 
-    /* =========================================================================
-       4. VOLUME CONTROLS
-       ========================================================================= */
     const volSlider = document.getElementById('vol-slider');
     const volLabel = document.getElementById('vol-label');
     const volIcon = document.getElementById('vol-icon');
@@ -481,9 +450,6 @@
       }
     });
 
-    /* =========================================================================
-       5. YOUTUBE IFRAME ENGINE INITIALIZATION
-       ========================================================================= */
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     const firstScriptTag = document.getElementsByTagName('script')[0];
@@ -531,9 +497,6 @@
       stopPlayback();
     }
 
-    /* =========================================================================
-       6. AUDIO PLAYBACK & TIMING CONTROLLER
-       ========================================================================= */
     function setWaveAnimation(running) {
       document.querySelectorAll('.wave-bar').forEach(el => {
         el.style.animationPlayState = running ? 'running' : 'paused';
@@ -597,9 +560,6 @@
       else playAudio(TIERS[currentAttempt] || 15.0);
     };
 
-    /* =========================================================================
-       7. GAMEPLAY UI & PROGRESSION
-       ========================================================================= */
     function renderIntroScreen() {
       if (currentIntroIndex >= 5) {
         finishGame();
@@ -609,7 +569,6 @@
       const activeShow = dailyFive[currentIntroIndex];
       stopPlayback();
 
-      // Only cue YouTube video if we switched to a new show
       if (ytPlayer) {
         try {
           if (currentCuedVideoId !== activeShow.ytId && ytPlayer.cueVideoById) {
@@ -627,7 +586,6 @@
 
       document.getElementById('intro-number-label').textContent = `Intro ${currentIntroIndex + 1} of 5`;
 
-      // Update 5 main overall pills
       for (let i = 0; i < 5; i++) {
         const pill = document.getElementById(`step-${i}`);
         if (i < completedIntros.length) {
@@ -641,7 +599,6 @@
         }
       }
 
-      // Update 5-interval audio segments for the active intro
       const curTime = TIERS[currentAttempt] || 15.0;
       document.getElementById('unlocked-sec-label').textContent = `${curTime.toFixed(1)}s`;
       document.getElementById('play-status').textContent = `Tap to play (${curTime.toFixed(1)}s unlocked)`;
@@ -656,7 +613,6 @@
       const next = TIERS[currentAttempt + 1];
       document.getElementById('skip-txt').textContent = next ? `Skip (+${(next - curTime).toFixed(1)}s)` : 'Give Up';
 
-      // Progressive Hint (unlocked after 2 missed guesses on this intro)
       const hintBanner = document.getElementById('hint-banner');
       if (currentAttempt >= 2) {
         hintBanner.classList.remove('hidden');
@@ -697,7 +653,6 @@
       `).join('');
     }
 
-    // SHOW PER-INTRO REVEAL MODAL
     function showRoundRevealModal(show, isWin, attemptsCount, ptsEarned) {
       stopPlayback();
 
@@ -727,11 +682,9 @@
       document.getElementById('round-show-name').textContent = show.title;
       document.getElementById('round-show-meta').textContent = `${show.yr} • ${show.net}`;
 
-      // Embed YouTube full video
       const frame = document.getElementById('round-video-frame');
       frame.src = `https://www.youtube.com/embed/${show.ytId}?autoplay=0&rel=0&modestbranding=1`;
 
-      // Update button text based on whether more intros remain
       const nextBtnLabel = document.getElementById('next-intro-btn-label');
       if (currentIntroIndex < 4) {
         nextBtnLabel.textContent = `Next Intro (${currentIntroIndex + 2} of 5)`;
@@ -742,17 +695,12 @@
       document.getElementById('modal-round-reveal').classList.remove('hidden');
     }
 
-    function closeRoundRevealModal() {
+    // Unified advancement logic when closing reveal modal
+    function advanceToNextIntro() {
       const frame = document.getElementById('round-video-frame');
-      frame.src = ""; // Stop embedded video playback immediately
+      frame.src = "";
       document.getElementById('modal-round-reveal').classList.add('hidden');
-    }
 
-    document.getElementById('btn-close-round').onclick = closeRoundRevealModal;
-    document.getElementById('round-backdrop').onclick = closeRoundRevealModal;
-
-    document.getElementById('btn-next-intro').onclick = () => {
-      closeRoundRevealModal();
       currentIntroIndex++;
       currentAttempt = 0;
       currentIntroGuesses = [];
@@ -762,7 +710,11 @@
       } else {
         renderIntroScreen();
       }
-    };
+    }
+
+    document.getElementById('btn-close-round').onclick = advanceToNextIntro;
+    document.getElementById('round-backdrop').onclick = advanceToNextIntro;
+    document.getElementById('btn-next-intro').onclick = advanceToNextIntro;
 
     function handleIntroGuess(guessText, isSkip = false) {
       stopPlayback();
@@ -814,13 +766,9 @@
       }
     }
 
-    /* =========================================================================
-       8. DAILY COMPLETION, STREAKS & LOCALSTORAGE PERSISTENCE
-       ========================================================================= */
     function finishGame() {
       stopPlayback();
 
-      // 1. Calculate & Save Stats
       let stats = {
         lastPlayedDate: today,
         streak: 1,
@@ -848,7 +796,6 @@
 
       localStorage.setItem('introguess_stats', JSON.stringify(stats));
 
-      // 2. Notify DailyStreakers Hub
       try {
         const metaRaw = localStorage.getItem('dailystreakers_meta') || '{}';
         const meta = JSON.parse(metaRaw);
@@ -856,11 +803,9 @@
         localStorage.setItem('dailystreakers_meta', JSON.stringify(meta));
       } catch (e) {}
 
-      // 3. Switch UI controls to finished state
       document.getElementById('controls-active').classList.add('hidden');
       document.getElementById('controls-finished').classList.remove('hidden');
 
-      // 4. Pop final result scorecard modal
       showResultModal(totalScore, stats.streak, completedIntros, true);
     }
 
@@ -871,7 +816,6 @@
       const correctCount = results.filter(r => r.correct).length;
       document.getElementById('res-sub').textContent = `You solved ${correctCount} of 5 themes today.`;
 
-      // Build Emojis
       const emojis = results.map(r => r.correct ? '🟩' : '🟥').join(' ');
       document.getElementById('scorecard-emojis').textContent = emojis;
 
@@ -882,7 +826,6 @@
       document.getElementById('modal-result').classList.remove('hidden');
     }
 
-    // Modal Close Button & Backdrop Dismissal
     document.getElementById('btn-close-modal').addEventListener('click', () => {
       document.getElementById('modal-result').classList.add('hidden');
     });
@@ -891,7 +834,6 @@
       document.getElementById('modal-result').classList.add('hidden');
     });
 
-    // Reopen Scorecard from Finished Bar
     document.getElementById('btn-reopen-scorecard').addEventListener('click', () => {
       try {
         const stats = JSON.parse(localStorage.getItem('introguess_stats') || '{}');
@@ -901,7 +843,6 @@
       }
     });
 
-    // Check if played earlier today on initial load
     function checkPriorCompletion() {
       try {
         const raw = localStorage.getItem('introguess_stats');
@@ -931,9 +872,6 @@
       return false;
     }
 
-    /* =========================================================================
-       9. INPUTS & AUTOCOMPLETE
-       ========================================================================= */
     const input = document.getElementById('input-guess');
     const suggest = document.getElementById('suggest-menu');
 
@@ -974,7 +912,6 @@
       handleIntroGuess('', true);
     };
 
-    // Share Scorecard to Clipboard
     document.getElementById('btn-share-scorecard').onclick = () => {
       const emojis = completedIntros.map(r => r.correct ? '🟩' : '🟥').join('');
       const correctCount = completedIntros.filter(r => r.correct).length;
@@ -984,7 +921,6 @@
       document.getElementById('btn-share-scorecard').innerHTML = '<i class="ph ph-check text-base"></i><span>Copied to Clipboard!</span>';
     };
 
-    // Stats Modal Handlers
     document.getElementById('btn-stats').onclick = () => {
       try {
         const raw = localStorage.getItem('introguess_stats');
@@ -1002,7 +938,6 @@
     document.getElementById('btn-close-stats').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
     document.getElementById('btn-stats-ok').onclick = () => document.getElementById('modal-stats').classList.add('hidden');
 
-    // Startup Execution Order
     if (!checkPriorCompletion()) {
       renderIntroScreen();
     }
