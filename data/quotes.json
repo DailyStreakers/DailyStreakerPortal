@@ -120,4 +120,4908 @@
   { "q": "Everyone keeps telling me how my story is supposed to go. Nah, I'ma do my own thing.", "t": "Spider-Man: Across the Spider-Verse", "y": "2023", "a": ["Across the Spider-Verse"] },
   { "q": "May thy knife chip and shatter.", "t": "Dune: Part Two", "y": "2024", "a": ["Dune 2"] },
   { "q": "I am Marvel Jesus.", "t": "Deadpool & Wolverine", "y": "2024", "a": ["Deadpool 3"] }
+  [
+  {
+    "q": "Do, or do not. There is no try.",
+    "t": "Star Wars: Episode V - The Empire Strikes Back",
+    "y": "1980",
+    "a": [
+      "Episode V - The Empire Strikes Back",
+      "The Empire Strikes Back",
+      "Empire Strikes Back",
+      "Star Wars"
+    ]
+  },
+  {
+    "q": "Listen to them. Children of the night. What music they make.",
+    "t": "Dracula",
+    "y": "1931",
+    "a": []
+  },
+  {
+    "q": "It's alive! It's alive!",
+    "t": "Frankenstein",
+    "y": "1931",
+    "a": []
+  },
+  {
+    "q": "Oh, no, it wasn't the airplanes. It was Beauty killed the Beast.",
+    "t": "King Kong",
+    "y": "1933",
+    "a": []
+  },
+  {
+    "q": "Magic Mirror on the wall, who is the fairest one of all?",
+    "t": "Snow White and the Seven Dwarfs",
+    "y": "1937",
+    "a": []
+  },
+  {
+    "q": "Elementary, my dear Watson.",
+    "t": "The Adventures of Sherlock Holmes",
+    "y": "1939",
+    "a": [
+      "Adventures of Sherlock Holmes"
+    ]
+  },
+  {
+    "q": "I'll get you, my pretty, and your little dog, too!",
+    "t": "The Wizard of Oz",
+    "y": "1939",
+    "a": [
+      "Wizard of Oz"
+    ]
+  },
+  {
+    "q": "After all, tomorrow is another day!",
+    "t": "Gone With the Wind",
+    "y": "1939",
+    "a": []
+  },
+  {
+    "q": "Frankly, my dear, I don't give a damn.",
+    "t": "Gone with the Wind",
+    "y": "1939",
+    "a": []
+  },
+  {
+    "q": "Toto, I've got a feeling we're not in Kansas anymore.",
+    "t": "The Wizard of Oz",
+    "y": "1939",
+    "a": [
+      "Wizard of Oz"
+    ]
+  },
+  {
+    "q": "There's no place like home.",
+    "t": "The Wizard of Oz",
+    "y": "1939",
+    "a": [
+      "Wizard of Oz"
+    ]
+  },
+  {
+    "q": "As God is my witness, I'll never be hungry again.",
+    "t": "Gone with the Wind",
+    "y": "1939",
+    "a": []
+  },
+  {
+    "q": "It's gone forever, that funny young, lost look I loved won't ever come back. I killed that when I told you about Rebecca. It's gone. In a few hours, you've grown so much older.",
+    "t": "Rebecca",
+    "y": "1940",
+    "a": []
+  },
+  {
+    "q": "Here's looking at you, kid.",
+    "t": "Casablanca",
+    "y": "1942",
+    "a": []
+  },
+  {
+    "q": "Play it, Sam. Play 'As Time Goes By.",
+    "t": "Casablanca",
+    "y": "1942",
+    "a": []
+  },
+  {
+    "q": "We'll always have Paris.",
+    "t": "Casablanca",
+    "y": "1942",
+    "a": []
+  },
+  {
+    "q": "Round up the usual suspects.",
+    "t": "Casablanca",
+    "y": "1942",
+    "a": []
+  },
+  {
+    "q": "This is the beginning of a beautiful friendship.",
+    "t": "Casablanca",
+    "y": "1942",
+    "a": []
+  },
+  {
+    "q": "When it comes to women, you’re a true democrat.",
+    "t": "Casablanca",
+    "y": "1942",
+    "a": []
+  },
+  {
+    "q": "I am big! It's the pictures that got small.",
+    "t": "Sunset Blvd.",
+    "y": "1950",
+    "a": []
+  },
+  {
+    "q": "Nobody ever lies about being lonely.",
+    "t": "From Here to Eternity",
+    "y": "1953",
+    "a": []
+  },
+  {
+    "q": "You don't understand! I coulda had class. I coulda been a contender. I could've been somebody, instead of a bum, which is what I am.",
+    "t": "On The Waterfront",
+    "y": "1954",
+    "a": []
+  },
+  {
+    "q": "Where we're going, we don't need roads",
+    "t": "Back to the Future",
+    "y": "1985",
+    "a": []
+  },
+  {
+    "q": "Life is a banquet, and most poor suckers are starving to death!",
+    "t": "Auntie Mame",
+    "y": "1958",
+    "a": []
+  },
+  {
+    "q": "Well nobody is perfect",
+    "t": "Some Like It Hot",
+    "y": "1959",
+    "a": []
+  },
+  {
+    "q": "My name is Bond, James Bond.",
+    "t": "Dr. No",
+    "y": "1962",
+    "a": []
+  },
+  {
+    "q": "Bond. James Bond",
+    "t": "Dr. No",
+    "y": "1962",
+    "a": []
+  },
+  {
+    "q": "I don't understand. He meets a girl that can give him a new life and he pushes her away? Because he doesn't know how to love.",
+    "t": "8 1⁄2",
+    "y": "1963",
+    "a": []
+  },
+  {
+    "q": "You expect me to talk? No, Mr Bond, I expect you to die!",
+    "t": "Goldfinger",
+    "y": "1964",
+    "a": []
+  },
+  {
+    "q": "A martini. Shaken, not stirred.",
+    "t": "Goldfinger",
+    "y": "1964",
+    "a": []
+  },
+  {
+    "q": "Gentlemen, you can't fight in here! This is the War Room!",
+    "t": "Dr. Strangelove",
+    "y": "1964",
+    "a": []
+  },
+  {
+    "q": "What we've got here is a failure to communicate.",
+    "t": "Cool Hand Luke",
+    "y": "1967",
+    "a": []
+  },
+  {
+    "q": "They call me Mister Tibbs!",
+    "t": "In the Heat of the Night",
+    "y": "1967",
+    "a": []
+  },
+  {
+    "q": "Mrs. Robinson, you're trying to seduce me. Aren't you?",
+    "t": "The Graduate",
+    "y": "1967",
+    "a": [
+      "Graduate"
+    ]
+  },
+  {
+    "q": "You only live twice:Once when you are born And once when you look death in the face",
+    "t": "You only live twice",
+    "y": "1967",
+    "a": []
+  },
+  {
+    "q": "We rob banks.",
+    "t": "Bonnie and Clyde",
+    "y": "1967",
+    "a": []
+  },
+  {
+    "q": "Take your stinking paws off me, you damned dirty ape!",
+    "t": "Planet of the Apes",
+    "y": "1968",
+    "a": []
+  },
+  {
+    "q": "Hello, gorgeous.",
+    "t": "Funny Girl",
+    "y": "1968",
+    "a": []
+  },
+  {
+    "q": "Love means never having to say you're sorry",
+    "t": "Love Story",
+    "y": "1970",
+    "a": []
+  },
+  {
+    "q": "Public opinion has a way of changing.",
+    "t": "A Clockwork Orange",
+    "y": "1971",
+    "a": []
+  },
+  {
+    "q": "Drop the gun, take the cannoli.",
+    "t": "The Godfather",
+    "y": "1972",
+    "a": [
+      "Godfather"
+    ]
+  },
+  {
+    "q": "A man who doesn't spend time with his family can never be a real man.",
+    "t": "The Godfather",
+    "y": "1972",
+    "a": [
+      "Godfather"
+    ]
+  },
+  {
+    "q": "I'm going to make him an offer he can't refuse.",
+    "t": "The Godfather",
+    "y": "1972",
+    "a": [
+      "Godfather"
+    ]
+  },
+  {
+    "q": "Great men are not born great, they grow great.",
+    "t": "The Godfather",
+    "y": "1972",
+    "a": [
+      "Godfather"
+    ]
+  },
+  {
+    "q": "I'm gonna make him an offer he can't refuse",
+    "t": "The Godfather",
+    "y": "1972",
+    "a": [
+      "Godfather"
+    ]
+  },
+  {
+    "q": "Father Dyer: My idea of Heaven is a solid white nightclub with me as a headliner for all eternity, and they LOVE me!!",
+    "t": "The Exorcist",
+    "y": "1973",
+    "a": [
+      "Exorcist"
+    ]
+  },
+  {
+    "q": "Men, you are about to embark on a great crusade to stamp out runaway decency in the west. Now you men will only be risking your lives, whilst I will be risking an almost certain Academy Award nomination for Best Supporting Actor.",
+    "t": "Blazing Saddles",
+    "y": "1974",
+    "a": []
+  },
+  {
+    "q": "What did you expect? 'Welcome, sonny'? 'Make yourself at home'? 'Marry my daughter'? You've got to remember that these are just simple farmers. These are people of the land. The common clay of the new West. You know... morons.",
+    "t": "Blazing Saddles",
+    "y": "1974",
+    "a": []
+  },
+  {
+    "q": "Wait Master, it might be dangerous... you go first.",
+    "t": "Young Frankenstein",
+    "y": "1974",
+    "a": []
+  },
+  {
+    "q": "What's a dazzling urbanite like you doing in a rustic setting like this?",
+    "t": "Blazing Saddles",
+    "y": "1974",
+    "a": []
+  },
+  {
+    "q": "Please! Remain in your seats, I beg you! We are not children here, we are scientists! I assure you there is nothing to fear!",
+    "t": "Young Frankenstein",
+    "y": "1974",
+    "a": []
+  },
+  {
+    "q": "Keep your friends close, but your enemies closer.",
+    "t": "The Godfather II",
+    "y": "1974",
+    "a": [
+      "Godfather II"
+    ]
+  },
+  {
+    "q": "Now I don't have to tell you good folks what's been happening in our beloved little town. Sheriff murdered, crops burned, stores looted, people stampeded, and cattle raped. The time has come to act, and act fast. I'm leaving.",
+    "t": "Blazing Saddles",
+    "y": "1974",
+    "a": []
+  },
+  {
+    "q": "You're gonna need a bigger boat.",
+    "t": "Jaws",
+    "y": "1975",
+    "a": []
+  },
+  {
+    "q": "We are the Knights who say... Ni!",
+    "t": "Monty Python and the Holy Grail",
+    "y": "1975",
+    "a": []
+  },
+  {
+    "q": "It’s just a flesh wound.",
+    "t": "Monty Python and the Holy Grail",
+    "y": "1975",
+    "a": []
+  },
+  {
+    "q": "Run Away!",
+    "t": "Monty Python and the Holy Grail",
+    "y": "1975",
+    "a": []
+  },
+  {
+    "q": "Yeah, to you, it's Thanksgiving; to me, it's Thursday.",
+    "t": "Rocky",
+    "y": "1976",
+    "a": []
+  },
+  {
+    "q": "You talking to me?",
+    "t": "Taxi Driver",
+    "y": "1976",
+    "a": []
+  },
+  {
+    "q": "Yo, Adrian!!.",
+    "t": "Rocky",
+    "y": "1976",
+    "a": []
+  },
+  {
+    "q": "Is it safe?",
+    "t": "Marathon man",
+    "y": "1976",
+    "a": []
+  },
+  {
+    "q": "If you strike me down, I shall become more powerful than you could possibly imagine.",
+    "t": "Star Wars",
+    "y": "1977",
+    "a": []
+  },
+  {
+    "q": "It'll be just like Beggar's Canyon, back home",
+    "t": "Star Wars",
+    "y": "1977",
+    "a": []
+  },
+  {
+    "q": "May the Force be with you.",
+    "t": "Star Wars",
+    "y": "1977",
+    "a": []
+  },
+  {
+    "q": "May the force be with you",
+    "t": "Star Wars",
+    "y": "1977",
+    "a": []
+  },
+  {
+    "q": "When I left you I was but the learner. Now I am the master.",
+    "t": "Star Wars Episode IV - A New Hope",
+    "y": "1977",
+    "a": [
+      "A New Hope",
+      "Star Wars"
+    ]
+  },
+  {
+    "q": "That’s no moon…it’s a space station",
+    "t": "Star Wars Episode IV - A New Hope",
+    "y": "1977",
+    "a": [
+      "A New Hope",
+      "Star Wars"
+    ]
+  },
+  {
+    "q": "All right, but apart from the sanitation, medicine, education, wine, public order, irrigation, roads, the fresh water system and public health, what have the Romans ever done for us?",
+    "t": "Monty Python's Life of Brian",
+    "y": "1979",
+    "a": []
+  },
+  {
+    "q": "Oh! It's blessed are the meek! I'm glad they're getting something, they had a hell of a time...",
+    "t": "Monty Python's Life of Brian",
+    "y": "1979",
+    "a": []
+  },
+  {
+    "q": "Always look on the Bright Side of Life ... Always look on the Light Side of Life.",
+    "t": "Monty Python's Life of Brian",
+    "y": "1979",
+    "a": []
+  },
+  {
+    "q": "I love the smell of napalm in the morning",
+    "t": "Apocalypse Now",
+    "y": "1979",
+    "a": []
+  },
+  {
+    "q": "Choose the sword, and you will join me. Choose the ball and you join your mother, in death. You don’t understand my words, but you must choose. So… come boy, choose life or death.",
+    "t": "Shogun Assassin",
+    "y": "1980",
+    "a": []
+  },
+  {
+    "q": "Joey, have you ever been in a turkish prison?",
+    "t": "Airplane",
+    "y": "1980",
+    "a": []
+  },
+  {
+    "q": "Looks like I picked the wrong week to quit sniffing glue.",
+    "t": "Airplane",
+    "y": "1980",
+    "a": []
+  },
+  {
+    "q": "You must unlearn what you have learned.",
+    "t": "Star Wars: Episode V - The Empire Strikes Back",
+    "y": "1980",
+    "a": [
+      "Episode V - The Empire Strikes Back",
+      "The Empire Strikes Back",
+      "Empire Strikes Back",
+      "Star Wars"
+    ]
+  },
+  {
+    "q": "Little pigs, little pigs, let me come in! Not by the hair on your chinny chin chin? Then I'll huff... And I'll puff... And I'll blow your house in!",
+    "t": "The Shining",
+    "y": "1980",
+    "a": [
+      "Shining"
+    ]
+  },
+  {
+    "q": "Do, or do not. There is no 'try'.",
+    "t": "Star Wars: Episode V - The Empire Strikes Back",
+    "y": "1980",
+    "a": [
+      "Episode V - The Empire Strikes Back",
+      "The Empire Strikes Back",
+      "Empire Strikes Back",
+      "Star Wars"
+    ]
+  },
+  {
+    "q": "Luke, I am your father.",
+    "t": "Star Wars, Empire Strikes Back",
+    "y": "1980",
+    "a": []
+  },
+  {
+    "q": "Here's Johnny!",
+    "t": "The Shining",
+    "y": "1980",
+    "a": [
+      "Shining"
+    ]
+  },
+  {
+    "q": "It's not the years, honey. It's the mileage.",
+    "t": "Raiders of the Lost Ark",
+    "y": "1981",
+    "a": []
+  },
+  {
+    "q": "The sun will come out tomorrow.",
+    "t": "Annie",
+    "y": "1982",
+    "a": []
+  },
+  {
+    "q": "If you don't eat your meat, you can't have any pudding! How can you have any pudding if you don't eat your meat?!",
+    "t": "Pink Floyd: The Wall",
+    "y": "1982",
+    "a": [
+      "The Wall"
+    ]
+  },
+  {
+    "q": "I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. I watched C-beams glitter in the dark near the Tannhäuser Gate. All those moments will be lost in time, like tears in rain.",
+    "t": "Blade Runner",
+    "y": "1982",
+    "a": []
+  },
+  {
+    "q": "I changed the conditions of the test. I don’t like to lose.",
+    "t": "Star Trek II: The Wrath of Khan",
+    "y": "1982",
+    "a": [
+      "The Wrath of Khan"
+    ]
+  },
+  {
+    "q": "Leaping lizards!",
+    "t": "Annie",
+    "y": "1982",
+    "a": []
+  },
+  {
+    "q": "Go ahead, make my day.",
+    "t": "Sudden Impact",
+    "y": "1983",
+    "a": []
+  },
+  {
+    "q": "Say hello to my little friend!",
+    "t": "Scarface",
+    "y": "1983",
+    "a": []
+  },
+  {
+    "q": "It’s a trap!",
+    "t": "Star Wars: Return of Jedi",
+    "y": "1983",
+    "a": [
+      "Return of Jedi"
+    ]
+  },
+  {
+    "q": "I always tell tell the truth, even when i lie.",
+    "t": "Scarface",
+    "y": "1983",
+    "a": []
+  },
+  {
+    "q": "I am a Jedi, like my father before me.",
+    "t": "Star Wars Episode 6 : Return Of The Jedi",
+    "y": "1983",
+    "a": [
+      "Return Of The Jedi"
+    ]
+  },
+  {
+    "q": "From now on we are enemies, you and I.",
+    "t": "Amadeus",
+    "y": "1984",
+    "a": []
+  },
+  {
+    "q": "I'll be back.",
+    "t": "The Terminator",
+    "y": "1984",
+    "a": [
+      "Terminator"
+    ]
+  },
+  {
+    "q": "Hasta la Vista, baby.",
+    "t": "The Terminator",
+    "y": "1984",
+    "a": [
+      "Terminator"
+    ]
+  },
+  {
+    "q": "I can’t believe I just gave my panties to a geek.",
+    "t": "Sixteen Candles",
+    "y": "1984",
+    "a": []
+  },
+  {
+    "q": "Are you telling me that you built a time machine out of a DeLorean.",
+    "t": "Back to the Future",
+    "y": "1985",
+    "a": []
+  },
+  {
+    "q": "I feel the need for speed",
+    "t": "Top Gun",
+    "y": "1986",
+    "a": []
+  },
+  {
+    "q": "I feel the need - the need for speed!.",
+    "t": "Top Gun",
+    "y": "1986",
+    "a": []
+  },
+  {
+    "q": "I feel the need!!!! The need for speed!!!!",
+    "t": "Top Gun",
+    "y": "1986",
+    "a": []
+  },
+  {
+    "q": "It's only forever, not long at all...",
+    "t": "Labyrinth",
+    "y": "1986",
+    "a": []
+  },
+  {
+    "q": "Life moves pretty fast. If you don’t stop and look around once in a while, you could miss it.",
+    "t": "Ferris Bueller's Day Off",
+    "y": "1986",
+    "a": []
+  },
+  {
+    "q": "I'm a mog: half man, half dog. I'm my own best friend!",
+    "t": "Spaceballs",
+    "y": "1987",
+    "a": []
+  },
+  {
+    "q": "Snap out of it!",
+    "t": "Moonstruck",
+    "y": "1987",
+    "a": []
+  },
+  {
+    "q": "Come on... Come on! Do it! Do it! Come on. Come on! Kill me! I'm here! Kill me! I'm here! Kill me! Come on! Kill me! I'm here! Come on! Do it now! Kill me!",
+    "t": "Predator",
+    "y": "1987",
+    "a": []
+  },
+  {
+    "q": "You idiots! These are not them! You've captured their stunt doubles!",
+    "t": "Spaceballs",
+    "y": "1987",
+    "a": []
+  },
+  {
+    "q": "So, Lone Starr, now you see that evil will always triumph because good is dumb.",
+    "t": "Spaceballs",
+    "y": "1987",
+    "a": []
+  },
+  {
+    "q": "And to think I've been telling my friends it's so cool living with an artist. You never once asked to paint me nude!",
+    "t": "*batteries not included",
+    "y": "1987",
+    "a": []
+  },
+  {
+    "q": "Nobody puts Baby in a corner.",
+    "t": "Dirty Dancing",
+    "y": "1987",
+    "a": []
+  },
+  {
+    "q": "Here endeth the lesson.",
+    "t": "The Untouchables",
+    "y": "1987",
+    "a": [
+      "Untouchables"
+    ]
+  },
+  {
+    "q": "Death cannot stop true love",
+    "t": "The Princess Bride",
+    "y": "1987",
+    "a": [
+      "Princess Bride"
+    ]
+  },
+  {
+    "q": "As you wish...",
+    "t": "The Princess Bride",
+    "y": "1987",
+    "a": [
+      "Princess Bride"
+    ]
+  },
+  {
+    "q": "Hello. My name is Inigo Montoya. You killed my father. Prepare to die.",
+    "t": "The Princess Bride",
+    "y": "1987",
+    "a": [
+      "Princess Bride"
+    ]
+  },
+  {
+    "q": "Inconcievable!",
+    "t": "The Princess Bride",
+    "y": "1987",
+    "a": [
+      "Princess Bride"
+    ]
+  },
+  {
+    "q": "Greed, for lack of a better word, is good",
+    "t": "Wall Street",
+    "y": "1987",
+    "a": []
+  },
+  {
+    "q": "Yippie-ki-yay, motherf—er!",
+    "t": "Die Hard",
+    "y": "1988",
+    "a": []
+  },
+  {
+    "q": "Welcome to the party, pal!",
+    "t": "Die Hard",
+    "y": "1988",
+    "a": []
+  },
+  {
+    "q": "Like a midget at a urinal, I was going to have to stay on my toes.",
+    "t": "The Naked Gun",
+    "y": "1988",
+    "a": [
+      "Naked Gun"
+    ]
+  },
+  {
+    "q": "Say it aint’ so, Joe. Say it ain’t so.",
+    "t": "Eight Men Out",
+    "y": "1988",
+    "a": []
+  },
+  {
+    "q": "I'm not bad. I'm just drawn that way.",
+    "t": "Who Framed Roger Rabbit",
+    "y": "1988",
+    "a": []
+  },
+  {
+    "q": "Strange things are afoot at The Circle K.",
+    "t": "Bill and Ted's Most Excellent Adventure",
+    "y": "1989",
+    "a": []
+  },
+  {
+    "q": "You must strive to find your own voice because the longer you wait to begin, the less likely you are going to find it at all.",
+    "t": "Dead Poets Society",
+    "y": "1989",
+    "a": []
+  },
+  {
+    "q": "When you realize you want to spend the rest of your life with somebody, you want the rest of your life to start as soon as possible.",
+    "t": "When Harry Met Sally",
+    "y": "1989",
+    "a": []
+  },
+  {
+    "q": "Have you ever danced with the devil in the pale moonlight?",
+    "t": "Batman",
+    "y": "1989",
+    "a": []
+  },
+  {
+    "q": "I'll have what she's having.",
+    "t": "When Harry Met Sally",
+    "y": "1989",
+    "a": []
+  },
+  {
+    "q": "If you build it, he will come.",
+    "t": "Field of Dreams",
+    "y": "1989",
+    "a": []
+  },
+  {
+    "q": "Why don't you make like a tree and get out of here.",
+    "t": "Back to the Future Part II",
+    "y": "1989",
+    "a": []
+  },
+  {
+    "q": "Carpe diem. Seize the day, boys. Make your lives extraordinary.",
+    "t": "Dead Poets Society",
+    "y": "1989",
+    "a": []
+  },
+  {
+    "q": "Just when I thought I was out, they pull me back in.",
+    "t": "The Godfather III",
+    "y": "1990",
+    "a": [
+      "Godfather III"
+    ]
+  },
+  {
+    "q": "Never rat on your friends and always keep your mouth shut",
+    "t": "Goodfellas",
+    "y": "1990",
+    "a": []
+  },
+  {
+    "q": "I love you. I really love you. Ditto.",
+    "t": "Ghost",
+    "y": "1990",
+    "a": []
+  },
+  {
+    "q": "I’m funny how?  Funny, like, I’m a clown?  I amuse you?",
+    "t": "Goodfellas",
+    "y": "1990",
+    "a": []
+  },
+  {
+    "q": "This valley is just one long smorgasbord.",
+    "t": "Tremors",
+    "y": "1990",
+    "a": []
+  },
+  {
+    "q": "As far back as I can remember, I always wanted to be a gangster.",
+    "t": "Goodfellas",
+    "y": "1990",
+    "a": []
+  },
+  {
+    "q": "Better dead and cool then alive and uncool.",
+    "t": "Harley Davidson and The Marlboro Man",
+    "y": "1991",
+    "a": []
+  },
+  {
+    "q": "You're a... you're a complex Freudian hallucination having something to do with my mother and I don't know why you have wings, but you have very lovely legs and you're a very nice tiny person and what am I saying? I don't know who my mother was. I'm an orphan and I've never taken drugs because I missed the sixties; I was an accountant.",
+    "t": "Hook",
+    "y": "1991",
+    "a": []
+  },
+  {
+    "q": "Oh, and Senator, just one more thing. Love your suit.",
+    "t": "The Silence of the Lambs",
+    "y": "1991",
+    "a": [
+      "Silence of the Lambs"
+    ]
+  },
+  {
+    "q": "Hook, you let those kids out of that net in less than one minute or you better get an attorney and hope to God he's better than me.",
+    "t": "Hook",
+    "y": "1991",
+    "a": []
+  },
+  {
+    "q": "And you'd better deliver, Miss Bell, or no amount of clapping will bring you back from where I will send you.",
+    "t": "Hook",
+    "y": "1991",
+    "a": []
+  },
+  {
+    "q": "Of course it's hard. It's supposed to be hard. If it wasn't hard, everyone would do it. The hard is what makes it great",
+    "t": "A League of their Own",
+    "y": "1992",
+    "a": []
+  },
+  {
+    "q": "There's no crying in baseball!",
+    "t": "A League of Their Own",
+    "y": "1992",
+    "a": []
+  },
+  {
+    "q": "You can't handle the truth!",
+    "t": "A Few Good Men",
+    "y": "1992",
+    "a": []
+  },
+  {
+    "q": "Party on, Wayne! Party on, Garth!",
+    "t": "Wayne's World",
+    "y": "1992",
+    "a": []
+  },
+  {
+    "q": "You shoot me in a dream, you better wake up and apologise.",
+    "t": "Reservoir Dogs",
+    "y": "1992",
+    "a": []
+  },
+  {
+    "q": "You're killing me, smalls!",
+    "t": "The Sandlot",
+    "y": "1993",
+    "a": [
+      "Sandlot"
+    ]
+  },
+  {
+    "q": "Life, uh, finds a way.",
+    "t": "Jurassic Park",
+    "y": "1993",
+    "a": []
+  },
+  {
+    "q": "Clever girl.",
+    "t": "Jurassic Park",
+    "y": "1993",
+    "a": []
+  },
+  {
+    "q": "What do you call them, Max? Yabbos? Max likes your yabbos. In fact, he loves them!",
+    "t": "Hocus Pocus",
+    "y": "1993",
+    "a": []
+  },
+  {
+    "q": "You bred raptors?",
+    "t": "Jurassic Park",
+    "y": "1993",
+    "a": []
+  },
+  {
+    "q": "I'm your Huckleberry.",
+    "t": "Tombstone",
+    "y": "1993",
+    "a": []
+  },
+  {
+    "q": "You’re killin’ me, Smalls.",
+    "t": "The Sandlot",
+    "y": "1993",
+    "a": [
+      "Sandlot"
+    ]
+  },
+  {
+    "q": "When I got tired, I slept. When I got hungry, I ate. When I had to go, you know, I went.",
+    "t": "Forrest Gump",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "Some birds aren't meant to be caged. Their feathers are just too bright.",
+    "t": "The Shawshank Redemption",
+    "y": "1994",
+    "a": [
+      "Shawshank Redemption"
+    ]
+  },
+  {
+    "q": "Yeah I called her up. She gave me a bunch of crap about me not listening to her, or something. I don't know, I wasn't really paying attention.",
+    "t": "Dumb and Dumber",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "Run, Forrest, run!",
+    "t": "Forrest Gump",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "Lord, it's a miracle! Man up and vanished like a fart in the wind!",
+    "t": "The Shawshank Redemption",
+    "y": "1994",
+    "a": [
+      "Shawshank Redemption"
+    ]
+  },
+  {
+    "q": "The past can hurt. But the way I see it, you can either run from it or learn from it.",
+    "t": "The Lion King",
+    "y": "1994",
+    "a": [
+      "Lion King"
+    ]
+  },
+  {
+    "q": "Oh yes, the past can hurt. But you can either run from it, or learn from it.",
+    "t": "The Lion King",
+    "y": "1994",
+    "a": [
+      "Lion King"
+    ]
+  },
+  {
+    "q": "Hope is a good thing, maybe the best of things, and no good thing ever dies.",
+    "t": "The Shawshank Redemption",
+    "y": "1994",
+    "a": [
+      "Shawshank Redemption"
+    ]
+  },
+  {
+    "q": "Everything the light touches is our kingdom.",
+    "t": "The Lion King",
+    "y": "1994",
+    "a": [
+      "Lion King"
+    ]
+  },
+  {
+    "q": "Life is like a box of chocolates; you never know what you're gonna get.",
+    "t": "Forrest Gump",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "These walls are funny. First you hate ’em. Then you get used to ’em. Enough time passes, you get so you depend on them. That’s institutionalized.",
+    "t": "The Shawshank Redemption",
+    "y": "1994",
+    "a": [
+      "Shawshank Redemption"
+    ]
+  },
+  {
+    "q": "I mean, seriously, how often do you really look at a mans shoes?",
+    "t": "The Shawshank Redemption",
+    "y": "1994",
+    "a": [
+      "Shawshank Redemption"
+    ]
+  },
+  {
+    "q": "Everything you see exists together in a delicate balance. As king, you need to understand that balance and respect all the creatures, from the crawling ant to the leaping antelope.",
+    "t": "The Lion King",
+    "y": "1994",
+    "a": [
+      "Lion King"
+    ]
+  },
+  {
+    "q": "Mama says stupid is as stupid does.",
+    "t": "Forrest Gump",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "For you, the day Bison graced your village, was the most important day in your life. But for me, it was Tuesday.",
+    "t": "Street Fighter",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "Salvation lies within.",
+    "t": "The Shawshank Redemption",
+    "y": "1994",
+    "a": [
+      "Shawshank Redemption"
+    ]
+  },
+  {
+    "q": "Hakuna matata",
+    "t": "The Lion King",
+    "y": "1994",
+    "a": [
+      "Lion King"
+    ]
+  },
+  {
+    "q": "Don't ever let anybody tell you they’re better than you.",
+    "t": "Forrest Gump",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "Mama always said life was like a box of chocolates. You never know what you're gonna get.",
+    "t": "Forrest Gump",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "Is life always this hard, or is it just when you're a kid?",
+    "t": "Léon",
+    "y": "1994",
+    "a": []
+  },
+  {
+    "q": "They may take our lives, but they'll never take our freedom!",
+    "t": "Breaveheart",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "Houston, we have a problem.",
+    "t": "Apollo 13",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "Hack the planet.",
+    "t": "Hackers",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "What's in the box?!",
+    "t": "Seven",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "I used to think that if none of your family or friends knew you were dead, it was like not really being dead. People can invent the best and the worst for you.",
+    "t": "Before Sunrise",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "The greatest trick the devil ever pulled was convincing the world he didn't exist.",
+    "t": "The Usual Suspects",
+    "y": "1995",
+    "a": [
+      "Usual Suspects"
+    ]
+  },
+  {
+    "q": "Bye Felicia!",
+    "t": "Friday",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "Every man dies; not every man really lives.",
+    "t": "Braveheart",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "This isn't flying. This is falling with style!",
+    "t": "Toy Story",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "To infinity and beyond!",
+    "t": "Toy Story",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "That'll do, pig. That'll do.",
+    "t": "Babe",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "Get on the scale! Get off the scale!",
+    "t": "Heavyweights",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "Every man dies, but not every man really lives.",
+    "t": "Braveheart",
+    "y": "1995",
+    "a": []
+  },
+  {
+    "q": "You can trouble me for a warm glass of SHUT THE HELL UP!! Now you will go to sleep or I will put you to sleep.",
+    "t": "Happy Gilmore",
+    "y": "1996",
+    "a": []
+  },
+  {
+    "q": "Show me the money!",
+    "t": "Jerry Maguire",
+    "y": "1996",
+    "a": []
+  },
+  {
+    "q": "You had me at hello.",
+    "t": "Jerry Maguire",
+    "y": "1996",
+    "a": []
+  },
+  {
+    "q": "You little son of a bitch ball! Why you don't you just go HOME? That's your HOME! Are you too good for your HOME? ANSWER ME! SUCK MY WHITE ASS, BALL!",
+    "t": "Happy Gilmore",
+    "y": "1996",
+    "a": []
+  },
+  {
+    "q": "Some people can’t believe in themselves until someone else believes in them first.",
+    "t": "Good Will Hunting",
+    "y": "1997",
+    "a": []
+  },
+  {
+    "q": "Ain't no rules says a dog can't play basketball.",
+    "t": "Air Bud",
+    "y": "1997",
+    "a": []
+  },
+  {
+    "q": "Does anything more dangerous than that lurk just beneath the surface?",
+    "t": "Titanic",
+    "y": "1997",
+    "a": []
+  },
+  {
+    "q": "You make me want to be a better man.",
+    "t": "As Good as It Gets",
+    "y": "1997",
+    "a": []
+  },
+  {
+    "q": "I'm king of the world!",
+    "t": "Titanic",
+    "y": "1997",
+    "a": []
+  },
+  {
+    "q": "Draw me like one of your French girls",
+    "t": "Titanic",
+    "y": "1997",
+    "a": []
+  },
+  {
+    "q": "Tonight's forecast: a freeze is coming!",
+    "t": "Batman & Robin",
+    "y": "1997",
+    "a": []
+  },
+  {
+    "q": "People live their lives bound by what they accept as correct and true. That's how they define \"reality\". But what does it mean to be \"correct\" or \"true\"? Merely vague concepts... Their \"reality\" may all be a mirage. Can we consider them to simply be living in their own world, shaped by their beliefs?",
+    "t": "Naruto",
+    "y": "1997",
+    "a": []
+  },
+  {
+    "q": "My Mama says that alligators are ornery because they got all them teeth and no toothbrush.",
+    "t": "The Waterboy",
+    "y": "1998",
+    "a": [
+      "Waterboy"
+    ]
+  },
+  {
+    "q": "What I need is a real, live ghost. That's an oxymoron, Daph.",
+    "t": "Scooby-Doo on Zombie Island",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "You can feel the chill in the air, cut, who opened a window?",
+    "t": "Scooby-Doo on Zombie Island",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.",
+    "t": "The Silence of the lambs",
+    "y": "1998",
+    "a": [
+      "Silence of the lambs"
+    ]
+  },
+  {
+    "q": "No matter how the wind howls, the mountain cannot bow to it.",
+    "t": "Mulan",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "I’m the Dude, so that’s what you call me. That or, uh His Dudeness, or uh Duder, or El Duderino, if you’re not into the whole brevity thing.",
+    "t": "The Big Lebowski",
+    "y": "1998",
+    "a": [
+      "Big Lebowski"
+    ]
+  },
+  {
+    "q": "Zoinks! How humiliating! Chased into a hole by 1/3 of a B.L.T.!",
+    "t": "Scooby-Doo on Zombie Island",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "Make the money. Don’t let it make you.",
+    "t": "The Player's Club",
+    "y": "1998",
+    "a": [
+      "Player's Club"
+    ]
+  },
+  {
+    "q": "Wipe your upper lip, romeo.",
+    "t": "Scooby-Doo on Zombie Island",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "Put the weed in the bag first, then get money.",
+    "t": "Belly",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "A single grain of rice can tip the scale. One man may be the difference between victory and defeat.",
+    "t": "Mulan",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "You're taking all the caviar? That caviar is a garnish!",
+    "t": "You've Got Mail",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "The flower that blooms in adversity is the most rare and beautiful of all.",
+    "t": "Mulan",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "Like... we're not looking for any ghoul-friends, are we, Scooby?",
+    "t": "Scooby-Doo on Zombie Island",
+    "y": "1998",
+    "a": []
+  },
+  {
+    "q": "I'm having an old friend for dinner.",
+    "t": "The Silence of the lambs",
+    "y": "1998",
+    "a": [
+      "Silence of the lambs"
+    ]
+  },
+  {
+    "q": "I live in Notting Hill. You live in Beverly Hills. Everyone in the world knows who you are, my mother has trouble remembering my name.",
+    "t": "Notting Hill",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "I'm also just a girl, standing in front of a boy, asking him to love her.",
+    "t": "Notting Hill",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "Time is always against us.",
+    "t": "The Matrix",
+    "y": "1999",
+    "a": [
+      "Matrix"
+    ]
+  },
+  {
+    "q": "The things you used to own, now they own you.",
+    "t": "Fight Club",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "Don't touch my nakama(friend) anymore!",
+    "t": "One Piece",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "It’s only after we’ve lost everything that we’re free to do anything.",
+    "t": "Fight Club",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "Don’t let anyone ever make you feel like you don’t deserve what you want.",
+    "t": "10 Things I Hate About You",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "Unfortunately, no one can be told what the Matrix is. You have to see it for yourself.",
+    "t": "The Matrix",
+    "y": "1999",
+    "a": [
+      "Matrix"
+    ]
+  },
+  {
+    "q": "Ignorance Is Bliss",
+    "t": "The Matrix",
+    "y": "1999",
+    "a": [
+      "Matrix"
+    ]
+  },
+  {
+    "q": "I see dead people.",
+    "t": "The Sixth Sense",
+    "y": "1999",
+    "a": [
+      "Sixth Sense"
+    ]
+  },
+  {
+    "q": "The first rule of Fight Club is: You do not talk about Fight Club.",
+    "t": "Fight Club",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "There is a difference between knowing the path and walking the path.",
+    "t": "The Matrix",
+    "y": "1999",
+    "a": [
+      "Matrix"
+    ]
+  },
+  {
+    "q": "It's only after we've lost everything that we're free to do anything.",
+    "t": "Fight Club",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "I was the warm little center that the life of this world crowded around.",
+    "t": "Fight Club",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "Fear. Fear attracts the fearful… the strong… the weak… the innocent… the corrupt. Fear. Fear is my ally.",
+    "t": "Star Wars: Episode I – The Phantom Menace",
+    "y": "1999",
+    "a": [
+      "Episode I – The Phantom Menace"
+    ]
+  },
+  {
+    "q": "By Grabthar's hammer...what a savings.",
+    "t": "Galaxy Quest",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "Stop trying to control everything and just let go! LET GO!",
+    "t": "Fight Club",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "Miracles only happen to those who never give up",
+    "t": "One Piece",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "You met me at a very strange time in my life",
+    "t": "Fight Club",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "I know kung fu.",
+    "t": "The Matrix",
+    "y": "1999",
+    "a": [
+      "Matrix"
+    ]
+  },
+  {
+    "q": "People hurt the ones they love. That's how it is all around the world",
+    "t": "The Green Mile",
+    "y": "1999",
+    "a": [
+      "Green Mile"
+    ]
+  },
+  {
+    "q": "We need guns. Lots of guns.",
+    "t": "Matrix",
+    "y": "1999",
+    "a": []
+  },
+  {
+    "q": "Damn! We're in a tight spot!",
+    "t": "O Brother, Where Art Thou?",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "Are you not entertained?",
+    "t": "Gladiator",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "They called me Mr. Glass.",
+    "t": "Unbreakable",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "I have nipples, Greg. Could you milk me?",
+    "t": "Meet the Parents",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "I hope he didn’t die. Unless he left a note naming me his successor, then I hope he did die.",
+    "t": "Futurama",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "There are No Accidents. No Coincidences. No Escapes. YOU CAN'T CHEAT DEATH.",
+    "t": "Final Destination",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "Dude, where's my car?",
+    "t": "Dude, Where's My Car?",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "Do you know what happens to a toad when it's struck by lightning? The same thing that happens to everything else.",
+    "t": "X-men",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "Your eyes are like two big blue eyes.",
+    "t": "Flintstones in Viva Rock Vegas",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "The key to a woman's heart is an unexpected gift at an unexpected time.",
+    "t": "Finding Forrester",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "I'll take poor assumptions for $800, Alex.",
+    "t": "Finding Forrester",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "Wilsoooooon.",
+    "t": "Cast Away",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "Wilma, whatever you decide to do, I want you to know something. Your daddy will always love you.",
+    "t": "Flintstones in Viva Rock Vegas",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "Oh Fred. That's so sweet.",
+    "t": "Flintstones in Viva Rock Vegas",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "If you utter so much as one syllable, I'LL HUNT YOU DOWN AND GUT YOU LIKE A FISH! If you'd like to fax me, press the star key.",
+    "t": "The Grinch",
+    "y": "2000",
+    "a": [
+      "Grinch"
+    ]
+  },
+  {
+    "q": "My name is Maximus Decimus Meridius, commander of the Armies of the North, General of the Felix Legions and loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next.",
+    "t": "Gladiator",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "No thinking -- that comes later. You must write your first draft with your heart. You rewrite with your head. The first key to writing is... to write, not to think!",
+    "t": "Finding Forrester",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "We could not talk or talk forever and still find things to not talk about.",
+    "t": "Best in Show",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "Snnnnnooooooooooow!!!!!!!!!",
+    "t": "Snow Day",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "I have nipples Greg. Could you milk me?",
+    "t": "Meet the Parents",
+    "y": "2000",
+    "a": []
+  },
+  {
+    "q": "I've gotta get out of this place. Someday I'm getting on that train.",
+    "t": "Spirited Away",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "Yeah. We graduated high school. How totally amazing.",
+    "t": "Ghost World",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "One can never have enough socks.",
+    "t": "Harry Potter and the Philosopher's Stone",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "Just what do you think you're doing, Dave?",
+    "t": "A Space Odyssey",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "You're a wizard, Harry.",
+    "t": "Harry Potter and the Sorcerer's Stone",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "What you NEED to do is get me my chips!!! With dip!!! Cuz you're delinquent, motherfucker!",
+    "t": "The Wash",
+    "y": "2001",
+    "a": [
+      "Wash"
+    ]
+  },
+  {
+    "q": "You shall not pass!",
+    "t": "The Lord of the Rings: The Fellowship of the Ring",
+    "y": "2001",
+    "a": [
+      "Lord of the Rings: The Fellowship of the Ring",
+      "The Fellowship of the Ring",
+      "LOTR",
+      "LOTR 1",
+      "Fellowship of the Ring"
+    ]
+  },
+  {
+    "q": "Ask any racer. Any real racer. It don't matter if you win by an inch or a mile. Winning's winning.",
+    "t": "The Fast and The Furious",
+    "y": "2001",
+    "a": [
+      "Fast and The Furious"
+    ]
+  },
+  {
+    "q": "Even the smallest person can change the course of the future.",
+    "t": "The Lord of the Rings: The Fellowship of the Ring",
+    "y": "2001",
+    "a": [
+      "Lord of the Rings: The Fellowship of the Ring",
+      "The Fellowship of the Ring",
+      "LOTR",
+      "LOTR 1",
+      "Fellowship of the Ring"
+    ]
+  },
+  {
+    "q": "So be prepared, be enthusiastic, and leave your bullshit attitude and baggage at the door because we don't need it!",
+    "t": "Wet Hot American Summer",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "I live my life a quarter mile at a time.",
+    "t": "The Fast and the Furious",
+    "y": "2001",
+    "a": [
+      "Fast and the Furious"
+    ]
+  },
+  {
+    "q": "They say that dreams are only real as long as they last. Couldn't you say the same thing about life?",
+    "t": "Waking Life",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "All we have to decide what to do with the time that is given to us.",
+    "t": "Lord Of The Ring - The Fellowships Of The Ring",
+    "y": "2001",
+    "a": [
+      "The Fellowships Of The Ring"
+    ]
+  },
+  {
+    "q": "Exercise gives you endorphins. Endorphins make you happy. Happy people just don't shoot their husbands. They just don't.",
+    "t": "Legally Blonde",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "What is this? A center for ants?",
+    "t": "Zoolander",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "All we have to decide is what to do with the time that is given us.",
+    "t": "The Lord of the Rings: The Fellowship of the Ring",
+    "y": "2001",
+    "a": [
+      "Lord of the Rings: The Fellowship of the Ring",
+      "The Fellowship of the Ring",
+      "LOTR",
+      "LOTR 1",
+      "Fellowship of the Ring"
+    ]
+  },
+  {
+    "q": "Of the days that I have lived, only those I spent with you seemed real.",
+    "t": "Cowboy Bebop: The Movie",
+    "y": "2001",
+    "a": [
+      "The Movie"
+    ]
+  },
+  {
+    "q": "Ogres are like onions.",
+    "t": "Shrek",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "Once you meet someone, you never really forget them. It just takes a while for your memory to come back to you",
+    "t": "Spirited Away",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "I don't know half of you half as well as I should like; and I like less than half of you half as well as you deserve.",
+    "t": "The Lord of the Rings: The Fellowship of the Ring",
+    "y": "2001",
+    "a": [
+      "Lord of the Rings: The Fellowship of the Ring",
+      "The Fellowship of the Ring",
+      "LOTR",
+      "LOTR 1",
+      "Fellowship of the Ring"
+    ]
+  },
+  {
+    "q": "The greatest thing you’ll ever learn is just to love and be loved in return.",
+    "t": "Moulin Rouge",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "It's only in the mysterious equation of love that any logical reasons can be found.",
+    "t": "A Beautiful Mind",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.",
+    "t": "The Lord of The Rings: The Fellowship of the Ring",
+    "y": "2001",
+    "a": [
+      "Lord of The Rings: The Fellowship of the Ring",
+      "The Fellowship of the Ring"
+    ]
+  },
+  {
+    "q": "Even the smallest person can change the course of history.",
+    "t": "The Lord of the Rings: The Fellowship of the Ring",
+    "y": "2001",
+    "a": [
+      "Lord of the Rings: The Fellowship of the Ring",
+      "The Fellowship of the Ring",
+      "LOTR",
+      "LOTR 1",
+      "Fellowship of the Ring"
+    ]
+  },
+  {
+    "q": "It’s a dangerous business, going out your door…You step into the Road, and if you don’t keep your feet, there is no knowing where you might be swept off to.",
+    "t": "The Lord of the Rings: The Fellowship of the Ring",
+    "y": "2001",
+    "a": [
+      "Lord of the Rings: The Fellowship of the Ring",
+      "The Fellowship of the Ring",
+      "LOTR",
+      "LOTR 1",
+      "Fellowship of the Ring"
+    ]
+  },
+  {
+    "q": "No, I like you very much, just as you are.",
+    "t": "Bridget Jone's Diary",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "Welcome the rich man, he's hard for you to miss. His butt keeps getting bigger, so there's plenty there to kiss!",
+    "t": "Spirited Away",
+    "y": "2001",
+    "a": []
+  },
+  {
+    "q": "Do you like dags?",
+    "t": "The Snatch",
+    "y": "2001",
+    "a": [
+      "Snatch"
+    ]
+  },
+  {
+    "q": "There’s some good in this world, and it’s worth fighting for.",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2002",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "I'm tired of people who judge me without knowing my history.",
+    "t": "8 miles",
+    "y": "2002",
+    "a": []
+  },
+  {
+    "q": "I don't like sand. It's all coarse, and rough, and irritating. And it gets everywhere.",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2002",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "Your time will come. You will face the same Evil, and you will defeat it.",
+    "t": "The Lord of the Rings: The Fellowship of the Ring",
+    "y": "2001",
+    "a": [
+      "Lord of the Rings: The Fellowship of the Ring",
+      "The Fellowship of the Ring",
+      "LOTR",
+      "LOTR 1",
+      "Fellowship of the Ring"
+    ]
+  },
+  {
+    "q": "The battle of Helm's Deep is over; the battle for Middle Earth is about to begin.",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2002",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "It is not our abilities that show what we truly are… it is our choices.",
+    "t": "Harry Potter and the Chamber of Secrets",
+    "y": "2002",
+    "a": []
+  },
+  {
+    "q": "With great power comes great responsibility.",
+    "t": "Spider Man",
+    "y": "2002",
+    "a": []
+  },
+  {
+    "q": "Dadinho é o caralho, meu nome é Zé Pequeno porra!",
+    "t": "Cidade de Deus",
+    "y": "2002",
+    "a": []
+  },
+  {
+    "q": "There is always hope.",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2002",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "You know, I'm something of a scientist myself.",
+    "t": "Spiderman",
+    "y": "2002",
+    "a": []
+  },
+  {
+    "q": "My precious",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2002",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "Li'l dice my ass, my name is now Li'l Zé now",
+    "t": "City of God",
+    "y": "2002",
+    "a": []
+  },
+  {
+    "q": "But in the end it’s only a passing thing, this shadow, even darkness must pass.",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2002",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "My precious...",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2002",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "Dark have been my dreams of late.",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2002",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.",
+    "t": "Harry Potter and the Chamber of Secrets",
+    "y": "2002",
+    "a": []
+  },
+  {
+    "q": "Ye best start believin' in ghost stories, Miss Turner. Yer in one.",
+    "t": "Pirates of the Carribean",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "This is the day you will always remember as the day you almost caught Captain Jack Sparrow",
+    "t": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "y": "2003",
+    "a": [
+      "The Curse of the Black Pearl"
+    ]
+  },
+  {
+    "q": "You sit on a throne of lies.",
+    "t": "Elf",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "To me, you are perfect.",
+    "t": "Love Actually",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "I will not say: do not weep; for not all tears are an evil.",
+    "t": "The Lord of the Rings: Return of the King",
+    "y": "2003",
+    "a": [
+      "Lord of the Rings: Return of the King",
+      "Return of the King"
+    ]
+  },
+  {
+    "q": "I want to change things. I want to believe that anything can be changed. The moment I met you, a new world opened up for me. You see, after wandering in the darkness for so long, a light brought me happiness. It’s all thanks to you.",
+    "t": "Chrono Crusade",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "The thing about romance is people only get together right at the very end.",
+    "t": "Love Actually",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "Why are you trying so hard to fit in when you were born to stand out?",
+    "t": "What A Girl Wants",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "We're goin' streaking!",
+    "t": "Old School",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "You're my boy, Blue!",
+    "t": "Old School",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "That there’s some good in this world, Mr. Frodo… and it’s worth fighting for.",
+    "t": "The Lord of the Rings: The Two Towers",
+    "y": "2003",
+    "a": [
+      "Lord of the Rings: The Two Towers",
+      "The Two Towers",
+      "LOTR 2"
+    ]
+  },
+  {
+    "q": "Just keep swimming.",
+    "t": "Finding Nemo",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "The problem is not the problem. The problem is your attitude about the problem. Do you understand?",
+    "t": "Pirates of the Carribean",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "Not all treasure is silver and gold mate",
+    "t": "Pirates of the Carribean",
+    "y": "2003",
+    "a": []
+  },
+  {
+    "q": "The ones that love us never really leave us.",
+    "t": "Harry Potter and the Prisoner of Azkaban",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "Boo, you whore!",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "I want to play a game.",
+    "t": "Saw",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "Stop trying to make 'fetch' happen. It's not going to happen.",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "It's like I have ESPN or something.",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "We should totally just stab Caesar!",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "Whatever. I'm getting cheese fries.",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "That is so fetch!",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "You gonna eat your tots?",
+    "t": "Napoleon Dynamite",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "You gotta hear this one song. It'll change your life, I swear.",
+    "t": "Garden State",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "A day may come when the courage of men fails… but it is not THIS day.",
+    "t": "The Lord of the Rings: Return of the King",
+    "y": "2004",
+    "a": [
+      "Lord of the Rings: Return of the King",
+      "Return of the King"
+    ]
+  },
+  {
+    "q": "That's why her hair is so big.  It's full of secrets.",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "You've got red on you",
+    "t": "Shaun of the Dead",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "Nobody makes me bleed my own blood. Nobody!",
+    "t": "Dodgeball: A True Underdog Story",
+    "y": "2004",
+    "a": [
+      "A True Underdog Story"
+    ]
+  },
+  {
+    "q": "I am gonna kill Bill.",
+    "t": "Kill Bill",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "Is butter a carb?",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "I solemnly swear that I am up to no good.",
+    "t": "Harry Potter and the Prisoner of Azkaban",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "I'm not drinking any f****** Merlot!",
+    "t": "Sideways",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "Your identity is your most valuable possession. Protect it.",
+    "t": "The Incredibles",
+    "y": "2004",
+    "a": [
+      "Incredibles"
+    ]
+  },
+  {
+    "q": "Nunchuck skills… bowhunting skills… computer hacking skills… Girls only want boyfriends who have great skills!",
+    "t": "Napoleon Dynamite",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "No, I shot him. Bullets and the fall killed him.",
+    "t": "Collateral",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "They’ve done studies, you know. 60% of the time, it works every time.",
+    "t": "Anchorman",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "I wish I could bake a cake filled with rainbows and smiles and everyone would eat and be happy.",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "Four for you, Glen Coco! You go, Glen Coco!",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "There's a 30% chance that it's already raining.",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "She doesn't even go here!",
+    "t": "Mean Girls",
+    "y": "2004",
+    "a": []
+  },
+  {
+    "q": "I love lamp.",
+    "t": "Anchorman: The Legend of Ron Burgundy",
+    "y": "2004",
+    "a": [
+      "The Legend of Ron Burgundy"
+    ]
+  },
+  {
+    "q": "You have bewitched me, body and soul.",
+    "t": "Pride and Prejudice",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "And a hero is a person who resigns to be forgotten as we forget the dead for revolution.",
+    "t": "Gie",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals.",
+    "t": "Harry Potter and the Goblet of Fire",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend.",
+    "t": "Star Wars: Episode III – Revenge of the Sith",
+    "y": "2005",
+    "a": [
+      "Episode III – Revenge of the Sith"
+    ]
+  },
+  {
+    "q": "I am the Jewish James Bond!",
+    "t": "Munich",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "Why do we fall? So we can learn to pick ourselves up.",
+    "t": "Batman begins",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "If you want to know what a man's like,take a good look at how he treats his inferiors.",
+    "t": "Harry Potter and the Goblet of Fire",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "You know how I know that you're gay?",
+    "t": "The 40-Year-Old Virgin",
+    "y": "2005",
+    "a": [
+      "40-Year-Old Virgin"
+    ]
+  },
+  {
+    "q": "Life is not the amount of breaths you take. It’s the moments that take your breath away.",
+    "t": "Hitch",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "I wish I knew how to quit you.",
+    "t": "Brokeback Mountain",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "I am the senate!",
+    "t": "Star Wars: Episode III – Revenge of the Sith",
+    "y": "2005",
+    "a": [
+      "Episode III – Revenge of the Sith"
+    ]
+  },
+  {
+    "q": "It's not who I am underneath, but what I do that defines me",
+    "t": "Batman Begins",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "Didn't I tell you about the football field in the bathroom cupboard?",
+    "t": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+    "y": "2005",
+    "a": [
+      "Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "The Lion, the Witch and the Wardrobe"
+    ]
+  },
+  {
+    "q": "Why do we fall sir? So that we can learn to pick ourselves up.",
+    "t": "Batman Begins",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "What's comin' will come and we'll meet it when it does.",
+    "t": "Harry Potter and the Goblet of Fire",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "Happiness is the most insidious prison of all, Evey.",
+    "t": "V for Vendetta",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "All's fair in Love and Basketball baby",
+    "t": "Love and Basketball",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "Be it a stone or a grain of sand, in water they both sink.",
+    "t": "OldBoy",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "They don't know that we know they know we know.",
+    "t": "Friends",
+    "y": "2005",
+    "a": []
+  },
+  {
+    "q": "That's what she said.",
+    "t": "The Office",
+    "y": "2005",
+    "a": [
+      "Office"
+    ]
+  },
+  {
+    "q": "I'm sorry father, for you there is only death. But our destiny is life!",
+    "t": "The Fountain",
+    "y": "2006",
+    "a": [
+      "Fountain"
+    ]
+  },
+  {
+    "q": "If you ain't first, you're last.",
+    "t": "Taladega Nights",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "Walk that walk and go forward all the time. Don't just talk that talk, walk it and go forward. Also, the walk didn't have to be long strides; baby steps counted too. Go forward.",
+    "t": "The Pursuit of Happyness",
+    "y": "2006",
+    "a": [
+      "Pursuit of Happyness"
+    ]
+  },
+  {
+    "q": "I can't really remember when I last had any hope, and I certainly can't remember when anyone else did either. Because really, since women stopped being able to have babies, what's left to hope for?",
+    "t": "Children Of Men",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "Y'know that ringing in your ears? That 'eeeeeeeeee'? That's the sound of the ear cells dying, like their swan song. Once it's gone you'll never hear that frequency again. Enjoy it while it lasts.",
+    "t": "Children Of Men",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "Life’s simple. You make choices and you don’t look back.",
+    "t": "The Fast and The Furious: Tokyo Drift",
+    "y": "2006",
+    "a": [
+      "Fast and The Furious: Tokyo Drift",
+      "Tokyo Drift"
+    ]
+  },
+  {
+    "q": "I'm gonna say what any man with two penises would say when his tailor asks him if he dresses right or left... Yes.",
+    "t": "Lucky Number Slevin",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "People can't do somethin' themselves, they wanna tell you you can't do it. If you want somethin', go get it. Period.",
+    "t": "The pursuit of Happyness",
+    "y": "2006",
+    "a": [
+      "pursuit of Happyness"
+    ]
+  },
+  {
+    "q": "Speed. I am speed.",
+    "t": "Cars",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "I'm just one stomach flu away from my goal weight.",
+    "t": "Devil wears Prada",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "Float like a cadillac sting like a beemer.",
+    "t": "Cars",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "The world is your oyester. It's up to you to find the pearls.",
+    "t": "The Pursuit of Happyness",
+    "y": "2006",
+    "a": [
+      "Pursuit of Happyness"
+    ]
+  },
+  {
+    "q": "Florals? For Spring. Groundbreaking.",
+    "t": "The Devil Wears Prada",
+    "y": "2006",
+    "a": [
+      "Devil Wears Prada"
+    ]
+  },
+  {
+    "q": "Nobody is gonna hit as hard as life, but it ain’t how hard you can hit. It’s how hard you can get hit and keep moving forward. It’s how much you can take, and keep moving forward. That’s how winning is done.",
+    "t": "Rocky Balboa",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "Very nice!",
+    "t": "Borat",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "I have had it with these motherfuckin' snakes on this motherfuckin' plane!",
+    "t": "Snakes on a Plane",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "Don’t ever let somebody tell you, you can’t do something. Not even me. Alright?",
+    "t": "The Pursuit of Happyness",
+    "y": "2006",
+    "a": [
+      "Pursuit of Happyness"
+    ]
+  },
+  {
+    "q": "Death is the road to awe.",
+    "t": "The Fountain",
+    "y": "2006",
+    "a": [
+      "Fountain"
+    ]
+  },
+  {
+    "q": "The past can't hurt you anymore, unless you let it.",
+    "t": "V for Vendetta",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "This is Sparta!",
+    "t": "300",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "That's the beauty of argument. When you argue correctly, you're never wrong.",
+    "t": "Thank You for Smoking",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "Dear 8-pound, 6-ounce newborn infant Jesus...",
+    "t": "Talledega Nights: The Ballad of Ricky Bobby",
+    "y": "2006",
+    "a": [
+      "The Ballad of Ricky Bobby"
+    ]
+  },
+  {
+    "q": "Are you watching closely?",
+    "t": "The Prestige",
+    "y": "2006",
+    "a": [
+      "Prestige"
+    ]
+  },
+  {
+    "q": "Dreams remind us what reality is.",
+    "t": "A Scanner Darkly",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "TIA This is Africa",
+    "t": "Blood Diamond",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "When you're looking for a cancer kid, he should be hopeless. He should have a wheelchair, he should have trouble talking, he should have a little pet goldfish in a Zip-lock bag, hopeless.",
+    "t": "Thank You for Smoking",
+    "y": "2006",
+    "a": []
+  },
+  {
+    "q": "You got a dream... You gotta protect it. People can't do somethin' themselves, they wanna tell you you can't do it. If you want somethin', go get it. Period.",
+    "t": "The Pursuit of Happyness",
+    "y": "2006",
+    "a": [
+      "Pursuit of Happyness"
+    ]
+  },
+  {
+    "q": "Give Them Nothing... But take from Them Everything!",
+    "t": "300",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "If we admit that human life can be ruled by reason, then all possibility of life is destroyed.",
+    "t": "Into the Wild",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "The woods are lovely, dark and deep, and I have promises to keep and miles to go before I sleep. Did you hear me butterfly? Miles to go before you sleep.",
+    "t": "Death Proof",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "I read somewhere... how important it is in life not necessarily to be strong... but to feel strong.",
+    "t": "Into the Wild",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "Spider-Pig, Spider-Pig. Does whatever a Spider-Pig does. Can he swing from a web? No he can't, he's a pig. Look out! He is a Spider-Pig!",
+    "t": "The Simpsons Movie",
+    "y": "2007",
+    "a": [
+      "Simpsons Movie"
+    ]
+  },
+  {
+    "q": "When you want something in life, you just gotta reach out and grab it.",
+    "t": "Into the Wild",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "...And I also know how important it is in life not necessarily to be strong but to feel strong. To measure yourself at least once. To find yourself at least once in the most ancient of human conditions. Facing the blind death stone alone, with nothing to help you but your hands and your own head",
+    "t": "Into the Wild",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "Anyway, my mum always said things we lose have a way of coming back to us in the end, if not always in the way we expect.",
+    "t": "Harry potter and the Order of the Phoenix",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "They all deserve to die. Even you, Mrs. Lovett. Even I. Because the lives of the wicked should be made brief. For the rest of us death would be relief.",
+    "t": "Sweeney Todd: The Demon Barber of Fleet Street",
+    "y": "2007",
+    "a": [
+      "The Demon Barber of Fleet Street"
+    ]
+  },
+  {
+    "q": "As long as the concept of winners exists, there must also be losers.",
+    "t": "Naruto Shippuden",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "We’ve all got both light and darkness inside us. What matters is the part we choose to act on. That’s who we really are.",
+    "t": "Harry Potter and the Order of the Phoenix",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "Not anyone can become a great artist, but a great artist can come from anywhere.",
+    "t": "Ratatouille",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "Happiness is only real when shared",
+    "t": "Into the Wild",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "Bazinga!",
+    "t": "The Big Bang Theory",
+    "y": "2007",
+    "a": [
+      "Big Bang Theory"
+    ]
+  },
+  {
+    "q": "What's the most you ever lost on a coin toss?",
+    "t": "No Country for Old Men",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "There's no room for softness... not in Sparta. No place for weakness. Only the hard and strong may call themselves Spartans. Only the hard, only the strong.",
+    "t": "300",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "I never realized how much I loved being home unless I'd been somewhere really different for awhile.",
+    "t": "Juno",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "We've all got both light and darkness inside us. What matters is the part we choose to act on. That's who we really are.",
+    "t": "Harry Potter and the Order of the Phoenix",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "These are desperate times, Mrs Lovett. And desperate measures are called for.",
+    "t": "Sweeney Todd: The Demon Barber of Fleet Street",
+    "y": "2007",
+    "a": [
+      "The Demon Barber of Fleet Street"
+    ]
+  },
+  {
+    "q": "I'm already pregnant. So, what other shenanigans could I get myself into?",
+    "t": "Juno",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "Music's the only thing that makes sense anymore, man. Play it loud enough, it keeps the demons at bay.",
+    "t": "Across the Universe",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "Some people feel like they don't deserve love. They walk away quietly into empty spaces, trying to close the gaps of the past.",
+    "t": "Into the Wild",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "But when you forgive, you love. And when you love, God's light shines through you.",
+    "t": "Into the Wild",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "Sometimes, informations is more dangerous than weapons",
+    "t": "Naruto Shippuden",
+    "y": "2007",
+    "a": []
+  },
+  {
+    "q": "It's not about what I want. It's about what's fair!",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "About three things I was absolutely certain. First, Edward was a vampire. Second, there was part of him-and I didn't know how potent that part might be- that thirsted for my blood. and third, I was unconditionally and irrevocably in love with him.",
+    "t": "Twilight",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "Some men just want to watch the world burn.",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "It is within my power to drastically change his cirumstances, but I don't want to give that man a gift he doesn't deserve.",
+    "t": "Seven Pounds",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "I don't know what kind of gun this is. I only know the sound it makes when it kills a man.",
+    "t": "Tropic Thunder",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "Sometimes the truth isn’t good enough, sometimes people deserve more. Sometimes people deserve to have their faith rewarded",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "It's not about money...it’s about sending a message. Everything burns!",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "If you let my daughter go now, that'll be the end of it. I will not look for you, I will not pursue you. But if you don't, I will look for you, I will find you, and I will kill you.",
+    "t": "Taken",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "There is no secret ingredient. It’s just you.",
+    "t": "Kung Fu Panda",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "Why so serious?",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "You either die a hero, or you live long enough to see yourself become the villain.",
+    "t": "Batman: The Dark Knight",
+    "y": "2008",
+    "a": [
+      "The Dark Knight"
+    ]
+  },
+  {
+    "q": "Give me a scotch!",
+    "t": "Iron Man",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "I don't read the script. The script reads me.",
+    "t": "Tropic Thunder",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "Me? I know who I am. I'm a dude playing a dude disguised as another dude.",
+    "t": "Tropic Thunder",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "May the odds ever be in your favor.",
+    "t": "The Hunger Games",
+    "y": "2008",
+    "a": [
+      "Hunger Games"
+    ]
+  },
+  {
+    "q": "Don't talk like you're one of them",
+    "t": "The Dark knight",
+    "y": "2008",
+    "a": [
+      "Dark knight"
+    ]
+  },
+  {
+    "q": "Our lives are defined by opportunities, even the ones we miss.",
+    "t": "Benjamin Button",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "You see, in their last moments people show you who they really are.",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "If you’re good at something, never do it for free.",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "I'm not a big fat panda. I'm THE big fat panda.",
+    "t": "Kung Fu Panda",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "You either die a hero or live long enough to see yourself become the villian.",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "Let's put a smile on that face!",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "I believe whatever doesn’t kill you, simply makes you stranger.",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "Is it better to be feared or respected? I say, is it too much to ask for both?",
+    "t": "Ironman 1",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "Madness, as you know, is like gravity, all it takes is a little push.",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "I am not in danger, I am the danger",
+    "t": "Breaking Bad",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "Does it depress you? To know just how alone you really are?",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "Fuck them kids",
+    "t": "Soul Men",
+    "y": "2008",
+    "a": []
+  },
+  {
+    "q": "Do i look like a guy with plan?",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "Nobody panics when things go “according to plan”. Even if the plan is horrifying!",
+    "t": "The Dark Knight",
+    "y": "2008",
+    "a": [
+      "Dark Knight"
+    ]
+  },
+  {
+    "q": "Adventure is out there",
+    "t": "Up",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "Nobody knows this mall better than I do.",
+    "t": "Paul Blart: Mall Cop",
+    "y": "2009",
+    "a": [
+      "Mall Cop"
+    ]
+  },
+  {
+    "q": "If what I think is happening is happening, it better not be.",
+    "t": "Fantastic Mr. Fox",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "I love you too, but I shouldn't have married you.",
+    "t": "Fantastic Mr. Fox",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "I love rumors! Facts can be so misleading, but rumors, true or false, are often revealing",
+    "t": "Inglorious Basterds",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "Just because she likes the same bizzaro crap you do doesn't mean she's your soul mate.",
+    "t": "500 Days of Summer",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "Didn't I tell you not to come to my house? Nobody touches my child!",
+    "t": "Obsessed",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "You've ever been to Del Frisco's? They cater, so for lunch I would love a twenty ounce porterhouse steak, medium maybe a little charred, with all the trimmings pommes frites, asparagus, and butter squash.",
+    "t": "Law Abiding Citizen",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "We're all different... Him, especially. But there's something kind of fantastic about that, isn't there?",
+    "t": "Fantastic Mr. Fox",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "It is impossible to manufacture or imitate love",
+    "t": "Harry Potter and the Half-Blood Prince",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "Every path is the right path. Everything could've been anything else. And it would have just as much meaning.",
+    "t": "Mr Nobody",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "Hell is a teenage girl.",
+    "t": "Jennifer's Body",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "It was my bad. I was never a very good practical joker.",
+    "t": "Zombieland",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "This weapon seems made to order for the Brothers Grimm downstairs.",
+    "t": "Pulp Fiction",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "Am I being flirted with by a psychotic rat?",
+    "t": "Fantastic Mr. Fox",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "Well, how carefully should I tread? Because apparently I just killed two people, and you were about to let me walk right out that door! How MISGUIDED are you? I feed you a couple of bullshit legal precedents, and there you go - you jump on it like a bitch in heat.",
+    "t": "Law Abiding Citizen",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "Redemption? Sure. But in the end, he's just another dead rat in a garbage pail behind a Chinese restaurant.",
+    "t": "Fantastic Mr. Fox",
+    "y": "2009",
+    "a": []
+  },
+  {
+    "q": "What happens in vegas stays in vegas",
+    "t": "The Hangover",
+    "y": "2009",
+    "a": [
+      "Hangover"
+    ]
+  },
+  {
+    "q": "Whoops. Broke your 350 year old doorknob",
+    "t": "The Social Network",
+    "y": "2010",
+    "a": [
+      "Social Network"
+    ]
+  },
+  {
+    "q": "Which would be worse, to live a monster or die as a good man?",
+    "t": "Shutter Island",
+    "y": "2010",
+    "a": []
+  },
+  {
+    "q": "You cocky cock! You'll pay for your crimes against humanity!",
+    "t": "Scott Pilgrim VS. The World",
+    "y": "2010",
+    "a": []
+  },
+  {
+    "q": "You want to know the difference between a master and a beginner? The master has failed more times that the beginner has ever tried.",
+    "t": "Karate Kid",
+    "y": "2010",
+    "a": []
+  },
+  {
+    "q": "An idea is like a virus. Resilient. Highly contagious. And even the smallest seed of an idea can grow. It can grow to define or destroy you.",
+    "t": "Inception",
+    "y": "2010",
+    "a": []
+  },
+  {
+    "q": "There's a benefit to losing: You get to learn from your mistakes.",
+    "t": "Megamind",
+    "y": "2010",
+    "a": []
+  },
+  {
+    "q": "A million dollars isn't cool. You know what's cool?",
+    "t": "The Social Network",
+    "y": "2010",
+    "a": [
+      "Social Network"
+    ]
+  },
+  {
+    "q": "It is a curious thing, Harry, but perhaps those who are best suited to power are those who have never sought it.",
+    "t": "Harry Potter and the Deathly Hallows",
+    "y": "2010",
+    "a": []
+  },
+  {
+    "q": "Dreams feel real while we're in them. It's only when we wake up that we realize something was actually strange.",
+    "t": "Inception",
+    "y": "2010",
+    "a": []
+  },
+  {
+    "q": "You have nothing to fear, if you have nothing to hide.",
+    "t": "Harry Potter and the Deathly Hallows",
+    "y": "2010",
+    "a": []
+  },
+  {
+    "q": "Only he knew the price he paid, to become the greatest birder of all time.",
+    "t": "The Big Year",
+    "y": "2011",
+    "a": [
+      "Big Year"
+    ]
+  },
+  {
+    "q": "Zaldrīzes buzdari iksos daor! (A dragon is not a slave!)",
+    "t": "Game of Thrones",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "I'm so much better when you're around",
+    "t": "One Day",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "The problem is, I pretty much fancy everyone. It's like I've just got out of prison all of the time.",
+    "t": "One Day",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "When you play game of thrones, you win or you die, there is no middle ground!",
+    "t": "Game of Thrones",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "A tortilla is either corn or wheat. But a corn tortilla folded and filled is a taco, whereas a filled wheat tortilla is a burrito. Deep fry a burrito, it's a chimichanga.Toast a tortilla, it's a tostada. Roll it, it's an enchilada.",
+    "t": "One Day",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "No one should be immortal, if even one person has to die.",
+    "t": "In Time",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?",
+    "t": "Harry Potter and the Deathly Hallows",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "The winter is coming.",
+    "t": "Game of Thrones",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "Winter is coming!",
+    "t": "Game of Thrones",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "Chaos is a ladder!",
+    "t": "Game of Thrones",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "A Lannister always pays his debts",
+    "t": "Game of Thrones",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "You is kind. You is smart. You is important.",
+    "t": "The Help",
+    "y": "2011",
+    "a": [
+      "Help"
+    ]
+  },
+  {
+    "q": "For a guy with a four digit IQ, I must have missed something.",
+    "t": "Limitless",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "Go to work and have a fun.",
+    "t": "The Raid Redemption",
+    "y": "2011",
+    "a": [
+      "Raid Redemption"
+    ]
+  },
+  {
+    "q": "Hodor",
+    "t": "Game of Thrones",
+    "y": "2011",
+    "a": []
+  },
+  {
+    "q": "Never Stop Looking for What's Not There.",
+    "t": "The Magic of Belle Isle",
+    "y": "2012",
+    "a": [
+      "Magic of Belle Isle"
+    ]
+  },
+  {
+    "q": "Cause if we can't protect the Earth, you can be damn sure we'll avenge it.",
+    "t": "The Avengers",
+    "y": "2012",
+    "a": [
+      "Avengers"
+    ]
+  },
+  {
+    "q": "You had my curiosity. But now you have my attention.",
+    "t": "Django Unchained",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "Gentlemen, you had my curiosity, but now you have my attention.",
+    "t": "Django Unchained",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "There are those who say fate is something beyond our command, that destiny is not our own. But I know better. Our fate lives within us. You only have to be brave enough to see it.",
+    "t": "Brave",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "Above all, don't lose hope",
+    "t": "Life of Pi",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "That’s my secret, Captain. I’m always angry.",
+    "t": "The Avengers",
+    "y": "2012",
+    "a": [
+      "Avengers"
+    ]
+  },
+  {
+    "q": "I'm a huge fan of the way you lose control and turn into an enormous green rage monster.",
+    "t": "The Avengers",
+    "y": "2012",
+    "a": [
+      "Avengers"
+    ]
+  },
+  {
+    "q": "Better clench up, Legolas.",
+    "t": "The Avengers",
+    "y": "2012",
+    "a": [
+      "Avengers"
+    ]
+  },
+  {
+    "q": "Bright day uh, Bright Boy?",
+    "t": "Django Unchained",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "Where there's life there's hope.",
+    "t": "The Hobbit",
+    "y": "2012",
+    "a": [
+      "Hobbit"
+    ]
+  },
+  {
+    "q": "Ah you think darkness is your ally? You merely adopted the dark. I was born in it, molded by it. I didn't see the light until I was already a man, by then it was nothing to me but blinding",
+    "t": "Dark Knight Rises",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "Following's not really my style.",
+    "t": "The Avengers",
+    "y": "2012",
+    "a": [
+      "Avengers"
+    ]
+  },
+  {
+    "q": "There was an idea to bring together a group of remarkable people, to see if we could become something more",
+    "t": "The Avengers",
+    "y": "2012",
+    "a": [
+      "Avengers"
+    ]
+  },
+  {
+    "q": "That's what I do: I drink and I know things.",
+    "t": "Game of Thrones",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "Genius, billionaire, playboy, philanthropist.",
+    "t": "The Avengers",
+    "y": "2012",
+    "a": [
+      "Avengers"
+    ]
+  },
+  {
+    "q": "I love you, but you don't know what you're talking about.",
+    "t": "Moonrise Kingdom",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "When you stop trying to force the solution, it'll happen on its own.",
+    "t": "The Flash",
+    "y": "2012",
+    "a": [
+      "Flash"
+    ]
+  },
+  {
+    "q": "The law says that you cannot touch. But I think I see a lot of lawbreakers up in this house tonight",
+    "t": "Magic Mike",
+    "y": "2012",
+    "a": []
+  },
+  {
+    "q": "We accept the love we think we deserve",
+    "t": "The Perks of Being a Wallflower.",
+    "y": "2012",
+    "a": [
+      "Perks of Being a Wallflower."
+    ]
+  },
+  {
+    "q": "All The people I've murdered by letting you live...",
+    "t": "Batman: The Dark Knight Returns",
+    "y": "2013",
+    "a": [
+      "The Dark Knight Returns"
+    ]
+  },
+  {
+    "q": "Sometimes you gotta run before you can walk",
+    "t": "Ironman 3",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "Look closer because the closer you think you are the less you actually see",
+    "t": "Now You See Me",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "I have nothing to prove to you",
+    "t": "Captain Marvel",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Let us learn to show our friendship for a man when he is alive and not after he is dead.",
+    "t": "The Great Gatsby",
+    "y": "2013",
+    "a": [
+      "Great Gatsby"
+    ]
+  },
+  {
+    "q": "If wishes could be granted, if desires could be fulfilled, then I wouldn’t wish or desire for anything after all. The things you’re handed on a silver platter are never genuine, and never everlasting. And that is why I’ll always keep searching.",
+    "t": "Oregairu",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "The people who are crazy enough to think that they can change the world, are the one's who do",
+    "t": "Jobs",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "A wise man can learn more from his enemies than a fool from his friends.",
+    "t": "Rush",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "There's no nobility in poverty.",
+    "t": "The Wolf of Wall Street",
+    "y": "2013",
+    "a": [
+      "Wolf of Wall Street"
+    ]
+  },
+  {
+    "q": "You’ve changed, Bilbo Baggins. You’re not the same hobbit as the one who left the Shire.",
+    "t": "The Hobbit: The Desolation of Smaug",
+    "y": "2013",
+    "a": [
+      "Hobbit: The Desolation of Smaug",
+      "The Desolation of Smaug"
+    ]
+  },
+  {
+    "q": "I warned your grandfather of what his greed would summon, but he would not listen.",
+    "t": "The Hobbit: The Desolation of Smaug",
+    "y": "2013",
+    "a": [
+      "Hobbit: The Desolation of Smaug",
+      "The Desolation of Smaug"
+    ]
+  },
+  {
+    "q": "Let it go!",
+    "t": "Frozen",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "Proximity to power deludes some into thinking they wield it.",
+    "t": "House of Cards",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "Just remember: if you look in the face of evil, evil's gonna look right back at you.",
+    "t": "American Horror Story",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "The only thing we're allowed to believe is that we won't regret the choice we made.",
+    "t": "Attack on Titan",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "You have got to be willing to crash and burn. If you are afraid of failing, you wont get very far",
+    "t": "Steve Jobs",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "It's the loneliest feeling not to know who you are",
+    "t": "Alita: Battle Angel",
+    "y": "2013",
+    "a": [
+      "Battle Angel"
+    ]
+  },
+  {
+    "q": "I just try to live every day as if it was the final day of my extraordinary, ordinary life.",
+    "t": "About Time",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "I don't want to survive. I want to live.",
+    "t": "12 years a slave",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "Look At Me, I'm The Captain Now",
+    "t": "Captian Phillips",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "You don't turn your back on family, Even when they do",
+    "t": "The Fast and The Furious 8",
+    "y": "2013",
+    "a": [
+      "Fast and The Furious 8"
+    ]
+  },
+  {
+    "q": "Some people say it's more hygienic than a handshake. But who's to say you can't get shit on your fist?",
+    "t": "Alan Partridge: Alpha Papa",
+    "y": "2013",
+    "a": [
+      "Alpha Papa"
+    ]
+  },
+  {
+    "q": "I'm not sure, about anything.",
+    "t": "What If",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "People don’t buy stock; it gets sold to them. Don’t ever forget that.",
+    "t": "The Wolf of Wall Street",
+    "y": "2013",
+    "a": [
+      "Wolf of Wall Street"
+    ]
+  },
+  {
+    "q": "The heart is not like a box that gets filled up; it expands in size the more you love. I'm different from you. This doesn't make me love you any less. It actually makes me love you more.",
+    "t": "Her",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "People who can’t throw something important away, can never hope to change anything.",
+    "t": "Attack on Titan",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "Well, I don't want to survive. I want to live.",
+    "t": "12 Years a Slave",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "We're all traveling through time, together, everyday of our lives... All we can do is do our best to relish this remarkable life.",
+    "t": "About Time",
+    "y": "2013",
+    "a": []
+  },
+  {
+    "q": "Rather than a person who hurts others, become the person getting hurt",
+    "t": "Tokyo Ghoul",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "It's not magic, it's talent and sweat.",
+    "t": "Silicon Valley HBO",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "The truth is a matter of circumstances, it’s not all things to all people all the time.",
+    "t": "Captain America: The Winter Soldier",
+    "y": "2014",
+    "a": [
+      "The Winter Soldier"
+    ]
+  },
+  {
+    "q": "Don't wait for things to get easier, simpler, better. Life will always be complicated. Learn to be happy right now. Otherwise, you'll run out of time.",
+    "t": "The Intouchables",
+    "y": "2014",
+    "a": [
+      "Intouchables"
+    ]
+  },
+  {
+    "q": "Even a broken clock is right twice a day.",
+    "t": "The Imitation Game",
+    "y": "2014",
+    "a": [
+      "Imitation Game"
+    ]
+  },
+  {
+    "q": "Not quite my tempo.",
+    "t": "Whiplash",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Popularity is the slutty little cousin of prestige.",
+    "t": "Birdman",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Look, you're beautiful and you're talented. And I'm lucky to have you.",
+    "t": "Birdman",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "One day it’ll grow, and every time I look at it, I’ll remember. Remember everything that happened: the good, the bad and how lucky I am that I made it home.",
+    "t": "The Hobbit: The Battle of Five Armies",
+    "y": "2014",
+    "a": [
+      "Hobbit: The Battle of Five Armies",
+      "The Battle of Five Armies"
+    ]
+  },
+  {
+    "q": "That’s what you always do, you confuse love for admiration.",
+    "t": "Birdman",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "If more people valued home above gold, this world would be a merrier place.",
+    "t": "The Hobbit: The Battle of Five Armies",
+    "y": "2014",
+    "a": [
+      "Hobbit: The Battle of Five Armies",
+      "The Battle of Five Armies"
+    ]
+  },
+  {
+    "q": "Only a fool argues for the pride of a dead man.",
+    "t": "The Raid 2: Berandal",
+    "y": "2014",
+    "a": [
+      "Raid 2: Berandal",
+      "Berandal"
+    ]
+  },
+  {
+    "q": "They never see you coming, do they Bob?",
+    "t": "The Drop",
+    "y": "2014",
+    "a": [
+      "Drop"
+    ]
+  },
+  {
+    "q": "Sometimes it is the people who no one imagines anything of who do the things that no one can imagine.",
+    "t": "The Imitation Game",
+    "y": "2014",
+    "a": [
+      "Imitation Game"
+    ]
+  },
+  {
+    "q": "I am Groot.",
+    "t": "Guardians of the Galaxy",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "The only thing standing between you and your goal is the bullshit story you keep telling yourself as to why you can/'t achieve it.",
+    "t": "Wolf of the Wall Street",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "So many times in my life I screwed up: I've talked when I should've listened, I've been harsh when I should've been tender.",
+    "t": "Ad Astra",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Dragon sickness. I’ve seen it before. That look, the terrible need. It is a fierce and jealous love, Bilbo. It sent his grandfather mad.",
+    "t": "The Hobbit: The Battle of Five Armies",
+    "y": "2014",
+    "a": [
+      "Hobbit: The Battle of Five Armies",
+      "The Battle of Five Armies"
+    ]
+  },
+  {
+    "q": "People keep asking if I'm back and I haven't really had an answer, but yeah, I'm thinking I'm back.",
+    "t": "John Wick",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Do not go gentle into that good night. Rage, rage against the dying of the light.",
+    "t": "Interstellar",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "There are no two words in the English language more harmful than good job.",
+    "t": "Whiplash",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "You don't get to choose if you get hurt in this world,but you do have a say in who hearts you",
+    "t": "Fault in our stars",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "We used to look up at the sky and wonder at our place in the stars, now we just look down and worry about our place in the dirt.",
+    "t": "Interstellar",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "The price of freedom is high, and it's the price I am willing to pay",
+    "t": "Captain America: The Winter Soldier",
+    "y": "2014",
+    "a": [
+      "The Winter Soldier"
+    ]
+  },
+  {
+    "q": "I'm not going to launch those ships. Captain's orders.",
+    "t": "Captain America: The Winter Soldier",
+    "y": "2014",
+    "a": [
+      "The Winter Soldier"
+    ]
+  },
+  {
+    "q": "Ideals are peaceful; history is violent.",
+    "t": "Fury",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Dress like a kingsman.",
+    "t": "KINGSMAN: The Secret Service",
+    "y": "2014",
+    "a": [
+      "The Secret Service"
+    ]
+  },
+  {
+    "q": "Nobody exists on purpose, nobody belongs anywhere, everybody's gonna die. Come watch TV?",
+    "t": "Rick and Morty",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Wubba lubba dub dub!",
+    "t": "Rick and Morty",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Having a family doesn’t mean that you stop being an individual. You know the best thing you can do for the people that depend on you? Be honest with them, even if it means setting them free.",
+    "t": "Rick and Morty",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "There are no two words in the English language more harmful than good job",
+    "t": "Whiplash",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Machines can never think as humans do but just because something thinks differently from you, does it mean it's not thinking?",
+    "t": "The Imitation Game",
+    "y": "2014",
+    "a": [
+      "Imitation Game"
+    ]
+  },
+  {
+    "q": "Pain demands to be felt",
+    "t": "Fault in our stars",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "I know it's not ordinary. But who ever loved ordinary?",
+    "t": "The Imitation Game",
+    "y": "2014",
+    "a": [
+      "Imitation Game"
+    ]
+  },
+  {
+    "q": "Were you rushing or were you dragging?",
+    "t": "Whiplash",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "No system is safe.",
+    "t": "Who Am I",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Everyone’s a whore, Grace. We just sell different parts of ourselves.",
+    "t": "Peaky Blinders",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "We are all different. However bad life may seem, there is always something you can do, and succeed at. While there's life, there is hope.",
+    "t": "The Theory of Everything",
+    "y": "2014",
+    "a": [
+      "Theory of Everything"
+    ]
+  },
+  {
+    "q": "Come find me when you wake up!",
+    "t": "Edge Of Tomorrow",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "You never would have come here unless you believed you were going to save them. Evolution has yet to transcend that simple barrier. We can care deeply - selflessly - about those we know, but that empathy rarely extends beyond our line of sight.",
+    "t": "Interstellar",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "This world’s a treasure, but it’s been telling us to leave for a while now.",
+    "t": "Interstellar",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "A machine doesn't improvise well because you cannot program a fear of death. Our survival instinct is our greatest source of inspiration.",
+    "t": "Interstellar",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Not my tempo.",
+    "t": "Whiplash",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Mankind was born on Earth. It was never meant to die here.",
+    "t": "Interstellar",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Hardest time to lie to somebody is when they're expecting to be lied to.",
+    "t": "The Imitation Game",
+    "y": "2014",
+    "a": [
+      "Imitation Game"
+    ]
+  },
+  {
+    "q": "Some infinities are bigger than other infinities.",
+    "t": "The Fault in our stars",
+    "y": "2014",
+    "a": [
+      "Fault in our stars"
+    ]
+  },
+  {
+    "q": "If an angelic being fell from the sky and tried to live in this world of ours I think even they would commit many wrongs.",
+    "t": "Tokyo Ghoul",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "I'm on a roller-coaster that only goes up, my friend.",
+    "t": "The Fault in Our Stars",
+    "y": "2014",
+    "a": [
+      "Fault in Our Stars"
+    ]
+  },
+  {
+    "q": "It's not because we can't take vengeance that we should feel sorry. The real reason to feel sorry... is when one is hung up on revenge and can't live their own life.",
+    "t": "Tokyo Ghoul",
+    "y": "2014",
+    "a": []
+  },
+  {
+    "q": "Sometimes it's people closest to us who lie to us best",
+    "t": "Arrow",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "You become responsible, forever, for everything you tamed.",
+    "t": "The Little Prince",
+    "y": "2015",
+    "a": [
+      "Little Prince"
+    ]
+  },
+  {
+    "q": "Mark Watney, Space Pirate.",
+    "t": "The Martian",
+    "y": "2015",
+    "a": [
+      "Martian"
+    ]
+  },
+  {
+    "q": "How do you know the angel and the devil inside me aren’t the same thing?",
+    "t": "Daredevil",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "I am the scales of justice, conductor of the choir of death!",
+    "t": "Mad Max",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "Oh what a day. What a lovely day!",
+    "t": "Mad Max",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "Witness me!",
+    "t": "Mad Max",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "I'm going to have to science the s*** out of this.",
+    "t": "The Martian",
+    "y": "2015",
+    "a": [
+      "Martian"
+    ]
+  },
+  {
+    "q": "Just because someone stumbles and loses their path, doesn’t mean they’re lost forever.",
+    "t": "X-Men: Days of Future Past",
+    "y": "2015",
+    "a": [
+      "Days of Future Past"
+    ]
+  },
+  {
+    "q": "Manners maketh man",
+    "t": "KINGSMAN: The Secret Service",
+    "y": "2015",
+    "a": [
+      "The Secret Service"
+    ]
+  },
+  {
+    "q": "Haven't you ever wanted something so ba that it becomes more than a want?",
+    "t": "Rebel of the Sands",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "When I get back home, I want all the praise to go towards me.",
+    "t": "The Martian",
+    "y": "2015",
+    "a": [
+      "Martian"
+    ]
+  },
+  {
+    "q": "What a treacherous thing to believe that a person is more than a person?",
+    "t": "Paper Towns",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "Examined from another angle, your faults and weaknesses can be weapons",
+    "t": "Assassination Classroom",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "People keeps secret computers don't",
+    "t": "Arrow",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "That's not how the force works!",
+    "t": "Star Wars: Episode VII - The Force Awakens",
+    "y": "2015",
+    "a": [
+      "Episode VII - The Force Awakens",
+      "The Force Awakens"
+    ]
+  },
+  {
+    "q": "But if you tame me, then we shall need each other, to me you shall be unique in all the world, to you i shall be unique.",
+    "t": "The Little Prince",
+    "y": "2015",
+    "a": [
+      "Little Prince"
+    ]
+  },
+  {
+    "q": "Chewie, we're home.",
+    "t": "The Force Awakens",
+    "y": "2015",
+    "a": [
+      "Force Awakens"
+    ]
+  },
+  {
+    "q": "My tastes are very singular.",
+    "t": "Fifty Shades of Grey",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "It is only with the heart that one can see rightly; what is essential is invisible to the eye",
+    "t": "The Little Prince",
+    "y": "2015",
+    "a": [
+      "Little Prince"
+    ]
+  },
+  {
+    "q": "Like the oldman said, together",
+    "t": "Avengers - Age of Ultron",
+    "y": "2015",
+    "a": [
+      "Age of Ultron"
+    ]
+  },
+  {
+    "q": "Power belongs to those who take it.",
+    "t": "Mr. Robot",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "That light saber was luke's, and his father's before him, and now it calls to you!",
+    "t": "Star Wars: The Force Awakens",
+    "y": "2015",
+    "a": [
+      "The Force Awakens"
+    ]
+  },
+  {
+    "q": "I don't have friends. I got family.",
+    "t": "Furious 7",
+    "y": "2015",
+    "a": []
+  },
+  {
+    "q": "A bit of madness is key",
+    "t": "La La Land",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "Secrecy is security and security is victory.",
+    "t": "Snowden",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "Once in a while when I wake up. I find myself crying.",
+    "t": "Kimi No Nawa",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "When life gets you down, you know what you gotta do? Just keep swimming.",
+    "t": "Finding Dory",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "Bombs won't stop terrorism, brains will, and we don't have nearly enough of those.",
+    "t": "Snowden",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "Marriage is buying a house for someone you hate",
+    "t": "The Nice Guys",
+    "y": "2016",
+    "a": [
+      "Nice Guys"
+    ]
+  },
+  {
+    "q": "At some point, you gotta decide for yourself who you gonna be. Can't let nobody make that decision for you.",
+    "t": "Moonlight",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "Life’s a little bit messy. We all make mistakes. No matter what type of animal you are, change starts with you.",
+    "t": "Zootopia",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "For Azeroth, for the Alliance!",
+    "t": "Warcraft",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "When you love someone, you work it out. You don't just throw it away. You have to be careful with it, you might never get it again.",
+    "t": "Nocturnal Animals",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "You're right, Aurora. But the drowning man will always try and drag somebody down with him. It ain't right, but the man's drowning.",
+    "t": "Passengers",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "Tell me... do you bleed? You will!",
+    "t": "BATMAN V SUPERMAN: DAWN OF JUSTICE",
+    "y": "2016",
+    "a": [
+      "DAWN OF JUSTICE"
+    ]
+  },
+  {
+    "q": "You can’t buy love, but you can rent it for three minutes!",
+    "t": "Deadpool",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "I can do this all day!",
+    "t": "Captain America: Civil War",
+    "y": "2016",
+    "a": [
+      "Civil War"
+    ]
+  },
+  {
+    "q": "My dad used to say, 'If you live an ordinary life, all you'll have are ordinary stories. You have to live a life of adventure.'",
+    "t": "Passengers",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "Start With Where You're From",
+    "t": "Lion",
+    "y": "2016",
+    "a": []
+  },
+  {
+    "q": "PWinston... tell them... Tell them all... Whoever comes, whoever it is... I'll kill them. I'll kill them all.",
+    "t": "John Wick 2",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Do you know what a Cinnabon is? It's bread! And frosting! And cinnamon! They heat it up! Really hot!",
+    "t": "Bee Movie",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Life is a big trap, made up of little traps... If you listen hard... sometimes you could hear them snap shut.",
+    "t": "Sense8",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Don't do anything I would do, and definitely don't do anything I wouldn't do...",
+    "t": "Spider-Man: Homecoming",
+    "y": "2017",
+    "a": [
+      "Homecoming"
+    ]
+  },
+  {
+    "q": "There’s no hiding from this, son.",
+    "t": "Dunkirk",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "When all seems lost, a few brave souls can save everything we've ever known.",
+    "t": "Transformers : The Light Night",
+    "y": "2017",
+    "a": [
+      "The Light Night"
+    ]
+  },
+  {
+    "q": "I promise you ... No matter where we will be in this world ... I promise we will meet again.",
+    "t": "Your Name",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Unfortunately, we’re all human. Except me, of course.",
+    "t": "Mr. Robot",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Break hearts, not promises.",
+    "t": "Turtles All the Way Down",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Every time we get a chance to get ahead they move the finish line, every time.",
+    "t": "Hidden Figures",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "When we lose our principles, we invite chaos.",
+    "t": "Mr. Robot",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "People walk around, act like they know what hate means. Nah, no one does, until you hate yourself. I mean truly hate yourself. That’s power.",
+    "t": "Mr. Robot",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "We Shall Never Surrender.",
+    "t": "Dunkirk",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "I have burrowed underneath your brain. I am nested there. I am the scream in your mind. You will cooperate.",
+    "t": "Mr. Robot",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Treasure the experience. Dreams fade away after you wake up",
+    "t": "Your Name",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Leave One Wolf Alive and the Sheep are Never Safe",
+    "t": "Game of Thrones Season 7",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "Love's the most powerful emotion and that makes it the most dangerous",
+    "t": "Arrow",
+    "y": "2017",
+    "a": []
+  },
+  {
+    "q": "You’re so dark! Are you sure you’re not from the DC universe? I love dubstep!",
+    "t": "Deadpool 2",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "If you want to change things in a big way, then you gotta make some big changes.",
+    "t": "Creed 2",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "Just because something works doesn’t mean it can’t be improved.",
+    "t": "Black Panther",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "There is no such thing as magic, just illusion. Things only change when we change them. But you have to do it skillfully, in secret. Then it seems like magic.",
+    "t": "Dark",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "The darkest nights produce the brightest stars.",
+    "t": "Bumblebee",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "That’s one small step for man, one giant leap for mankind.",
+    "t": "First Man",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "Is this your king?",
+    "t": "Black Panther",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "That person who helps others simply because it should or must be done, and because it is the right thing to do, is indeed without a doubt, a real superhero.",
+    "t": "Spider-Man: Into the Spider-Verse",
+    "y": "2018",
+    "a": [
+      "Into the Spider-Verse"
+    ]
+  },
+  {
+    "q": "If we didn’t do what we loved, we wouldn’t exist.",
+    "t": "Adonis, Creed II",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "Sometimes we think we have to do it all on our own. But we don’t.",
+    "t": "Creed 2",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "I just wanted to take another look at you.",
+    "t": "A Star Is Born",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "The hardest choices require the strongest wills",
+    "t": "Avengers: Infinity War",
+    "y": "2018",
+    "a": [
+      "Infinity War"
+    ]
+  },
+  {
+    "q": "What’s done is done, when we say it’s done.",
+    "t": "Mission Impossible: fallout",
+    "y": "2018",
+    "a": [
+      "fallout"
+    ]
+  },
+  {
+    "q": "Change is like death. You don’t know what it looks like until you’re standing at the gates.",
+    "t": "Jurassic World: Fallen Kingdom",
+    "y": "2018",
+    "a": [
+      "Fallen Kingdom"
+    ]
+  },
+  {
+    "q": "Being a hero doesn't mean you are invincible. It just means you're brave enough to stand up, and do what's needed.",
+    "t": "Two Heroes",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "Sometimes, when you're feeling helpless, the secret is to help someone else. Get out of your own head. Trust me. The next time someone asks for help, say yes.",
+    "t": "The Good Place",
+    "y": "2018",
+    "a": [
+      "Good Place"
+    ]
+  },
+  {
+    "q": "Yeah. Well, you’re right. I thought it was more important to be somebody out there than the damn failure I was here at my own home. Anyway, for what it’s worth, I’m here now.",
+    "t": "The Mule",
+    "y": "2018",
+    "a": [
+      "Mule"
+    ]
+  },
+  {
+    "q": "Whatever it takes!",
+    "t": "Avengers : Infinity War",
+    "y": "2018",
+    "a": [
+      "Infinity War"
+    ]
+  },
+  {
+    "q": "That does put a smile on my face.",
+    "t": "Avengers: Infinity War",
+    "y": "2018",
+    "a": [
+      "Infinity War"
+    ]
+  },
+  {
+    "q": "For I am a Sinner in the hands of an angry God, Bloody Mary, Full of Vodka, Blessed are you among cocktails, pray for me now, at the hour of my death, which I hope is soon. Amen",
+    "t": "Archer",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "Being genius is not enough, it takes courage to change people's hearts.",
+    "t": "Green Book",
+    "y": "2018",
+    "a": []
+  },
+  {
+    "q": "Elsa, the past is not what it seems. You must find the truth.",
+    "t": "Frozen II",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I remember the story of an evil witch, at the princess she cursed to sleep forever. The story became legend. But this is no fairy tale.",
+    "t": "Maleficent:The Mistress of Evil",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I can do this all day",
+    "t": "Avengers: Endgame",
+    "y": "2019",
+    "a": [
+      "Endgame"
+    ]
+  },
+  {
+    "q": "I love you 3000.",
+    "t": "Avengers: Endgame",
+    "y": "2019",
+    "a": [
+      "Endgame"
+    ]
+  },
+  {
+    "q": "I laugh in the face of danger",
+    "t": "The Lion King",
+    "y": "2019",
+    "a": [
+      "Lion King"
+    ]
+  },
+  {
+    "q": "Being brave doesn’t mean you go looking for trouble.",
+    "t": "The Lion King",
+    "y": "2019",
+    "a": [
+      "Lion King"
+    ]
+  },
+  {
+    "q": "Lord knows, I’ve held onto way too much hate in my life. But all we have is now. All we have is now.",
+    "t": "Waves",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "All I have are negative thoughts.",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Nothing is funnier than unhappiness.",
+    "t": "Avengers: Endgame",
+    "y": "2019",
+    "a": [
+      "Endgame"
+    ]
+  },
+  {
+    "q": "Is it just me, or is it getting crazier out there?",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "If you want to get crazy. We can get crazy.",
+    "t": "Us",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "A new chapter of my life has begun. Already, I can feel the weight of this crown I wear.",
+    "t": "The King",
+    "y": "2019",
+    "a": [
+      "King"
+    ]
+  },
+  {
+    "q": "You all love twisting the knife into one another.",
+    "t": "Knives Out",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Things are very uncomfortable between us, but we’re stuck in a house together.",
+    "t": "The Lodge",
+    "y": "2019",
+    "a": [
+      "Lodge"
+    ]
+  },
+  {
+    "q": "Pearl Harbor is the greatest intelligence failure in American history.",
+    "t": "Midway",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "There’s nothing you can’t do if you try.",
+    "t": "Dr. Stone",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I just want to escape. Dad always wanted me to travel the world. Someday.",
+    "t": "Abominable",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "They have all the money, all the firepower, and they’ll use it. I know, I was one of them.",
+    "t": "Dark Waters",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I think the best thing we can do is to let people know that each one of them is precious.",
+    "t": "A Beautiful Day in the Neighbourhood",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Well, I’ve got no leashes, or fences. With me, every day could be an adventure.",
+    "t": "The Lady and the Tramp",
+    "y": "2019",
+    "a": [
+      "Lady and the Tramp"
+    ]
+  },
+  {
+    "q": "You're really lucky, you know that? You didn't have to wait your whole life to do something special.",
+    "t": "El Camino",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Even if we do ignore the previous data, Broly's latent abilities are quite remarkable.",
+    "t": "Dragon Ball Super: Broly",
+    "y": "2019",
+    "a": [
+      "Broly"
+    ]
+  },
+  {
+    "q": "My mother always tells me to smile and put on a happy face. She told me I had a purpose to bring laughter and joy to the world.",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "How truly magnificent! I think this battle is about to come to a rousing finale!",
+    "t": "Dragon Ball Super: Broly",
+    "y": "2019",
+    "a": [
+      "Broly"
+    ]
+  },
+  {
+    "q": "Today the impossible becomes the possible.",
+    "t": "The Current War",
+    "y": "2019",
+    "a": [
+      "Current War"
+    ]
+  },
+  {
+    "q": "There is no punchline.",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Is it just me, or is it getting crazier out there?’",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "That's MotherF****** street poetic justice.",
+    "t": "Shaft",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Maybe it's because I'm constantly fighting, destro…d to be a lower-class warrior... like my Kakarot.",
+    "t": "Dragon Ball Super: Broly",
+    "y": "2019",
+    "a": [
+      "Broly"
+    ]
+  },
+  {
+    "q": "These barbarians pretend to be submissive, but the…a sleeping beast down, before it can be awakened.",
+    "t": "Dragon Ball Super: Broly",
+    "y": "2019",
+    "a": [
+      "Broly"
+    ]
+  },
+  {
+    "q": "Time means nothing. Jeremy Bearimy, baby. We’ll just get through this. And then you and I can chill out in the dot of the I forever.",
+    "t": "The Good Place",
+    "y": "2019",
+    "a": [
+      "Good Place"
+    ]
+  },
+  {
+    "q": "The worst part of having a mental illness is people expect you to behave as if you don't",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "You give me your loyalty, and I’ll guarantee that each and every one of you will have a chance to be a warrior, to actually be a part of history.",
+    "t": "The Kill Team",
+    "y": "2019",
+    "a": [
+      "Kill Team"
+    ]
+  },
+  {
+    "q": "What do you want most in the world?",
+    "t": "Anna",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I do what I do because of my dad. He was a hero. He gave his life for the pursuit of knowledge.",
+    "t": "Ad Astra",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "You've got a lot to learn. Here on Earth, we like …have to listen to what the others tell you to do.",
+    "t": "Dragon Ball Super: Broly",
+    "y": "2019",
+    "a": [
+      "Broly"
+    ]
+  },
+  {
+    "q": "Dude, you are on fire.",
+    "t": "El Camino",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "This is me. This is how I win.",
+    "t": "Uncut Gems",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Why have average when you can have extraordinary?",
+    "t": "The Boys",
+    "y": "2019",
+    "a": [
+      "Boys"
+    ]
+  },
+  {
+    "q": "You are my lighting rod.",
+    "t": "Avengers: Endgame",
+    "y": "2019",
+    "a": [
+      "Endgame"
+    ]
+  },
+  {
+    "q": "Bruce Lee: My hands are registered as lethal weapons. We get into a fight, I accidentally kill you... I go to jail.",
+    "t": "Once Upon a Time in Hollywood",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I'm as real as a donut, motherfucker.",
+    "t": "Once Upon a Time in Hollywood",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I used to think that my life was a tragedy. But now I realize, it’s a comedy.",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I use the words you taught me. If they don't mean anything any more, teach me others. Or let me be silent.",
+    "t": "Avengers: Endgame",
+    "y": "2019",
+    "a": [
+      "Endgame"
+    ]
+  },
+  {
+    "q": "I used to use this little gun when I was a prostitude.",
+    "t": "Pineapple Express",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "If you can only do one thing, hone it to perfection. Hone it to the utmost limit!",
+    "t": "Kimetsu no Yaiba",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "You get what you f***ing deserve !!",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "You don't listen, do you?",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Never let your wings be stolen for you",
+    "t": "Maleficent:The Mistress of Evil",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Guns, lots of guns.",
+    "t": "John Wick 3: Parabellum",
+    "y": "2019",
+    "a": [
+      "Parabellum"
+    ]
+  },
+  {
+    "q": "I was so sure my strength was getting close to it'…on this planet... Then who would I train against.",
+    "t": "Dragon Ball Super: Broly",
+    "y": "2019",
+    "a": [
+      "Broly"
+    ]
+  },
+  {
+    "q": "No amount of money ever bought a second of time.",
+    "t": "Avengers: Endgame",
+    "y": "2019",
+    "a": [
+      "Endgame"
+    ]
+  },
+  {
+    "q": "The end is in the beginning and yet you go on.",
+    "t": "Avengers: Endgame",
+    "y": "2019",
+    "a": [
+      "Endgame"
+    ]
+  },
+  {
+    "q": "This meeting of The Losers Club has officially begun.",
+    "t": "It Chapter Two",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Let’s do this.",
+    "t": "Men in Black",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "It looks as though he's managed to transform someh… his human form, retaining his speed and agility.",
+    "t": "Dragon Ball Super: Broly",
+    "y": "2019",
+    "a": [
+      "Broly"
+    ]
+  },
+  {
+    "q": "I just hope my death makes more cents than my life.",
+    "t": "Joker",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "I am Iron Man.",
+    "t": "Avengers: Endgame",
+    "y": "2019",
+    "a": [
+      "Endgame"
+    ]
+  },
+  {
+    "q": "I didn't know if you were lost. Stick with me. I'll keep you safe.",
+    "t": "Us",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "This guy's awesome! He's holding his own while still in his base form!",
+    "t": "Dragon Ball Super: Broly",
+    "y": "2019",
+    "a": [
+      "Broly"
+    ]
+  },
+  {
+    "q": "Murder is murder, it don’t matter who you are.",
+    "t": "Black and Blue",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "You know what a lion is? A lion is a strong animal. They do what the fuck they wanna do. Take what they want, eat what they want, they run when they feel like it. Lion.",
+    "t": "Between Two Ferns: The Movie",
+    "y": "2019",
+    "a": [
+      "The Movie"
+    ]
+  },
+  {
+    "q": "That was the best acting i've ever seen in my whole life.",
+    "t": "Once Upon a Time in Hollywood",
+    "y": "2019",
+    "a": []
+  },
+  {
+    "q": "Don't try to understand it. Feel it.",
+    "t": "Tenet",
+    "y": "2020",
+    "a": []
+  },
+  {
+    "q": "Fear is the mind-killer.",
+    "t": "Dune",
+    "y": "2021",
+    "a": [
+      "Dune: Part One"
+    ]
+  },
+  {
+    "q": "In another life, I would have really liked just doing laundry and taxes with you.",
+    "t": "Everything Everywhere All At Once",
+    "y": "2022",
+    "a": [
+      "EEAAO"
+    ]
+  },
+  {
+    "q": "Don't think, just do.",
+    "t": "Top Gun: Maverick",
+    "y": "2022",
+    "a": [
+      "Top Gun 2"
+    ]
+  },
+  {
+    "q": "I'm vengeance.",
+    "t": "The Batman",
+    "y": "2022",
+    "a": []
+  },
+  {
+    "q": "I'm just Ken and I'm enough. And I'm great at doing stuff.",
+    "t": "Barbie",
+    "y": "2023",
+    "a": []
+  },
+  {
+    "q": "Now I am become Death, the destroyer of worlds.",
+    "t": "Oppenheimer",
+    "y": "2023",
+    "a": []
+  },
+  {
+    "q": "Everyone keeps telling me how my story is supposed to go. Nah, I'ma do my own thing.",
+    "t": "Spider-Man: Across the Spider-Verse",
+    "y": "2023",
+    "a": [
+      "Across the Spider-Verse"
+    ]
+  },
+  {
+    "q": "May thy knife chip and shatter.",
+    "t": "Dune: Part Two",
+    "y": "2024",
+    "a": [
+      "Dune 2"
+    ]
+  },
+  {
+    "q": "I am Marvel Jesus.",
+    "t": "Deadpool & Wolverine",
+    "y": "2024",
+    "a": [
+      "Deadpool 3"
+    ]
+  }
 ]
